@@ -1,44 +1,93 @@
-#use warnings;
+use warnings;
 use strict;
 
 my $nomeArqReg = "registro.txt";
-#chop($nomeArquivoRegistro); 
-my $posicao = 0;
-my $opcao;
-my $palavra;
-my @lista = ();
-my $ocorrencia = 0;
+my $inicioArq = 1;
+my $fimArq = 2;
 
-open(my $linha, "<:encoding(UTF-8)", $nomeArqReg) or die "Erro! O arquivo não pode ser aberto: $!";
+sub resgistraOpcao{
 
-	while (<$linha>) {
+	open(my $entrada, "<:encoding(UTF-8)", $_[0]) or die "Erro! O arquivo não pode ser aberto: $!";
 
-		$posicao++;
+	seek($entrada,0,$inicioArq);
+	my $opcao = <$entrada>;
+	chomp($opcao);
+	
+	close $entrada or die "$entrada: $!";
+
+	return $opcao;
+}
+
+sub registraString{
+
+	my $strDsj;
+
+	open(my $entrada, "<:encoding(UTF-8)", $_[0]) or die "Erro! O arquivo não pode ser aberto: $!";
+
+	while(<$entrada>){
+			$strDsj = <$entrada>;
+			chomp($strDsj);
+			seek($entrada,0,$fimArq);
+	}
+	close $entrada or die "$entrada: $!";
+
+	return $strDsj;
+}
+
+sub filtraString{
+
+	(my $nomeArq, my $strDjs) = @_;
+
+	my $ocorrencia = 0;
+	my @lista;
+
+	open(my $entrada, "<:encoding(UTF-8)", $nomeArq) or die "Erro! O arquivo não pode ser aberto: $!";
+	seek($entrada,0,1);
+
+	while (<$entrada>) {
+
 		chomp($_);
 		my @sptLinha = split(/::/, $_);
 
-		if ($sptLinha [0] eq 'O'){
-			$opcao = $sptLinha [1];
-			print($sptLinha [0], "\t",$opcao, "\n");
-		}
-		if ($sptLinha [0] eq 'S'){
-			$palavra = $sptLinha [1];
-			print($sptLinha [0], "\t",$palavra, "\n");
-		}
 		if($sptLinha [0] eq 'N'){
 
-			print($sptLinha [0], "\t", $sptLinha [1], "\n");
-
-			if($sptLinha [1] =~ /$palavra/){
+			if($sptLinha [1] =~ /$strDjs/){
 				$ocorrencia++;
-				$lista [$posicao - 1] = $sptLinha [1];
+				$lista [$ocorrencia - 1] = $sptLinha [1];
 			}
 
 		}
 
 	}
 
-close $linha or die "$linha: $!";
-print("Numero de ocorrencias da palavra $palavra: ", $ocorrencia);
-print("\nArquivos encontrados: \n");
-foreach (@lista) {print $_, "\n"};
+	close $entrada or die "$entrada: $!";
+
+	return $ocorrencia, @lista;
+
+}
+
+my $opcao = resgistraOpcao($nomeArqReg);
+my $stringDesejada = registraString($nomeArqReg);
+
+if ($opcao eq "FNEL"){
+	my $ocorrencia;
+	my @lista;
+	($ocorrencia, @lista) = filtraString($nomeArqReg, $stringDesejada);
+	print("Filtrar por string: $stringDesejada\n");
+	print("Numero de ocorrencias encontradas: ", $ocorrencia);
+
+	print("\nArquivos encontrados: \n"); 
+	if($ocorrencia == 0){
+		print("NENHUM!")
+	}
+	foreach (@lista) {
+		print ($_,"\n");
+	}
+}
+
+
+
+
+
+
+
