@@ -1,5 +1,5 @@
-O::FNEL
-S::eletronica
+FNEL
+eletr
 N::eletronica 1.txt
 DI::Eletronica
 DA::08/05/2018 23:20
