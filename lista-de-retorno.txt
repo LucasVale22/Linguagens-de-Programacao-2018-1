@@ -1,0 +1,12 @@
+eletronica 1.txt: 6
+eletronica 2.txt: 0
+eletronica 3.txt: 80
+eletronica 4.txt: 0
+circuitos eletricos 1.txt: 0
+circuitos eletricos 2.txt: 0
+circuitos logicos.txt: 2
+sistemas digitais.txt: 0
+sistemas operacionais.txt: 5
+teoria eletromagnetica 2.txt: 0
+economia.txt: 10
+trabalho ling prog.txt: 18
