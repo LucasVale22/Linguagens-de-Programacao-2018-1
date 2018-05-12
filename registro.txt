@@ -1,5 +1,5 @@
-FNEL
-a
+CONT
+e
 N::eletronica 1.txt
 DI::Eletronica
 DA::08/05/2018 23:20
@@ -48,7 +48,3 @@ N::trabalho ling prog.txt
 DI::trabalho ling prog
 DA::12/05/2018 11:51
 T::1 KB
-N::redes.txt
-DI::redes
-DA::12/05/2018 Time::tm=ARRAY(0x28537d0)
-T::0 KB
