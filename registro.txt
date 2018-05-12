@@ -1,5 +1,5 @@
 FNEL
-eletr
+a
 N::eletronica 1.txt
 DI::Eletronica
 DA::08/05/2018 23:20
@@ -23,4 +23,32 @@ T::0 KB
 N::circuitos eletricos 2.txt
 DI::Circuitos Eletricos
 DA::08/05/2018 23:20
+T::0 KB
+N::circuitos logicos.txt
+DI::circuitos logicos
+DA::12/05/2018 11:51
+T::0 KB
+N::sistemas digitais.txt
+DI::sistemas digitais
+DA::12/05/2018 11:51
+T::0 KB
+N::sistemas operacionais.txt
+DI::sistemas operacionais
+DA::12/05/2018 11:51
+T::0 KB
+N::teoria eletromagnetica 2.txt
+DI::teoria eletromagnetica 2
+DA::12/05/2018 11:51
+T::0 KB
+N::economia.txt
+DI::economia
+DA::12/05/2018 11:51
+T::0 KB
+N::trabalho ling prog.txt
+DI::trabalho ling prog
+DA::12/05/2018 11:51
+T::1 KB
+N::redes.txt
+DI::redes
+DA::12/05/2018 Time::tm=ARRAY(0x28537d0)
 T::0 KB
