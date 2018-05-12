@@ -85,6 +85,8 @@ if ($opcao eq "FNEL"){
 	}
 }
 
+#else if ($opcao eq "")
+
 
 
 
