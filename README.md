@@ -1,7 +1,10 @@
 # Linguagens-de-Programacao-2018-1
 Sistema Gerenciador de Arquivos em Perl e C++
+
 Primeiro trabalho da disciplina Linguagens de Programação
+
 Lucas dos Santos Gonçalves de Miranda 
+
 Lucas do Vale Santos
 
 Definição do Problema
@@ -23,5 +26,5 @@ Armazenar recorrências: Conta a quantidade de caracteres, número de recorrênc
 Classificar por data de modificação: consulta as datas de modificação no registro de arquivos e manipula a data conforme critérios de ordenação (arquivos mais recentes ou mais antigos).
 Gerenciar arquivo de registros: Dentro do arquivo de registros, adiciona ou remove o os dados relevantes de algum arquivo de texto (seu nome, diretório, data).
     
-    Após o processamento no Perl, será retornado como saída para o C++ um novo arquivo txt contendo os resultados das análises. A partir disso, o gerenciador fornecerá na saída para o usuário uma lista contendo os arquivos e suas respectivas informações de acordo com o que escolheu como na entrada do sistema. 
+Após o processamento no Perl, será retornado como saída para o C++ um novo arquivo txt contendo os resultados das análises. A partir disso, o gerenciador fornecerá na saída para o usuário uma lista contendo os arquivos e suas respectivas informações de acordo com o que escolheu como na entrada do sistema. 
 
