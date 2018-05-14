@@ -1,13 +1,13 @@
 # Linguagens-de-Programacao-2018-1
 # Sistema Gerenciador de Arquivos em Perl e C++
 
-# Primeiro trabalho da disciplina Linguagens de Programação
+Primeiro trabalho da disciplina Linguagens de Programação
 
 Lucas dos Santos Gonçalves de Miranda 
-
 Lucas do Vale Santos
 
-Definição do Problema
+
+# Definição do Problema
 
 O presente trabalho consiste em um sistema gerenciador, onde implementaremos algumas funcionalidades essenciais para organizar e manipular arquivos através de diretórios. Haverá um arquivo  de registros responsável por armazenar dados relevantes sobre cada arquivo de texto (como nome, diretório ao qual ele pertence, data de alteração, etc.).
 
