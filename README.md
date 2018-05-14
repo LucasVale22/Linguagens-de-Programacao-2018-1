@@ -1,7 +1,7 @@
 # Linguagens-de-Programacao-2018-1
-Sistema Gerenciador de Arquivos em Perl e C++
+# Sistema Gerenciador de Arquivos em Perl e C++
 
-Primeiro trabalho da disciplina Linguagens de Programação
+# Primeiro trabalho da disciplina Linguagens de Programação
 
 Lucas dos Santos Gonçalves de Miranda 
 
