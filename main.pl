@@ -86,8 +86,9 @@ sub contaOcorrencias {
 	my @lista;
 	my @entrada;
 	my $numLinhasArqReg = 0;
-
-	open(my $entradaReg, "<:encoding(UTF-8)", $nomeArq) or die "Erro! O arquivo não pode ser aberto: $!";
+	my $numLinOcorr = 0;
+	
+	open(my $entradaReg, "<:encoding(UTF-8)", $nomeArq) or die "Erro! O arquivo nÃ£o pode ser aberto: $!";
 
 	while (<$entradaReg>) {
 
@@ -98,10 +99,12 @@ sub contaOcorrencias {
 			
 			my $ocorrencia = 0;
 			
-			open(my $entradaArq, "<:encoding(UTF-8)", $sptLinha [1]) or die "Erro! O arquivo não pode ser aberto: $!";
+			open(my $entradaArq, "<:encoding(UTF-8)", $sptLinha [1]) or die "Erro! O arquivo nÃ£o pode ser aberto: $!";
 
 			while (<$entradaArq>) {
-
+				if ($_ =~ /$strDsj/) {
+					$numLinOcorr++; 
+				}
 				while ($_ =~ m/($strDsj)/g){
 					$ocorrencia++;
 				}
@@ -109,7 +112,7 @@ sub contaOcorrencias {
 
 			close $entradaArq or die "$entradaArq: $!";
 			
-			$lista [$numLinhasArqReg] = "$sptLinha[1]: $ocorrencia";
+			$lista [$numLinhasArqReg] = "$sptLinha[1]: $ocorrencia ocorrencias de <$strDsj> encontradas em $numLinOcorr linhas";
 			$numLinhasArqReg++;
 
 		}
