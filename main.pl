@@ -78,6 +78,7 @@ sub contaOcorrencias {
 
 	my @lista;
 	my @entrada;
+<<<<<<< HEAD
 	my $numLinhasArqReg = 0; #numero de linhas de cada arquivo 
 	my $numLinOcorr = 0;	#numero de linhas em que aparecem a string
 	my $ocorrenciaTotal = 0;	#ocorrencia total em todos os arquivos
@@ -86,6 +87,12 @@ sub contaOcorrencias {
 	$numLinhasArqReg++;
 
 	open(my $entradaReg, "<:encoding(UTF-8)", $nomeArq) or die "Erro! O arquivo não pode ser aberto: $!";
+=======
+	my $numLinhasArqReg = 0;
+	my $numLinOcorr = 0;
+	
+	open(my $entradaReg, "<:encoding(UTF-8)", $nomeArq) or die "Erro! O arquivo nÃ£o pode ser aberto: $!";
+>>>>>>> 22314bd5e5efd3605d8e14fe730917b42e2f0678
 
 	#percorre as linhas do arquivo de registro
 	while (<$entradaReg>) {
@@ -98,7 +105,7 @@ sub contaOcorrencias {
 			
 			my $ocorrenciaArq = 0; #ocorrencia em cada arquivo
 			
-			open(my $entradaArq, "<:encoding(UTF-8)", $sptLinha [1]) or die "Erro! O arquivo não pode ser aberto: $!";
+			open(my $entradaArq, "<:encoding(UTF-8)", $sptLinha [1]) or die "Erro! O arquivo nÃ£o pode ser aberto: $!";
 
 			#percorre todas as linhas do arquivo aberto e conta em quantas linhas há ocorrencia e quantas ocorrencias naquele arquivo
 			while (<$entradaArq>) {
@@ -113,8 +120,12 @@ sub contaOcorrencias {
 
 			close $entradaArq or die "$entradaArq: $!";
 			
+<<<<<<< HEAD
 			#salva numa lista todas ocorencias de cada arquivo e em quantas linhas se deram
 			$lista [$numLinhasArqReg] = "$ocorrenciaArq\t\t$numLinOcorr\t\t$sptLinha[1]";
+=======
+			$lista [$numLinhasArqReg] = "$sptLinha[1]: $ocorrencia ocorrencias de <$strDsj> encontradas em $numLinOcorr linhas";
+>>>>>>> 22314bd5e5efd3605d8e14fe730917b42e2f0678
 			$numLinhasArqReg++;
 
 		}
