@@ -1,5 +1,5 @@
-CONT
-e
+FSTR
+i
 N::eletronica 1.txt
 DI::Eletronica
 DA::08/05/2018 23:20
@@ -48,3 +48,7 @@ N::trabalho ling prog.txt
 DI::trabalho ling prog
 DA::12/05/2018 11:51
 T::1 KB
+N::quimica.txt
+DI::quimica
+DA::Tue May 15 23:35:09 2018
+T::190 bytes
