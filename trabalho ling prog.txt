@@ -1,2 +1,3 @@
-﻿esse arquivo contem um texto de teste para identificar ocorrencias desejadas de acordo com o arquivo de reg.
+﻿esse arquivo contem um texto de teste para identificar 
+ocorrencias desejadas de acordo com o arquivo de reg.
 Entao, devemos prestar atençao.
