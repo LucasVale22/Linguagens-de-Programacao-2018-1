@@ -1,16 +1,5 @@
-+------------------------------+--------------------------+--------------------------+-----------+
-| Nome                         | Diretorio                | Data e Hora              | Tamanho   |
-| eletronica 1.txt             | Eletronica               | 08/05/2018 23:20         | 0 KB      |
-| eletronica 2.txt             | Eletronica               | 08/05/2018 23:20         | 0 KB      |
-| eletronica 3.txt             | Eletronica               | 08/05/2018 23:20         | 0 KB      |
-| eletronica 4.txt             | Eletronica               | 08/05/2018 23:20         | 0 KB      |
-| circuitos eletricos 1.txt    | Circuitos Eletricos      | 08/05/2018 23:20         | 0 KB      |
-| circuitos eletricos 2.txt    | Circuitos Eletricos      | 08/05/2018 23:20         | 0 KB      |
-| circuitos logicos.txt        | circuitos logicos        | 12/05/2018 11:51         | 0 KB      |
-| sistemas digitais.txt        | sistemas digitais        | 12/05/2018 11:51         | 0 KB      |
-| sistemas operacionais.txt    | sistemas operacionais    | 12/05/2018 11:51         | 0 KB      |
-| teoria eletromagnetica 2.txt | teoria eletromagnetica 2 | 12/05/2018 11:51         | 0 KB      |
-| economia.txt                 | economia                 | 12/05/2018 11:51         | 0 KB      |
-| trabalho ling prog.txt       | trabalho ling prog       | 12/05/2018 11:51         | 1 KB      |
-| quimica.txt                  | quimica                  | Tue May 15 23:35:09 2018 | 190 bytes |
-+------------------------------+--------------------------+--------------------------+-----------+
++------------------+-------------+----------------------+
+| Nome do Arquivo  | Ocorrencias | Linhas de Ocorrencia |
+| eletronica 1.txt | 28          | 18                   |
+| economia.txt     | 16          | 3                    |
++------------------+-------------+----------------------+
