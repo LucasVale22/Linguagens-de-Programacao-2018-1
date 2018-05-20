@@ -130,7 +130,7 @@ sub contaOcorrencias {
 }
 
 sub converteDataHora {
-	   my ($dataHora) = @_;
+	   (my $dataHora) = @_;
 	   
 	   #extrai os paraêmtros da string de data e hora através de um expressão regular
 	   my ($mes,$dia,$hora,$min,$seg,$ano) = $dataHora =~ m{^([\w]{3})\s([0-9]{2})\s([0-9]{2}):([0-9]{2}):([0-9]{2})\s([0-9]{4})\z}
@@ -154,9 +154,11 @@ sub filtraDataHora {
 	my @lista;
 	my $ocorrencia = 0;
 
-	my @dHDsj = split(/::/,$dataHoraDsj);
+	my @dHDsj = split(/-/,$dataHoraDsj);
+	
 	my $dHI = int(converteDataHora($dHDsj[0]));
 	my $dHF = int(converteDataHora($dHDsj[1]));
+
 
     $lista[$ocorrencia]{nome} = "Nome";
 	$lista[$ocorrencia]{diretorio} = "Diretorio";
@@ -174,7 +176,7 @@ sub filtraDataHora {
 	while (<$entradaReg>) {
 		chomp($_);
 		
-		my @sptLinha = split (/-/, $_);
+		my @sptLinha = split (/::/, $_);
 		
 		my $dataHoraArq = $sptLinha[2];
 		
@@ -258,8 +260,8 @@ elsif ($opcao eq "CONT"){
 
 elsif ($opcao eq "FDAT"){
 
-	print("<Filtrando por período de modificação de arquivo...>\n");
-	print ("Data desejada: $stringDesejada\n\n");
+	print("<Filtrando por periodo de modificacao de arquivo...>\n\n");
+	print ("Periodo de Data desejada: $stringDesejada\n\n");
 	($ocorrencia, @lista) = filtraDataHora ($nomeArqReg, $stringDesejada);
 
 	for my $href ( @lista ) {
