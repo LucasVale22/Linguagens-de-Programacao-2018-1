@@ -1,7 +1,8 @@
 use warnings;
 use strict;
 use Math::Round qw/round/;
-use Time::localtime qw/localtime/;
+use Time::localtime;
+use File::stat;
 
 my @resposta = ('S', 'S');
 while ($resposta [0] eq 'S') {
@@ -22,18 +23,16 @@ while ($resposta [0] eq 'S') {
 
 	close $entrada or die "$entrada: $!";
 
-	my @statusArq = stat ($nomeArq.".txt");
-	print "\n";
-	foreach (@statusArq) {
-		print ($_,"\t");
-	}
-	print "\n";
-	$statusArq [7] /= 1024;
-	$statusArq [7] = round ($statusArq [7]);
-	$statusArq [9] = localtime ($statusArq [9]);
+	my $statusArq = stat ($nomeArq.".txt");
 
-	open($entrada, ">>:encoding(UTF-8)", "registro.txt") or die "Erro! O arquivo não pode ser modificado: $!";
-	print $entrada "\nN::$nomeArq".".txt"."\nDI::$nomeArq\nDA::12/05/2018 $statusArq[9]\nT::$statusArq[7] KB";
+	my $tamanho = $statusArq->size;
+	$tamanho = int ($tamanho * 1000) / 1000;
+
+	my $dataHora = ctime ($statusArq->mtime);
+	
+
+	open($entrada, ">>:encoding(UTF-8)", "registro2.txt") or die "Erro! O arquivo não pode ser modificado: $!";
+	print $entrada "\n".$nomeArq.".txt::".$nomeArq."::".$dataHora."::".$tamanho." bytes";
 	close $entrada or die "$entrada: $!";
 
 	print "Deseja criar um novo arquivo? (S/N) ";
