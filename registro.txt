@@ -1,54 +1,9 @@
-FSTR
-cir
-N::eletronica 1.txt
-DI::Eletronica
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::eletronica 2.txt
-DI::Eletronica
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::eletronica 3.txt
-DI::Eletronica
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::eletronica 4.txt
-DI::Eletronica
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::circuitos eletricos 1.txt
-DI::Circuitos Eletricos
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::circuitos eletricos 2.txt
-DI::Circuitos Eletricos
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::circuitos logicos.txt
-DI::circuitos logicos
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::sistemas digitais.txt
-DI::sistemas digitais
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::sistemas operacionais.txt
-DI::sistemas operacionais
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::teoria eletromagnetica 2.txt
-DI::teoria eletromagnetica 2
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::economia.txt
-DI::economia
-DA::Tue May 15 23:35:09 2018
-T::0 KB
-N::trabalho ling prog.txt
-DI::trabalho ling prog
-DA::Tue May 15 23:35:09 2018
-T::1 KB
-N::quimica.txt
-DI::quimica
-DA::Tue May 15 23:35:09 2018
-T::190 bytes
+;P::FDAT
+;P::May 19 20:22:15 2018-May 19 20:26:15 2018
+circuitos eletricos 1.txt::circuitos eletricos 1::May 19 20:22:15 2018::0 bytes
+circuitos eletricos 2.txt::circuitos eletricos 2::May 19 20:24:00 2018::0 bytes
+eletronica 1.txt::eletronica 1::May 19 20:24:25 2018::0 bytes
+eletronica 2.txt::eletronica 2::May 19 20:26:58 2018::0 bytes
+eletronica 3.txt::eletronica 3::May 19 20:27:05 2018::0 bytes
+eletronica 4.txt::eletronica 4::May 19 20:27:16 2018::0 bytes
+economia.txt::economia::May 19 20:27:36 2018::0 bytes
