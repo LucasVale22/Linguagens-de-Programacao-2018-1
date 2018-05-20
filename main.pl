@@ -131,9 +131,8 @@ sub contaOcorrencias {
 
 sub converteDataHora {
 	   (my $dataHora) = @_;
-	   
 	   #extrai os paraêmtros da string de data e hora através de um expressão regular
-	   my ($mes,$dia,$hora,$min,$seg,$ano) = $dataHora =~ m{^([\w]{3})\s([0-9]{2})\s([0-9]{2}):([0-9]{2}):([0-9]{2})\s([0-9]{4})\z}
+	   my ($diaS,$mes,$dia,$hora,$min,$seg,$ano) = $dataHora =~ m{^([\w]{3})\s([\w]{3})\s([0-9]{2})\s([0-9]{2}):([0-9]{2}):([0-9]{2})\s([0-9]{4})\z}
 	      or die;
 	   #converte os meses para numeros
 	   my @mes = ("Jan", "Feb", "Apr", "Mar", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
@@ -154,7 +153,7 @@ sub filtraDataHora {
 	my @lista;
 	my $ocorrencia = 0;
 
-	my @dHDsj = split(/-/,$dataHoraDsj);
+	my @dHDsj = split(/---/,$dataHoraDsj);
 	
 	my $dHI = int(converteDataHora($dHDsj[0]));
 	my $dHF = int(converteDataHora($dHDsj[1]));
@@ -180,7 +179,7 @@ sub filtraDataHora {
 		
 		my $dataHoraArq = $sptLinha[2];
 		
-		$dataHoraArq = converteDataHora ($dataHoraArq);
+		$dataHoraArq = int(converteDataHora ($dataHoraArq));
 		if ($dHI <= $dataHoraArq && $dataHoraArq <= $dHF) {
 			$ocorrencia++;
 			$lista[$ocorrencia]{nome} = $sptLinha[0];
