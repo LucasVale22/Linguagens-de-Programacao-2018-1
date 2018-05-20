@@ -1,5 +1,5 @@
-+------------------+-------------+----------------------+
-| Nome do Arquivo  | Ocorrencias | Linhas de Ocorrencia |
-| eletronica 1.txt | 28          | 18                   |
-| economia.txt     | 16          | 3                    |
-+------------------+-------------+----------------------+
++---------------------------+-----------------------+----------------------+---------+
+| Nome                      | Diretorio             | Data e Hora          | Tamanho |
+| circuitos eletricos 1.txt | circuitos eletricos 1 | May 19 20:22:15 2018 | 0 bytes |
+| circuitos eletricos 2.txt | circuitos eletricos 2 | May 19 20:24:00 2018 | 0 bytes |
++---------------------------+-----------------------+----------------------+---------+
