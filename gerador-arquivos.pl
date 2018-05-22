@@ -26,13 +26,24 @@ while ($resposta [0] eq 'S') {
 	my $statusArq = stat ($nomeArq.".txt");
 
 	my $tamanho = $statusArq->size;
-	$tamanho = int ($tamanho * 1000) / 1000;
+
+	if ($tamanho >= 1024) {
+		$tamanho /= 1024;
+		$tamanho = int ($tamanho * 100) / 100;
+		$tamanho = $tamanho." KB";
+	}
+	elsif ($tamanho >= (1024 * 1024)) {
+		$tamanho /= (1024 * 1024);
+		$tamanho = int ($tamanho * 100) / 100;
+		$tamanho = $tamanho." MB";
+	}
+	else {$tamanho = $tamanho." bytes";}
 
 	my $dataHora = ctime ($statusArq->mtime);
 	
 
-	open($entrada, ">>:encoding(UTF-8)", "registro2.txt") or die "Erro! O arquivo não pode ser modificado: $!";
-	print $entrada "\n".$nomeArq.".txt::".$nomeArq."::".$dataHora."::".$tamanho." bytes";
+	open($entrada, ">>:encoding(UTF-8)", "registro.txt") or die "Erro! O arquivo não pode ser modificado: $!";
+	print $entrada "\n".$nomeArq.".txt::".$nomeArq."::".$dataHora."::".$tamanho;
 	close $entrada or die "$entrada: $!";
 
 	print "Deseja criar um novo arquivo? (S/N) ";
