@@ -1,10 +1,12 @@
 use warnings;
 use strict;
 use Text::TabularDisplay;
+use Math::Round qw/round/;
+use Time::localtime;
+use File::stat;
 
 my $tabela = Text::TabularDisplay->new;
 
-my $nomeArqReg = "registro.txt";
 #Constantes padrão que definem início e fim de um arquivo
 my $inicioArq = 0;
 my $atualArq = 1; 
@@ -153,7 +155,7 @@ sub filtraDataHora {
 	my @lista;
 	my $ocorrencia = 0;
 
-	my @dHDsj = split(/---/,$dataHoraDsj);
+	my @dHDsj = split(/-->/,$dataHoraDsj);
 	
 	my $dHI = int(converteDataHora($dHDsj[0]));
 	my $dHF = int(converteDataHora($dHDsj[1]));
@@ -195,6 +197,53 @@ sub filtraDataHora {
 
 }
 
+#Atualiza o arquivo de registros alterando o tamanho e data
+sub atualizaRegistro{
+	(my $nomeArqReg) = $_[0];	
+	open(my $entradaReg, "<", $nomeArqReg) or die "Erro! O arquivo não pode ser aberto: $!";		
+		#percorre as linhas do arquivo de registro
+
+				while (<$entradaReg>) {
+
+					chomp($_);
+					my @sptLinha = split(/::/, $_);
+					#quando encontrar um nome de arquivo abre esse arquivo
+					if($sptLinha [0] ne ";P"){						
+						open(my $entradaArq, "<", $sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
+							my $statusArq = stat ($entradaArq);
+							my $tamanho = $statusArq->size;
+							
+							if ($tamanho >= 1024) {
+								$tamanho /= 1024;
+								$tamanho = int ($tamanho * 100) / 100;
+								$tamanho = $tamanho." KB";
+							}
+							elsif ($tamanho >= (1024 * 1024)) {
+								$tamanho /= (1024 * 1024);
+								$tamanho = int ($tamanho * 100) / 100;
+								$tamanho = $tamanho." MB";
+							}
+							else {$tamanho = $tamanho." bytes";}
+							my $dataHora = ctime ($statusArq->mtime);
+
+							#depois tenta isso, tem que ter o modulo File::Slurp
+							#my $strSubs = read_file "registro.txt";
+							#$strSubs =~ s/$sptLinha[2]/$dataHora/g;
+							#$strSubs =~ s/$sptLinha[3]/$tamanho/g;
+							#write_file "registro.txt", $strSubs;
+
+							open(my $arqTemp,">>", 'temporario.txt');
+								print $arqTemp $sptLinha[0]."::".$sptLinha[1]."::".ctime($statusArq->mtime)."::".$tamanho."\n";
+							close $arqTemp;
+						close $entradaArq or die "$entradaArq: $!";
+					}
+
+				}
+				
+	close $entradaReg or die "$entradaReg: $!";
+	rename 'temporario.txt', 'registro.txt';
+}
+
 #gera arquivo contendo uma lista com as saídas desejadas (filtragem) de acordo com cada opção passada no arquivo de registro
 sub geraArqLista {
 
@@ -217,9 +266,10 @@ print ("*************************************\n");
 print ("********PROCESSADOR DE TEXTOS********\n");
 print ("*************************************\n\n");
 
-(my $opcao, my $stringDesejada) = registraParametros($nomeArqReg);
 my @lista;
 my $ocorrencia;
+my $nomeArqReg = "registroTemp.txt";
+(my $opcao, my $stringDesejada) = registraParametros($nomeArqReg);
 
 if ($opcao eq "FSTR"){
 	
@@ -230,7 +280,7 @@ if ($opcao eq "FSTR"){
 	print("Numero de ocorrencias: ", $ocorrencia);
 
 	if ($ocorrencia == 0) {
-		print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n")
+		print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
 	}
 	else {
 		print("\nArquivos encontrados: \n"); 
@@ -268,6 +318,13 @@ elsif ($opcao eq "FDAT"){
 	}
 
 	geraArqLista ($tabela);
+}
+
+elsif ($opcao eq "MREG"){
+
+	print("<Atualizando Arquivo de Registro...>\n\n");
+	atualizaRegistro($nomeArqReg);
+	print("\nArquivo de Registro Atualizado com sucesso\n");
 }
 
 
