@@ -1,9 +1,8 @@
-;P::FDAT
-;P::Sat May 19 20:20:15 2018---Sat May 19 20:27:20 2018
-circuitos eletricos 1.txt::circuitos eletricos 1::Sat May 19 20:22:15 2018::0 bytes
-circuitos eletricos 2.txt::circuitos eletricos 2::Sat May 19 20:24:00 2018::0 bytes
-eletronica 1.txt::eletronica 1::Sat May 19 20:24:25 2018::0 bytes
-eletronica 2.txt::eletronica 2::Sat May 19 20:26:58 2018::0 bytes
-eletronica 3.txt::eletronica 3::Sat May 19 20:27:05 2018::0 bytes
-eletronica 4.txt::eletronica 4::Sat May 19 20:27:16 2018::0 bytes
-economia.txt::economia::Sat May 19 20:27:36 2018::0 bytes
+circuitos eletricos 1.txt::circuitos eletricos 1::Mon May 21 23:33:58 2018::3.87 KB
+circuitos eletricos 2.txt::circuitos eletricos 2::Mon May 21 23:33:58 2018::7.24 KB
+eletronica 1.txt::eletronica 1::Mon May 21 23:33:58 2018::2.32 KB
+eletronica 2.txt::eletronica 2::Mon May 21 23:33:58 2018::6.63 KB
+eletronica 3.txt::eletronica 3::Mon May 21 23:33:58 2018::5.07 KB
+eletronica 4.txt::eletronica 4::Mon May 21 23:33:58 2018::608 bytes
+economia.txt::economia::Mon May 21 23:33:58 2018::2.4 KB
+redes.txt::redes::Mon May 21 23:33:58 2018::1263.59 KB

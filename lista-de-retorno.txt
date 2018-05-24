@@ -1,9 +1,6 @@
-+---------------------------+-----------------------+--------------------------+---------+
-| Nome                      | Diretorio             | Data e Hora              | Tamanho |
-| circuitos eletricos 1.txt | circuitos eletricos 1 | Sat May 19 20:22:15 2018 | 0 bytes |
-| circuitos eletricos 2.txt | circuitos eletricos 2 | Sat May 19 20:24:00 2018 | 0 bytes |
-| eletronica 1.txt          | eletronica 1          | Sat May 19 20:24:25 2018 | 0 bytes |
-| eletronica 2.txt          | eletronica 2          | Sat May 19 20:26:58 2018 | 0 bytes |
-| eletronica 3.txt          | eletronica 3          | Sat May 19 20:27:05 2018 | 0 bytes |
-| eletronica 4.txt          | eletronica 4          | Sat May 19 20:27:16 2018 | 0 bytes |
-+---------------------------+-----------------------+--------------------------+---------+
++------------------+--------------+--------------------------+---------+
+| Nome             | Diretorio    | Data e Hora              | Tamanho |
+| eletronica 1.txt | eletronica 1 | Sun May 20 12:25:19 2018 | 2.5 KB  |
+| eletronica 2.txt | eletronica 2 | Sun May 20 18:31:21 2018 | 6.9 KB  |
+| economia.txt     | economia     | Sun May 20 12:22:30 2018 | 1.26 KB |
++------------------+--------------+--------------------------+---------+

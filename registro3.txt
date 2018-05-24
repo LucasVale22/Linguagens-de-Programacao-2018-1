@@ -1,0 +1,11 @@
+;P::FDAT
+;P::Sat May 19 20:20:15 2018---Sat May 19 20:26:20 2018
+circuitos eletricos 1.txt::circuitos eletricos 1::Sun May 20 19:24:58 2018::0 bytes
+circuitos eletricos 2.txt::circuitos eletricos 2::Sun May 20 19:24:58 2018::0 bytes
+eletronica 1.txt::eletronica 1::Sun May 20 19:24:58 2018::2457 bytes
+eletronica 2.txt::eletronica 2::Sun May 20 19:24:58 2018::6793 bytes
+eletronica 3.txt::eletronica 3::Sun May 20 19:24:58 2018::0 bytes
+eletronica 4.txt::eletronica 4::Sun May 20 19:24:58 2018::0 bytes
+economia.txt::economia::Sun May 20 19:24:58 2018::1295 bytes
+Processamento de Sinais.txt::Processamento de Sinais::Sun May 20 22:07:40 2018::119 bytes
+Modelos Probabilisticos.txt::Modelos Probabilisticos::Sun May 20 20:27:17 2018::24 bytes
