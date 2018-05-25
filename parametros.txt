@@ -1,0 +1,3 @@
+FCON
+e
+registro.txt
