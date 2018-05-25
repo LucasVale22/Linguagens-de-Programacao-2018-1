@@ -1,8 +1,12 @@
-+---------------------------+-----------------------+--------------------------+-----------+
-| Nome                      | Diretorio             | Data e Hora              | Tamanho   |
-| circuitos eletricos 1.txt | circuitos eletricos 1 | Mon May 21 21:28:42 2018 | 4.02 KB   |
-| eletronica 1.txt          | eletronica 1          | Sun May 20 12:25:19 2018 | 2.5 KB    |
-| eletronica 2.txt          | eletronica 2          | Sun May 20 18:31:21 2018 | 6.9 KB    |
-| eletronica 4.txt          | eletronica 4          | Mon May 21 21:17:49 2018 | 613 bytes |
-| redes.txt                 | redes                 | Mon May 21 21:46:22 2018 | 1294.2 KB |
-+---------------------------+-----------------------+--------------------------+-----------+
++-----------------------------+-------------------------+--------------------------+-----------+
+| Nome                        | Diretorio               | Data e Hora              | Tamanho   |
+| circuitos eletricos 1.txt   | circuitos eletricos 1   | Mon May 21 21:28:42 2018 | 4.02 KB   |
+| circuitos eletricos 2.txt   | circuitos eletricos 2   | Mon May 21 22:05:17 2018 | 7.36 KB   |
+| eletronica 1.txt            | eletronica 1            | Mon May 21 22:53:04 2018 | 2.41 KB   |
+| eletronica 2.txt            | eletronica 2            | Sun May 20 18:31:21 2018 | 6.9 KB    |
+| eletronica 3.txt            | eletronica 3            | Mon May 21 21:51:36 2018 | 5.27 KB   |
+| eletronica 4.txt            | eletronica 4            | Thu May 24 23:52:35 2018 | 633 bytes |
+| economia.txt                | economia                | Mon May 21 23:05:59 2018 | 2.41 KB   |
+| redes.txt                   | redes                   | Mon May 21 21:46:22 2018 | 1294.2 KB |
+| modelos probabilisticos.txt | modelos probabilisticos | Thu May 24 23:50:55 2018 | 101 bytes |
++-----------------------------+-------------------------+--------------------------+-----------+
