@@ -8,6 +8,7 @@ use Text::TabularDisplay;
 use Math::Round qw/round/;
 use Time::localtime;
 use File::stat;
+use List::Util qw(max);
 
 require Exporter;
 use AutoLoader;
@@ -25,7 +26,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 	
 ) ] );
 
-our @EXPORT_OK = qw( registraParametros filtraString contaOcorrencias converteDataHora filtraDataHora atualizaRegistro filtraTamanho geraArqLista );
+our @EXPORT_OK = qw( registraParametros filtraString contaOcorrencias converteDataHora filtraDataHora atualizaRegistro filtraTamanho obtemDadosArq geraArqLista );
 
 our @EXPORT = qw(
 	
@@ -95,7 +96,6 @@ sub contaOcorrencias {
     (my $nomeArq, my $strDsj) = @_;
 
     my @lista;
-    my @entrada;
     my $numLinhasArqReg = 0; #numero de linhas de cada arquivo 
     my $ocorrenciaTotal = 0;    #ocorrencia total em todos os arquivos
 
@@ -111,8 +111,6 @@ sub contaOcorrencias {
 
         chomp($_);
         my @sptLinha = split(/::/, $_);
-
-        #quando encontrar um nome de arquivo abre esse arquivo
             
         my $ocorrenciaArq = 0; #ocorrencia em cada arquivo
         my $numLinOcorr = 0;    #numero de linhas em que aparecem a string
@@ -224,15 +222,15 @@ sub atualizaRegistro{
                         my $statusArq = stat ($entradaArq);
                         my $tamanho = $statusArq->size;
                         
-                        if ($tamanho >= 1024) {
-                            $tamanho /= 1024;
+                        if ($tamanho >= 1024 * 1024) {
+                            $tamanho /= 1024 * 1024;
                             $tamanho = int ($tamanho * 100) / 100;
-                            $tamanho = $tamanho." KB";
+                            $tamanho = $tamanho." MB";
                         }
                         elsif ($tamanho >= (1024 * 1024)) {
                             $tamanho /= (1024 * 1024);
                             $tamanho = int ($tamanho * 100) / 100;
-                           $tamanho = $tamanho." MB";
+                           $tamanho = $tamanho." KB";
                         }
                         else {$tamanho = $tamanho." bytes";}
                         my $dataHora = ctime ($statusArq->mtime);
@@ -306,19 +304,88 @@ sub filtraTamanho {
 
 }
 
+sub obtemDadosArq {
+    my $nomeArq = $_[0];
+
+    my @lista;
+    my $numLinhasArqReg = 0; #numero de linhas de cada arquivo 
+    my $totalTamanho = 0;
+
+    $lista[$numLinhasArqReg]{nome} = "Nome";
+    $lista[$numLinhasArqReg]{totalLinhas} = "Total de Linhas";
+    $lista[$numLinhasArqReg]{totalCaracteres} = "Total de Caracteres";
+    $lista[$numLinhasArqReg]{totalPalavras} = "Total de Palavras";
+    $lista[$numLinhasArqReg]{totalEspacos} = "Total de Espacos";
+    $numLinhasArqReg++;
+
+    open(my $entradaReg, "<", $nomeArq) or die "Erro! O arquivo não pode ser aberto: $!";
+
+    #percorre as linhas do arquivo de registro
+    while (<$entradaReg>) {
+
+        chomp($_);
+        my @sptLinha = split(/::/, $_);
+            
+        open(my $entradaArq, "<", $sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
+
+        my $totalLinhas = 0;
+        my $totalCaracteres = 0;
+        my $totalPalavras = 0;
+        my $totalEspacos = 0;
+        my @tamanho = split(/\s/, $sptLinha[3]);
+
+        if ($tamanho [1] eq "KB") {
+            $tamanho [0] = int($tamanho[0]) * 1024;
+        }
+
+        if ($tamanho [1] eq "KB") {
+            $tamanho [0] = int($tamanho[0]) * 1024;
+        }
+
+        $totalTamanho += $tamanho [0];
+
+        #percorre todas as linhas do arquivo aberto e conta em quantas linhas há ocorrencia e quantas ocorrencias naquele arquivo
+        while (<$entradaArq>) {
+            $totalLinhas++;
+            $totalCaracteres += length($_);
+            $totalPalavras += scalar(split(/\s+/, $_));
+            $totalEspacos += scalar(split(/\S/,$_));
+
+        }
+
+        $lista[$numLinhasArqReg]{nome} = $sptLinha [0];
+        $lista[$numLinhasArqReg]{totalLinhas} = $totalLinhas;
+        $lista[$numLinhasArqReg]{totalCaracteres} = $totalCaracteres;
+        $lista[$numLinhasArqReg]{totalPalavras} = $totalPalavras;
+        $lista[$numLinhasArqReg]{totalEspacos} = $totalEspacos;
+
+        close $entradaArq or die "$entradaArq: $!";
+
+        $numLinhasArqReg++;
+
+    }
+
+    if ($totalTamanho >= 1024 * 1024) {
+        $totalTamanho /= 1024 * 1024;
+        $totalTamanho = int ($totalTamanho * 100) / 100;
+        $totalTamanho = $totalTamanho." MB";
+    }
+    elsif ($totalTamanho >= (1024)) {
+        $totalTamanho /= (1024);
+        $totalTamanho = int ($totalTamanho * 100) / 100;
+        $totalTamanho = $totalTamanho." KB";
+    }
+    else {$totalTamanho = $totalTamanho." bytes";}
+
+    close $entradaReg or die "$entradaReg: $!";
+
+    return $numLinhasArqReg, $totalTamanho, @lista;
+}
+
 #gera arquivo contendo uma lista com as saídas desejadas (filtragem) de acordo com cada opção passada no arquivo de registro
 sub geraArqLista {
 
-    (my $ocorrencia, my @lista) = @_;
-    my $tabela = Text::TabularDisplay->new;
-    if ($ocorrencia == 0) {
-        print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
-    }
-    else {
-        print("\nArquivos encontrados: \n"); 
-        for my $href ( @lista ) {
-            $tabela->add($href->{nome}, $href->{diretorio}, $href->{dataHora}, $href->{tamanho});
-        }
+    (my $ocorrencia, my $tabela) = @_;
 
         unlink "lista-de-retorno.txt";
         open(my $entrada, ">>", "lista-de-retorno.txt") or die "Erro! O arquivo não pode ser gerado: $!";
@@ -327,7 +394,6 @@ sub geraArqLista {
         print $tabela->render;
 
         close $entrada or die "$entrada: $!";
-    }
 
 }
 

@@ -1,7 +1,7 @@
 use warnings;
 use strict;
-use fileManager qw (registraParametros filtraString contaOcorrencias converteDataHora filtraDataHora atualizaRegistro filtraTamanho geraArqLista);
-
+use fileManager qw (registraParametros filtraString contaOcorrencias converteDataHora filtraDataHora atualizaRegistro filtraTamanho obtemDadosArq geraArqLista);
+my $tabela = Text::TabularDisplay->new;
 #programa principal que extrai dados importantes do arquivo de registros
 
 system("cls");
@@ -22,7 +22,18 @@ if ($opcao eq "FSTR"){
 	
 	print("Numero de ocorrencias: ", $ocorrencia);
 
-	geraArqLista ($ocorrencia, @lista);
+	if ($ocorrencia == 0) {
+        print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
+    }
+    else {
+        print("\nArquivos encontrados: \n"); 
+        
+        for my $href ( @lista ) { 
+            $tabela->add($href->{nome}, $href->{diretorio}, $href->{dataHora}, $href->{tamanho});
+        }
+    }
+
+	geraArqLista ($ocorrencia, $tabela);
 }
 
 elsif ($opcao eq "FCON"){
@@ -33,7 +44,18 @@ elsif ($opcao eq "FCON"){
 
 	print("Numero de ocorrencias totais encontradas: ", $ocorrencia, "\n\n");
 
-	geraArqLista ($ocorrencia, @lista);
+	if ($ocorrencia == 0) {
+        print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
+    }
+    else {
+        print("\nArquivos encontrados: \n"); 
+        
+        for my $href ( @lista ) { 
+            $tabela->add($href->{nome}, $href->{ocorrenciaArq}, $href->{numLinOcorr});
+        }
+    }
+
+	geraArqLista ($ocorrencia,$tabela);
 	
 }
 
@@ -43,7 +65,18 @@ elsif ($opcao eq "FDAT"){
 	print ("Periodo de Data desejada: $stringDesejada\n\n");
 	($ocorrencia, @lista) = filtraDataHora ($arqRegistro, $stringDesejada);
 
-	geraArqLista ($ocorrencia, @lista);
+	if ($ocorrencia == 0) {
+        print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
+    }
+    else {
+        print("\nArquivos encontrados: \n"); 
+        
+        for my $href ( @lista ) { 
+            $tabela->add($href->{nome}, $href->{diretorio}, $href->{dataHora}, $href->{tamanho});
+        }
+    }
+
+	geraArqLista ($ocorrencia, $tabela);
 }
 
 elsif ($opcao eq "FTAM"){
@@ -52,8 +85,33 @@ elsif ($opcao eq "FTAM"){
 	print ("Faixa desejada: $stringDesejada\n\n");
 	($ocorrencia, @lista) = filtraTamanho ($arqRegistro, $stringDesejada);
 
-	geraArqLista ($ocorrencia, @lista);
+	if ($ocorrencia == 0) {
+        print ("\n\n*** NENHUM RESULTADO ENCONTRADO! ***\n");
+    }
+    else {
+        print("\nArquivos encontrados: \n"); 
+        
+        for my $href ( @lista ) { 
+            $tabela->add($href->{nome}, $href->{diretorio}, $href->{dataHora}, $href->{tamanho});
+        }
+    }
+
+	geraArqLista ($ocorrencia,$tabela);
 }
+
+elsif ($opcao eq "SARQ"){
+
+	print("<Dados dos Arquivos...>\n\n");
+	(my $totalArquivos, my $tamanhoTotal, @lista) = obtemDadosArq ($arqRegistro);
+    print ("Total de Arquivos: ", $totalArquivos,"\n");
+    print ("Tamanho total dos Arquivos: ", $tamanhoTotal,"\n");
+   for my $href ( @lista ) { 
+       $tabela->add($href->{nome}, $href->{totalLinhas}, $href->{totalCaracteres}, $href->{totalPalavras}, $href->{totalEspacos});
+   }
+
+	geraArqLista ($ocorrencia,$tabela);
+}
+
 
 elsif ($opcao eq "MREG"){
 
