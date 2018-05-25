@@ -1,0 +1,10 @@
+Changes
+fileManager.xs
+Makefile.PL
+MANIFEST
+ppport.h
+README
+t/fileManager.t
+fallback/const-c.inc
+fallback/const-xs.inc
+lib/fileManager.pm
