@@ -1,3 +1,3 @@
-MREG
-
+FSTR
+co
 registro.txt

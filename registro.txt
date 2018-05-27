@@ -1,27 +1,27 @@
-algoritmos e estruturas de dados.txt::./myFiles::Sun May 27 11:02:34 2018::2.83 KB
-arquitetura de computadores.txt::./myFiles::Sun May 27 11:03:15 2018::1.52 KB
-circuitos eletricos 1.txt::./myFiles::Mon May 21 21:28:42 2018::4.02 KB
-circuitos eletricos 2.txt::./myFiles::Mon May 21 22:05:17 2018::7.36 KB
-circuitos logicos.txt::./myFiles::Sun May 27 11:04:06 2018::974 bytes
-computacao 1.txt::./myFiles::Sun May 27 10:52:52 2018::2.23 KB
-computacao 2.txt::./myFiles::Sun May 27 10:54:07 2018::3.65 KB
-comunicacoes analogicas.txt::./myFiles::Sun May 27 11:05:08 2018::545 bytes
-comunicacoes digitais.txt::./myFiles::Sun May 27 11:06:33 2018::640 bytes
-controle linear 1.txt::./myFiles::Sun May 27 11:07:01 2018::1.61 KB
-controle linear 2.txt::./myFiles::Sun May 27 11:07:44 2018::2.59 KB
-conversao de energia.txt::./myFiles::Sun May 27 11:08:29 2018::270 bytes
-eletronica 1.txt::./myFiles::Mon May 21 22:53:04 2018::2.41 KB
-eletronica 2.txt::./myFiles::Sat May 26 22:57:58 2018::9.68 KB
-eletronica 3.txt::./myFiles::Mon May 21 21:51:36 2018::5.27 KB
-eletronica 4.txt::./myFiles::Fri May 25 15:14:29 2018::267.85 KB
-instrumentacao e tecnica de medidas.txt::./myFiles::Sun May 27 11:11:07 2018::454.32 KB
-linguagens de programacao.txt::./myFiles::Sun May 27 11:11:46 2018::5.28 KB
-metodos matematicos.txt::./myFiles::Sun May 27 11:12:22 2018::259 bytes
-modelos probabilisticos.txt::./myFiles::Sun May 27 11:13:33 2018::117.08 KB
-processamento de sinais.txt::./myFiles::Sun May 27 11:14:58 2018::1.43 KB
-projeto integrado.txt::./myFiles::Sun May 27 11:21:26 2018::5.97 KB
-sistemas digitais.txt::./myFiles::Sun May 27 11:15:34 2018::1.21 KB
-sistemas lineares 1.txt::./myFiles::Sun May 27 11:16:31 2018::495 bytes
-sistemas lineares 2.txt::./myFiles::Sun May 27 11:17:07 2018::14.62 KB
-sistemas operacionais.txt::./myFiles::Sun May 27 11:18:42 2018::353 bytes
-teoria eletromagnetica 2.txt::./myFiles::Sun May 27 11:18:34 2018::57.22 KB
+algoritmos e estruturas de dados.txt::./myFiles/Programacao::Sun May 27 11:02:34 2018::2.83 KB
+computacao 1.txt::./myFiles/Programacao::Sun May 27 10:52:52 2018::2.23 KB
+computacao 2.txt::./myFiles/Programacao::Sun May 27 10:54:07 2018::3.65 KB
+linguagens de programacao.txt::./myFiles/Programacao::Sun May 27 13:04:59 2018::5.93 KB
+sistemas operacionais.txt::./myFiles/Programacao::Sun May 27 11:18:42 2018::353 bytes
+arquitetura de computadores.txt::./myFiles/Digital::Sun May 27 11:03:15 2018::1.52 KB
+circuitos logicos.txt::./myFiles/Digital::Sun May 27 11:04:06 2018::974 bytes
+projeto integrado.txt::./myFiles/Digital::Sun May 27 11:21:26 2018::5.97 KB
+sistemas digitais.txt::./myFiles/Digital::Sun May 27 11:15:34 2018::1.21 KB
+circuitos eletricos 1.txt::./myFiles/Eletrica::Mon May 21 21:28:42 2018::4.02 KB
+circuitos eletricos 2.txt::./myFiles/Eletrica::Mon May 21 22:05:17 2018::7.36 KB
+conversao de energia.txt::./myFiles/Eletrica::Sun May 27 11:08:29 2018::270 bytes
+teoria eletromagnetica 2.txt::./myFiles/Eletrica::Sun May 27 11:18:34 2018::57.22 KB
+comunicacoes analogicas.txt::./myFiles/Comunicacoes::Sun May 27 11:05:08 2018::545 bytes
+comunicacoes digitais.txt::./myFiles/Comunicacoes::Sun May 27 11:06:33 2018::640 bytes
+controle linear 1.txt::./myFiles/Controle::Sun May 27 11:07:01 2018::1.61 KB
+controle linear 2.txt::./myFiles/Controle::Sun May 27 11:07:44 2018::2.59 KB
+eletronica 1.txt::./myFiles/Eletronica::Mon May 21 22:53:04 2018::2.41 KB
+eletronica 2.txt::./myFiles/Eletronica::Sat May 26 22:57:58 2018::9.68 KB
+eletronica 3.txt::./myFiles/Eletronica::Mon May 21 21:51:36 2018::5.27 KB
+eletronica 4.txt::./myFiles/Eletronica::Fri May 25 15:14:29 2018::267.85 KB
+instrumentacao e tecnica de medidas.txt::./myFiles/Eletronica::Sun May 27 11:11:07 2018::454.32 KB
+metodos matematicos.txt::./myFiles/Matematica::Sun May 27 11:12:22 2018::259 bytes
+modelos probabilisticos.txt::./myFiles/Matematica::Sun May 27 11:13:33 2018::117.08 KB
+processamento de sinais.txt::./myFiles/Sinais::Sun May 27 11:14:58 2018::1.43 KB
+sistemas lineares 1.txt::./myFiles/Sinais::Sun May 27 11:16:31 2018::495 bytes
+sistemas lineares 2.txt::./myFiles/Sinais::Sun May 27 11:17:07 2018::14.62 KB

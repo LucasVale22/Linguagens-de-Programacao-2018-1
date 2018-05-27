@@ -1,30 +1,16 @@
-+-----------------------------------------+-----------------+---------------------+-------------------+------------------+
-| Nome                                    | Total de Linhas | Total de Caracteres | Total de Palavras | Total de Espacos |
-| algoritmos e estruturas de dados.txt    | 100             | 2808                | 402               | 2463             |
-| arquitetura de computadores.txt         | 51              | 1514                | 234               | 1299             |
-| circuitos eletricos 1.txt               | 147             | 3970                | 655               | 3384             |
-| circuitos eletricos 2.txt               | 119             | 7422                | 1219              | 6275             |
-| circuitos logicos.txt                   | 37              | 938                 | 125               | 774              |
-| computacao 1.txt                        | 52              | 2236                | 328               | 1947             |
-| computacao 2.txt                        | 73              | 3667                | 610               | 3109             |
-| comunicacoes analogicas.txt             | 8               | 538                 | 81                | 455              |
-| comunicacoes digitais.txt               | 8               | 633                 | 90                | 539              |
-| controle linear 1.txt                   | 51              | 1606                | 267               | 1360             |
-| controle linear 2.txt                   | 90              | 2564                | 402               | 2252             |
-| conversao de energia.txt                | 8               | 263                 | 32                | 227              |
-| eletronica 1.txt                        | 101             | 2377                | 354               | 1896             |
-| eletronica 2.txt                        | 288             | 9627                | 1526              | 8211             |
-| eletronica 3.txt                        | 204             | 5199                | 851               | 4433             |
-| eletronica 4.txt                        | 11612           | 262676              | 57762             | 216522           |
-| instrumentacao e tecnica de medidas.txt | 9075            | 456153              | 72462             | 392756           |
-| linguagens de programacao.txt           | 127             | 5290                | 853               | 4538             |
-| metodos matematicos.txt                 | 8               | 252                 | 30                | 218              |
-| modelos probabilisticos.txt             | 4259            | 115633              | 22387             | 97494            |
-| processamento de sinais.txt             | 67              | 1400                | 149               | 1026             |
-| projeto integrado.txt                   | 88              | 6029                | 953               | 5102             |
-| sistemas digitais.txt                   | 42              | 1207                | 184               | 1043             |
-| sistemas lineares 1.txt                 | 8               | 488                 | 72                | 416              |
-| sistemas lineares 2.txt                 | 484             | 14497               | 2435              | 12542            |
-| sistemas operacionais.txt               | 8               | 346                 | 40                | 298              |
-| teoria eletromagnetica 2.txt            | 829             | 57769               | 8564              | 50030            |
-+-----------------------------------------+-----------------+---------------------+-------------------+------------------+
++---------------------------------+------------------------+--------------------------+-----------+
+| Nome                            | Diretorio              | Data e Hora              | Tamanho   |
+| computacao 1.txt                | ./myFiles/Programacao  | Sun May 27 10:52:52 2018 | 2.23 KB   |
+| computacao 2.txt                | ./myFiles/Programacao  | Sun May 27 10:54:07 2018 | 3.65 KB   |
+| arquitetura de computadores.txt | ./myFiles/Digital      | Sun May 27 11:03:15 2018 | 1.52 KB   |
+| circuitos logicos.txt           | ./myFiles/Digital      | Sun May 27 11:04:06 2018 | 974 bytes |
+| circuitos eletricos 1.txt       | ./myFiles/Eletrica     | Mon May 21 21:28:42 2018 | 4.02 KB   |
+| circuitos eletricos 2.txt       | ./myFiles/Eletrica     | Mon May 21 22:05:17 2018 | 7.36 KB   |
+| conversao de energia.txt        | ./myFiles/Eletrica     | Sun May 27 11:08:29 2018 | 270 bytes |
+| comunicacoes analogicas.txt     | ./myFiles/Comunicacoes | Sun May 27 11:05:08 2018 | 545 bytes |
+| comunicacoes digitais.txt       | ./myFiles/Comunicacoes | Sun May 27 11:06:33 2018 | 640 bytes |
+| controle linear 1.txt           | ./myFiles/Controle     | Sun May 27 11:07:01 2018 | 1.61 KB   |
+| controle linear 2.txt           | ./myFiles/Controle     | Sun May 27 11:07:44 2018 | 2.59 KB   |
+| metodos matematicos.txt         | ./myFiles/Matematica   | Sun May 27 11:12:22 2018 | 259 bytes |
+| modelos probabilisticos.txt     | ./myFiles/Matematica   | Sun May 27 11:13:33 2018 | 117.08 KB |
++---------------------------------+------------------------+--------------------------+-----------+

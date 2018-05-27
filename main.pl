@@ -117,6 +117,7 @@ elsif ($opcao eq "SARQ"){
 elsif ($opcao eq "MREG"){
 	print("<Atualizando Arquivo de Registro...>\n\n");
 	atualizaRegistro($diretorio, $arqRegistro);
+    print("\nATUALIZADO COM SUCESSO!!!");
 }
 
 
