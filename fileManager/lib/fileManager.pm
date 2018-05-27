@@ -8,7 +8,6 @@ use Text::TabularDisplay;
 use Math::Round qw/round/;
 use Time::localtime;
 use File::stat;
-use List::Util qw(max);
 
 require Exporter;
 use AutoLoader;
@@ -93,7 +92,7 @@ sub filtraString{
 #conta ocorrencias de uma string desejada dentro de cada arquivo
 sub contaOcorrencias {
 
-    (my $nomeArq, my $strDsj) = @_;
+    (my $diretorio, my $nomeArq, my $strDsj) = @_;
 
     my @lista;
     my $numLinhasArqReg = 0; #numero de linhas de cada arquivo 
@@ -115,11 +114,11 @@ sub contaOcorrencias {
         my $ocorrenciaArq = 0; #ocorrencia em cada arquivo
         my $numLinOcorr = 0;    #numero de linhas em que aparecem a string
             
-        open(my $entradaArq, "<", $sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
+        open(my $entradaArq, "<", $sptLinha [1]."/".$sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
 
         #percorre todas as linhas do arquivo aberto e conta em quantas linhas há ocorrencia e quantas ocorrencias naquele arquivo
         while (<$entradaArq>) {
-            if ($_ =~ /$strDsj/) {
+            if ($_ =~ /($strDsj)/) {
                 $numLinOcorr++; 
             }
             while ($_ =~ m/($strDsj)/g){
@@ -208,48 +207,44 @@ sub filtraDataHora {
 
 #Atualiza o arquivo de registros alterando o tamanho e data
 sub atualizaRegistro{
-    (my $nomeArqReg) = $_[0];   
-    open(my $entradaReg, "<", $nomeArqReg) or die "Erro! O arquivo não pode ser aberto: $!";        
-        #percorre as linhas do arquivo de registro
+    (my $diretorio, my $arqReg) = @_;
+    unlink $arqReg;
+    opendir (DIR, $diretorio) or die $!;
 
-                while (<$entradaReg>) {
+    while (my $arquivo = readdir(DIR)) {
 
-                    chomp($_);
-                    my @sptLinha = split(/::/, $_);
-                    #quando encontrar um nome de arquivo abre esse arquivo
-                                         
-                    open(my $entradaArq, "<", $sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
-                        my $statusArq = stat ($entradaArq);
-                        my $tamanho = $statusArq->size;
-                        
-                        if ($tamanho >= 1024 * 1024) {
-                            $tamanho /= 1024 * 1024;
-                            $tamanho = int ($tamanho * 100) / 100;
-                            $tamanho = $tamanho." MB";
-                        }
-                        elsif ($tamanho >= (1024 * 1024)) {
-                            $tamanho /= (1024 * 1024);
-                            $tamanho = int ($tamanho * 100) / 100;
-                           $tamanho = $tamanho." KB";
-                        }
-                        else {$tamanho = $tamanho." bytes";}
-                        my $dataHora = ctime ($statusArq->mtime);
-
-                            #depois tenta isso, tem que ter o modulo File::Slurp
-                            #my $strSubs = read_file "registro.txt";
-                            #$strSubs =~ s/$sptLinha[2]/$dataHora/g;
-                            #$strSubs =~ s/$sptLinha[3]/$tamanho/g;
-                            #write_file "registro.txt", $strSubs;
-
-                        open(my $arqTemp,">>", 'temporario.txt');
-                            print $arqTemp $sptLinha[0]."::".$sptLinha[1]."::".ctime($statusArq->mtime)."::".$tamanho."\n";
-                        close $arqTemp;
-                    close $entradaArq or die "$entradaArq: $!";
-
+        if ($arquivo =~ m{([\w]{1,})}) {
+            
+            open(my $entradaArq, "<", $diretorio."/".$arquivo) or die "Erro! O arquivo não pode ser aberto: $!";
+                my $statusArq = stat ($entradaArq);
+                my $tamanho = $statusArq->size;
+                #tamanho
+                if ($tamanho >= 1024 * 1024) {
+                    $tamanho /= 1024 * 1024;
+                    $tamanho = int ($tamanho * 100) / 100;
+                    $tamanho = $tamanho." MB";
                 }
-                
-    close $entradaReg or die "$entradaReg: $!";
-    rename 'temporario.txt', 'registro.txt';
+                elsif ($tamanho >= (1024)) {
+                    $tamanho /= (1024);
+                    $tamanho = int ($tamanho * 100) / 100;
+                   $tamanho = $tamanho." KB";
+                }
+                else {$tamanho = $tamanho." bytes";}
+                #data e horario
+                my $dataHora = ctime ($statusArq->mtime);
+                #reescrita no registro.txt
+                open(my $entradaReg,">>", $arqReg);
+                    print $entradaReg $arquivo."::".$diretorio."::".$dataHora."::".$tamanho."\n";
+                close $entradaReg;
+            close $entradaArq or die "$entradaArq: $!";
+
+        }
+
+    }
+
+    closedir(DIR);
+
+    print ("ARQUIVO DE REGISTRO $arqReg ATUALIZADO COM SUCESSO!");
 }
 
 sub filtraTamanho {
@@ -305,7 +300,7 @@ sub filtraTamanho {
 }
 
 sub obtemDadosArq {
-    my $nomeArq = $_[0];
+    (my $diretorio, my $nomeArq) = @_;
 
     my @lista;
     my $numLinhasArqReg = 0; #numero de linhas de cada arquivo 
@@ -326,17 +321,13 @@ sub obtemDadosArq {
         chomp($_);
         my @sptLinha = split(/::/, $_);
             
-        open(my $entradaArq, "<", $sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
+        open(my $entradaArq, "<", $sptLinha [1]."/".$sptLinha [0]) or die "Erro! O arquivo não pode ser aberto: $!";
 
         my $totalLinhas = 0;
         my $totalCaracteres = 0;
         my $totalPalavras = 0;
         my $totalEspacos = 0;
         my @tamanho = split(/\s/, $sptLinha[3]);
-
-        if ($tamanho [1] eq "KB") {
-            $tamanho [0] = int($tamanho[0]) * 1024;
-        }
 
         if ($tamanho [1] eq "KB") {
             $tamanho [0] = int($tamanho[0]) * 1024;
