@@ -1,0 +1,8 @@
+Métodos Matemáticos da Engenharia Eletrônica
+Código: 
+EEL356
+Créditos: 
+4
+URL: 
+Ementa: 
+Seqüências e séries. Séries de potencias. Funções de variável complexa: funções analíticas, integração, séries complexas, resíduos. Equações diferenciais parciais.

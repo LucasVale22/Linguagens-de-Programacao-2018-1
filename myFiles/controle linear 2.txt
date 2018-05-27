@@ -1,0 +1,90 @@
+Dados
+Sala de aula : H-213
+Hor´ario : 3a
+feira 15:00 – 17:00
+: 5a
+feira 15:00 – 18:00
+Professor : Eduardo V. L. Nunes
+Sala : H-340h
+Sala : H-219 Gabinete 22
+Laborat´orio : H-345
+e-mail : eduardo@coep.ufrj.br
+Homepage : http://www.coep.ufrj.br/~eduardo
+Atendimento : logo ap´os as aulas. Ser´a poss´ivel combinar
+outros hor´arios por e-mail tamb´em.
+Descri¸c˜ao do curso
+1. Modelagem de sistemas no espa¸co de estados
+2. Lineariza¸c˜ao
+3. Realiza¸c˜ao de fun¸c˜oes de transferˆencia/Formas
+canˆonicas
+4. Solu¸c˜ao da equa¸c˜ao de estado
+5. An´alise
+• Estabilidade
+• Controlabilidade
+• Observabilidade
+6. Realimenta¸c˜ao de estados
+• Regula¸c˜ao e posicionamento de autovalores
+• Rastreamento de um sinal de referencia e rejei¸c˜ao
+de perturba¸c˜oes
+7. Observadores de estado
+8. Combina¸c˜ao observador-controlador
+9. Modelos discretos de sistemas amostrados
+• Entrada/sa´ida
+• Espa¸co de estados
+10. Equa¸c˜oes a diferen¸cas
+11. Transformada Z
+12. An´alise de sistemas de controle digital
+13. Projeto de sistemas de controle
+• Emula¸c˜ao
+• M´etodo do lugar das ra´izes
+• M´etodos de espa¸co de estados
+• M´etodos polinominais
+14. Introdu¸c˜ao ao controle ´otimo linear quadr´atico
+15. Aspectos pr´aticos de sistemas de controle
+anal´ogicos e digitais
+Livro texto
+1. Feedback Control of Dynamic Systems,
+G. F. Franklin, J. D. Powell, and A. Emami-Naeini,
+4th Edition, Prentice Hall, 2002.
+2. Modern Control Engineering,
+K. Ogata,
+3rd Ed., Prentice Hall, 1997.
+3. Discrete Control Systems,
+K. Ogata,
+2nd Edition, Prentice–Hall, 1995.
+4. Digital Control of Dynamic Systems,
+G. F. Franklin & J. D. Powell & M. L. Workman,
+Addison–Wesley, 1990.
+Bibliografia complementar
+1. Linear Systems Theory and Design,
+C. T. Chen,
+3rd Edition, Oxford, 1999.
+2. Discrete Time Signal Processing,
+A. Oppenheim & R. Schafer,
+2nd Edition, Prentice Hall, 1998.
+3. Automatic Control Systems,
+B. C. Kuo,
+7th Edition, Prentice Hall, 1995.
+4. Computer Controlled Systems,
+Karl J. °Astr¨om & Bj¨orn Wittenmark,
+2nd Edition, Prentice–Hall, 1990.
+5. Digital Control Systems,
+B. C. Kuo,
+Saunders, 1992.
+Listas, Trabalho e Projetos
+As listas de exerc´icios, trabalhos e projetos poder˜ao requerer
+a utiliza¸c˜ao de softwares para c´alculos num´ericos
+e poder˜ao ser considerados para avalia¸c˜ao.
+Avalia¸c˜ao
+• 2 provas parciais P1, P2 e uma prova final P F
+todas sem consulta.
+• Se Mp =
+P 1+P 2
+2 = 7 aprovado direto.
+• M´edia final: Mf =
+P F +Mp
+2
+• Para aprova¸c˜ao no curso o aluno devera ter m´edia
+final = 5.
+• Ser´a dada uma ´unica 2a. chamada no final do curso
+incluindo toda a mat´eria.

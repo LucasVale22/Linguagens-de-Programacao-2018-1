@@ -1,0 +1,51 @@
+EEL660 - Controle Linear I
+
+Ementa
+
+Controle em malha aberta e em malha fechada.
+Composição de um sistema de controle.
+Análise dos efeitos de realimentação.
+Álgebra de blocos.
+Estabilidade: critérios de Routh-Hurwitz e critérios frequenciais (Nyquist e Bode).
+Rastreamento de trajetórias e rejeição de perturbações.
+Resposta transitória.
+Método do Lugar das Raízes.
+Controladores PID: aspectos práticos e sintonia.
+Projeto de controladores: métodos frequenciais e método do lugar das raízes.
+Bibliografia
+
+N. NISE, Engenharia de Sistemas de Controle, LTC, 7a Edição, 2017.
+R. C. DORF, R. H. BISHOP, Sistemas de Controle Modernos, LTC, 12a Edição, 2013.
+K. OGATA, Engenharia de Controle Moderno, Pearson, 5a Edição, 2010.
+Horário e Local das Aulas
+
+Ter 8h às 10h – Sala H211
+Qui 7h às 10h – Sala H211
+Datas das Provas
+
+Qui 05/10/2016 7h – Prova 1 (P1)
+Qui 30/11/2017 7h – Prova 2 (P2)
+Ter 05/12/2017 7h – 2a Chamada
+Qui 07/12/2017 7h – Prova Final
+Critério de Aprovação
+
+(P1+P2)/2   =   7.0      ou      ( (P1+P2)/2 + PF ) / 2   =   5.0
+
+Slides do Curso
+
+00 - Introdução à Disciplina
+01 - Introdução aos Sistemas de Controle
+02 - Revisão de Sistemas Lineares
+03 - Álgebra de Blocos
+04 - Modelagem Matemática de Sistemas Físicos
+05 - Resposta Dinâmica de Sistemas Lineares (Prof. André Marcato)
+06 - Método do Lugar das Raizes
+07 - Projeto de Controladores pelo Método do Lugar das Raízes
+08 - Projeto de Controladores por Métodos Frequenciais (Prof. Simão Neto)
+Programas Desenvolvidos em Sala de Aula:
+
+... em breve ...
+
+Notas das Provas
+
+Planilha de Notas (semestre 2017-2) - Notas P1 e P2 (sem questão 5)

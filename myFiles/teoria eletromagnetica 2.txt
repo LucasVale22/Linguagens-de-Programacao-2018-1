@@ -1,0 +1,829 @@
+XVII SEMANA DE MONITORIA
+Segundo semestre de 2014
+Texto Didático para Estudo de Linhas de Transmissão de Sinais
+de RF
+Monitor
+Henrique Marques Ribeiro
+Orientador
+Tarcísio Martins Dantas
+Niterói, RJ2
+Sumário
+1. Apresentação...........................................................................................................
+2. Motivação................................................................................................................
+3. Introdução...............................................................................................................
+3.1.Linha paralela....................................................................................................
+3.2.Fita Paralela.......................................................................................................
+3.3.Par Trançado.....................................................................................................
+3.4.Par Blindado......................................................................................................
+3.5.Cabo Coaxial......................................................................................................
+4. Coeficiente de Reflexão e Transmissão...................................................................
+5. Taxa de Onda Estacionária......................................................................................
+6. Impedância Generalizada........................................................................................
+7. Propriedades da Linha de Transmissão...................................................................
+7.1.Primeiro caso: variação de .........................................................................
+7.2.Segundo caso: variação de .........................................................................
+8. Potência em Linhas de Transmissão........................................................................
+8.1.Potência Ativa...................................................................................................
+8.2.Potência Reativa................................................................................................
+9. Configuração Especiais de Linha de Transmissão....................................................
+9.1.Linha Casada (Carga Casada).............................................................................
+9.2.Linha em Curto Circuito (stub)..........................................................................
+9.3.Linha em Circuito Aberto (stub)........................................................................
+10. Transformador de ¼ do Comprimento de Onda......................................................
+11. Típico Problema de Casamento...............................................................................
+12. Pontos Notáveis ......................................................................................................
+12.1. Linha em Curto................................................................................................
+12.2. Linha em Aberto.............................................................................................
+12.3. Linha Puramente Reativa................................................................................
+12.4. Linha Puramente Resistiva..............................................................................
+12.5. Linha Casada...................................................................................................
+13. Carta de Smith: uso do ábaco.................................................................................
+14. Casamento de Carga: Stub Simples.................................................................... .....
+14.1. Stub em Série com Carga................................................................................
+14.2. Stub em Paralelo com Carga...........................................................................
+15. Casamento de Carga: Stub Duplo............................................................................
+16. Exercícios Propostos................................................................................................
+17. APÊNDICE: The Complete Smith Chart.....................................................................
+18. Referências..............................................................................................................
+19. Bibliografia...............................................................................................................3
+.4
+1. Apresentação
+Durante o primeiro semestre deste ano participei da monitoria da disciplina
+Eletromagnetismo II, que tem por finalidade dar prosseguimento ao estudo do
+eletromagnetismo e suas nuances no domínio dinâmico, introduzindo conceitos fundamentais
+a respeito da onda eletromagnética. Tópicos estes que incluem a análise das Equações de
+Maxwell tanto no domínio harmônico quanto no da frequência sob o ponto de vista da
+equação da onda, bem como as Equações Constitutivas e Equações do Contorno. Os Modos de
+Propagação são analisados como introdução aos modos guiados vistos em Micro-ondas,
+seguidos de um tratamento das Interfaces Dielétrica e Condutora, finalizando com o
+desenvolvimento dos conceitos de Linhas de Transmissão.
+O atendimento aos alunos desta disciplina foi igualmente útil para mim, sendo uma
+forma de manter o conteúdo atualizado para ser utilizado em outras disciplinas do
+Departamento de Telecomunicações, tais como Antenas, Propagação, Micro-ondas e
+Comunicações Ópticas.
+O curso se divide em duas grandes esferas de conhecimento: avaliação dos parâmetros
+da onda eletromagnética em meios ilimitados e em interfaces; e o estudo das linhas de
+transmissão. A ideia do desenvolvimento de uma apostila surgiu da necessidade de se ter um
+material complementar para consulta além daquele abordado pelo professor ao longo do
+curso. O conteúdo deste tópico é pertinente como ferramenta para qualquer graduando em
+Engenharia de Telecomunicações visto que trata da análise de um dos entes fundamentais nas
+transmissões em meios confinados, as linhas de transmissão.
+O assunto se mostra um pouco mais sofisticado que aqueles envolvidos em cursos
+mais básicos de circuitos pois tratamos, essencialmente, do comportamento de dois
+condutores independentes sendo alimentados por uma fonte de tensão. Isto implica no
+tratamento de grandezas como ondas de tensão e de corrente, onde a variação de fase não é
+mais desprezível. Este comportamento se dá pelas implicações físicas que dois condutores
+independentes proporcionam no modelo de circuito equivalente, o qual é avaliado pela Teoria
+dos Parâmetros Distribuídos. Um outro meio confinado estudado exaustivamente na
+graduação é o guia de onda, visto na cadeira de Micro-ondas. E para esta disciplina, ter um
+embasamento considerável no assunto abordado neste trabalho se mostra interessante do
+ponto de vista de simplificar problemas mais complexos que envolvem guias de onda, uma vez
+que podemos tratá-los com circuitos elétricos equivalentes em linhas de transmissão.
+Não obstante, o curso é finalizado com uma das ferramentas mais efetivas na
+disciplina: a Carta de Smith, utilizada em problemas de casamento de impedância através de
+stubs simples e duplos.
+É importante salientar que o tópico de linhas de transmissão, por vezes, é tratado de
+forma um tanto nebulosa pelos alunos, por não compreenderem exatamente qual a relação
+destes objetos com os casos reais. A introdução do trabalho tem por finalidade preencher
+estas lacunas conceituais que por ventura os alunos possam vir a possuir, tendo uma
+referência para o assunto ministrado no curso através de exemplos de aplicações práticas. Ao
+longo da apostila é possível encontrar todo o desenvolvimento teórico por trás das linhas de
+transmissão com diversos elementos estudados na primeira parte do curso reinseridos. A
+apostila é finalizada com uma lista de exercícios propostos para o reforço teórico.
+No geral, agradeço pela experiência e espero ter contribuído para o ensino da
+disciplina através deste material.5
+2. Motivação
+Ao se aprofundar nos ramos do eletromagnetismo, é importante explorar conceitos
+básicos e inerentes a natureza do fenômeno. O principal objeto de estudo, as ondas
+eletromagnéticas e seu comportamento, se baseia na análise deste ente físico dado condições
+de contorno especiais. São estas condições impostas ou pela geometria ou pelos parâmetros
+do meio que ditam a complexidade da propagação.
+Os meios de propagação estudados se restringem a ambientes ilimitados ou aos
+confinados. No primeiro, a atmosfera e todas suas propriedades e características são avaliadas
+levando em consideração as atenuações devido uma série de fatores. É nesta região que as
+ondas são irradiadas de uma antena a outra até que a informação, após convenientemente
+codificada e processada, transite, numa relativa faixa de precisão, de um local ao outro.
+Todavia, antes do sinal elétrico, o responsável pela base de toda comunicação, chegar a uma
+dada antena a fim de distribuir o campo eletromagnético ao redor desse, precisa passar por
+um sistema o qual será o gerador de tal expressão de comunicação.
+Entra em cena o segundo objeto abordado nos cursos de eletromagnetismo, os meios
+confinados. Após um sinal ser gerado levando em consideração todas as etapas dos circuitos
+eletrônicos formados por cascatas de dispositivos como osciladores, amplificadores,
+multiplexadores, filtros, realimentadores e moduladores, considerando os elementos contidos
+em um transmissor local, é preciso de alguma forma guiar a onda por um meio que leve até a
+antena transmissora. Estes meios são os guias de onda e as linhas de transmissão.
+Os guias de onda operam em altíssimas frequências, na faixa de micro-ondas, da
+ordem de vários . Devido a diminuição do comprimento de onda e das características
+geométricas do meio dados as condições de contorno, a análise se torna relativamente mais
+complicada quando comparada com os entes vistos em cursos de circuitos básico. Todavia,
+nem sempre será necessário a utilização dos guias de onda, uma vez que para determinadas
+frequências a atenuação pode ser tal que torna o uso dispensável. Em busca do meio que
+melhor proporcione condições de propagação à onda, estudamos as linhas de transmissão.6
+3. Introdução
+Como apresentado anteriormente, as linhas de transmissão são meios confinados
+utilizados para a transmissão de energia eletromagnética. As frequências de operação variam
+de valores abaixo de , para o caso do par de condutores independentes paralelos, até
+um pouco acima de , para o caso dos cabos coaxiais. É importante que o sinal gerado e
+transmitido seja apenas guiado de uma fonte geradora para uma determinada carga, a qual é
+modelada como um dispositivo qualquer de determinada impedância de entrada.
+Estudar as linhas de transmissão é conveniente para o entendimento dos princípios de
+operação das linhas paralelas, fitas paralelas, do par trançado, par blindado e dos cabos
+coaxiais, que são os meios comumente usados em sistemas de telecomunicações. As ondas
+eletromagnéticas que se propagam neste meio confinado, no geral, pertencem ao modo
+(Transverse Eletric Magnetic). Isto nos informa que as componentes dos campos elétrico e
+magnético são transversais à direção de propagação da onda. Considerando, para todos os
+efeitos, propagação na direção de um sistema cartesiano tridimensional, então inferimos
+que .
+Note que é importante a distinção feita aqui entre linhas de transmissão e guias de
+onda, uma vez que neste segundo a operação do sinal é da ordem de vários e os modos
+de propagação podem ser constituídos pelo , ou o , dependendo das
+características do guia, como a geometria e o material usado pra confecção.
+No caso dos dois condutores paralelos independentes que discutiremos nesta apostila,
+ambos apresentam as mesmas características em relação à Terra, e portanto a linha é dita
+balanceada. Isto se dá pois as correntes em cada condutor estão exatamente em contrafase, o
+que proporciona o cancelamento dos campos irradiados. Pra todo efeito, esta condição é
+obtida sem problemas em baixas frequências, diferentemente do que ocorre em altas
+frequências, pois o comprimento de onda se torna comparável às dimensões da linha. Sendo
+assim, na prática, o limite de utilização da linha de condutores paralelos independentes é de
+aproximadamente .
+Na prática, as linhas de transmissão não são ideais. Apesar de todo conhecimento e
+tecnologia investidos no desenvolvimento de melhores materiais e nos equipamentos para
+construção das linhas, há uma pequena perda, seja por irradiação ou por dissipação. Isto
+ocorre porque o condutor utilizado na confecção não possui condutividade infinita,
+demonstrando que não se trata de um caso ideal. Sendo assim, a resistência ôhmica é finita e
+pequena. Devido a esta pequena perda por dissipação, há uma pequena variação do campo
+elétrico ao longo do condutor, o que contribui para que o vetor do campo deixe de ter um
+aspecto radial para ter um aspecto inclinado. Vale frisar que a perda não ocorre apenas no
+condutor, mas também no dielétrico.7
+Podemos construir uma linha de transmissão tão boa quanto quisermos a fim de
+manter a componente tangencial da perda praticamente constante ao longo do condutor. O
+projeto do cabo precisa ser tal a manter o comprimento deste inferior a para que não
+acabe atuando como uma antena.
+Para se ter uma ideia geral de como aplicar este conhecimento em casos práticos,
+comentaremos a seguir sobre as principais linhas de transmissão implementadas em sistemas
+de telecomunicações:
+3.1. Linha paralela: um dos tipos mais conhecidos, formado por dois condutores
+que correm paralelos e mantidos a uma distância constante através de
+espaçadores feitos de material isolante. Dependendo da aplicação, a separação
+entre os condutores é regulada. Comumente utilizado, nas telecomunicações, em
+linhas telefônicas para a conexão entre transmissor e antena. O inconveniente
+deste formato reside na irradiação da energia elétrica devido sua perda por
+irradiação, uma vez que não há blindagem, e consequente baixa imunidade aos
+ruídos.
+Figura 01: Linha Paralela
+3.2. Fita paralela: é uma variação da linha paralela, muito comum na conexão de
+antenas a televisores. A diferente é que nesta configuração, os condutores são
+separados por um material isolante, naturalmente um dielétrico, de baixa perda.
+Figura 02: Fita Paralela
+3.3. Par Trançado: outra variante das linhas de transmissão utiliza a mesma ideia
+de unir dois condutores, desta vez trançados, separados por uma capa isolante a
+fim de diminuir a captação não só dos ruídos externos mas de uma possível
+interferência elétrica externa devido a centelhamentos, motores ou geradores
+elétricos. Existem três tipos de cabos desta categoria e se encontram em ordem
+crescente de melhor blindagem: , e (ou ).8
+Figura 03: Par Trançado
+3.4. Par Blindado: nesta linha de transmissão os dois condutores independentes e
+paralelos são isolados por um material dielétrico o qual é envolto por uma
+blindagem metálica, formada por uma tela de condutores finos. Ao redor da tela
+pode existir ou não uma camada final de isolante externo. A vantagem desta linha
+de transmissão reside claramente em sua alta capacidade de imunidade ao ruído e
+a irradiação devido sua eficaz blindagem. É importante observar, também, que este
+meio confinado de propagação é balanceado, o que significa que existe uma boa
+relação com o terra de tal forma que a capacitância ao longo da linha se mantém
+constante, o que evita correntes de fuga.
+Figura 04: Par Blindado
+3.5. Cabo Coaxial: existem dois tipos de cabos coaxiais. A diferença reside,
+basicamente, no material que isola o condutor interno do externo, podendo ser um
+dielétrico sólido, portanto rígido; ou o ar como dielétrico, flexível. Arruelas isolantes
+são dispostas ao longo do condutor externo para que a distância entre ambos
+condutores permaneça constante. A blindagem impede que o campo magnético do
+condutor interno irradie e assim fique imune a interferências. Para o cabo flexível,
+há grande possibilidade por perdas devido a sensibilidade a umidade pela entrada
+de ar. Por isso se utiliza gás inerte feito hélio para manter uma pressão específica
+impedindo a entrada de umidade no caso do cabo flexível, ou um material sólido
+como plásticos para causar o mínimo de perdas no caso do cabo rígido.
+Figura 05: Cabo Coaxial9
+A fim de compreender a natureza de uma linha de transmissão, podemos lançar mão
+de um método que simplifica a análise de um real sistema espacialmente distribuído mediante
+a criação de uma topologia de elementos discretos que aproximam o comportamento dos
+reais componentes distribuídos sob certas restrições. Este método, conhecido por modelo de
+parâmetros distribuídos, consiste em reduzir as equações diferenciais parciais espaciais e
+temporais, que provém da análise com a Teoria de Circuitos, em equações diferenciais
+ordinárias com um número finito de parâmetros.
+Estes parâmetros são nada mais que componentes elétricos tais como resistores,
+capacitores e indutores que se encontram distribuídos em células no espaço e estão
+conectados por fios condutores independentes. Diferentemente da análise de circuitos
+elétricos onde consideramos que o sinal elétrico está, pra todo efeito, presente
+simultaneamente em todos os pontos da topologia, neste precisamos considerar o
+comprimento de onda devido a alta frequência de operação. Por isso que características como
+a fase do sinal não podem mais ser descartados.
+Para tanto, é necessário a inserção de uma restrição fundamental à análise mediante a
+este método, onde consideramos que o tamanho do circuito seja igual ou maior que a
+longitude da onda do sinal elétrico que circula pelo circuito. O comportamento dinâmico é tal
+como as soluções das Equações de Maxwell.
+Tratando das linhas de transmissão como redes de acesso metálicas, numa visão
+bastante prática, onde precisamos presar por diversas características, especialmente a largura
+de banda do sinal elétrico que trafegará por ali, e interpretado como informação, estamos
+interessados em avaliar os principais parâmetros destes meios. São divididos em parâmetros
+primários e secundário do par. No primeiro, categorizamos em dois tipos: os parâmetros
+longitudinais, que constituem a resistência e indutância distribuídas nos fios; e os transversais,
+que constituem a capacitância e a condutância* que se encontram entre os fios. No segundo,
+tratamos da impedância característica, das atenuações e da constante de fase.
+É importante observar do porquê o modelo de parâmetros distribuídos ser
+caracterizado desta forma. Podemos imaginar que os dois fios paralelos apresentados na
+Figura 06 são os condutores independentes que se encontram em todos os tipos de linhas de
+transmissão apresentados anteriores.
+Figura 06: Célula do Modelo de Parâmetros Distribuídos
+Em relação aos parâmetros longitudinais, que se estendem ao longo do fio, estes
+meios possuem uma certa resistência por comprimento, o que modela a dissipação de
+potência. A indutância se dá pelo fato de haver um campo magnético ao redor do condutor,10
+tais como os pares trançados, que induzem o comportamento como bobinas em série
+modelando o processo de armazenamento de energia na forma do campo magnético que se
+produz na linha.
+Em relação aos parâmetros transversais, é natural imaginarmos que existam
+resistências entre os fios devido a indução de correntes que pode trafegar de um condutor
+para o outro, o que caracteriza a condutância e modela a perda de potência no dielétrico. Por
+outro lado, a capacitância é uma grandeza que também pode aparecer devido ao campo
+elétrico existente no dielétrico entre os condutores da linha e varia também dependendo da
+forma geométrica disposta entre os fios, que modelam o armazenamento de energia na forma
+do campo elétrico que se produz na linha, simulando um capacitor.
+Os parâmetros primários agem como um filtro passa-baixas cuja frequência de corte
+diminui com o comprimento da linha.
+Quando a célula estiver representando um pedaço infinitesimal da linha, então o
+modelo será válido e estaremos tratando de ondas de tensão e corrente. A equação de onda
+que se propaga entre os condutores da linha de transmissão é facilmente obtida através das
+Leis de Kirchhoff, que é um caso particular da aplicação das Equações de Maxwell, juntamente
+com as condições de contorno. Como os geradores de sinal (rádio-frequência) são
+cossenoidas, é interessante se trabalhar com as equações na forma harmônica.
+Pela Lei das Malhas:
+Pela Lei dos Nós:
+Expandindo os termos com variações diferenciais através da Série de Taylor:
+É razoável utilizar uma aproximação até o segundo termo sem perda das
+características:
+Os incrementos e podem ser calculados através da Regra da Cadeia
+levando em consideração que se trata de uma célula unidimensional:11
+Então:
+Substituindo a equação na
+Substituindo a equação na
+Derivando a equação e substituindo a na mesma equação:
+Derivando a equação e substituindo a na mesma equação:12
+Observe que as equações e são equações diferenciais ordinárias de segunda
+ordem, e mais particularmente, são equações da onda. Suas soluções são conhecidas como
+combinações lineares de funções exponenciais e são iguais, respectivamente, a:
+É importante analisar que as equações e são idênticas, matematicamente, às
+equações para ondas que propagam em meios ilimitados e com perdas na direção do eixo ,
+estudadas no curso de Eletromagnetismo. Avalie, as expressões apresentam como primeiro
+termo a parcela que caracteriza a onda de tensão e corrente incidente, enquanto que o
+segundo termo se refere a onda de tensão e corrente refletida, que existe devido a alguma
+descontinuidade presente na região de propagação, como uma interface. A combinação de
+ambas resulta no que chamamos de onda estacionária.
+Apesar de possuirem categoricamente a mesma representação analítica, estamos
+interessados em relacionar de alguma maneira ambas grandezas através de algum fator de
+proporcionalidade.
+Isto implica que queremos ser capazes de inferir que:
+Para isto, tomemos as equações e
+No curso, visamos avaliar os aspectos da natureza da onda eletromagnética neste meio
+de transmissão. Para simplificar a análise, consideraremos linhas de transmissão sem perdas, o
+que implica dizer que os parâmetros e serão levados a zero. Sendo assim, nossas equações
+se reduzem a:
+Onde introduzimos a constante de propagação simplesmente em função da constante
+de fase, uma vez que a constante de atenuação é nula devido a linha de transmissão não
+possuir perdas. Note:13
+Tal como esperávamos, obtivemos a relação de proporcionalidade entre as amplitudes
+das ondas de tensão e de corrente que incidem e aquelas que refletem.
+Na natureza, muitos resultados se repetem dadas as condições inseridas nos
+problemas e os modelos matemáticos utilizados. Da mesma maneira que podemos relacionar
+resultados da física em equações imprescindíveis por possuírem profunda semelhança em suas
+interpretações tais como as clássicas Lei de Coulomb e a Lei da Gravitação Universal, podemos
+relacionar este resultado dos entes que se encontram nas linhas de transmissão com os entes
+presentes no resultado da propagação de uma onda eletromagnética num meio ilimitado e
+sem perdas.
+A onda de tensão se associa à equação de campo elétrico enquanto a onda de corrente
+se associa à equação de campo magnético. Devido a isto, podemos concluir que uma linha de
+transmissão é caracterizada pelo modo de propagação , onde apenas os campos
+transversos se encontram presentes.
+Do resultado obtido pela equação , definimos mais um novo parâmetro o qual
+está relacionado às características da própria linha, que se trata da impedância intrínseca da
+linha ou impedância característica da linha de transmissão. Definimos desta maneira pois a
+razão apresentada tem dimensão de impedância:
+Ou ainda, em função das dimensões da linha de transmissão, sabendo que é o
+espaçamento entre os condutores e o diâmetro dos condutores:
+O conceito de impedância característica da linha de transmissão está relacionada com
+a impedância que seria vista por um gerador conectado à uma linha de transmissão de
+comprimento infinito. Sendo assim, para a condição de acoplarmos o gerador a uma carga com
+impedância idêntica à impedância característica da linha, não observaríamos alteração alguma
+constatada pelo gerador.
+Figura 07: Conceito de Impedância Característica da Linha14
+Vale ressaltar deste resultado que a impedância de onda é idêntica a impedância
+intrínseca da linha tal como ocorreu na análise da propagação de uma onda eletromagnética
+num meio ilimitado e sem perdas. Isto ocorre porque neste meio existe apenas um único
+modo de propagação, diferentemente dos guias de ondas, que podem apresentar vários
+dependendo das dimensões do guia. Observe a semelhança com a impedância intrínseca do
+meio de propagação de um dielétrico qualquer:
+Observe que, como a impedância característica da linha depende das dimensões da
+linha de transmissão, procura-se sempre manter a distância entre os condutores constante
+para que não ocorra variações na impedância. Para tanto, utiliza-se suportes a fim de os
+manter distantes.
+Esse é um modelo bastante interessante visto que a linha de transmissão, na presença
+de um sinal , é essencialmente representada por uma impedância.
+Figura 08: Representação Básica de uma Linha de Transmissão
+Toda e qualquer descontinuidade (obstáculo) ao longo da linha será representada por
+uma variação na impedância característica. Este é um primeiro tipo de obstáculo.
+Figura 09: Obstáculo proveniente do acoplamento de duas linhas de transmissão
+Intuitivamente, podemos perceber que se a impedância da carga for diferente da
+impedância característica parte do sinal sofrerá reflexão. Este é um segundo tipo de
+obstáculo, descontinuidade na terminação da linha.15
+Figura 10: Trecho de Linha de Transmissão terminada em Carga
+Fazendo ainda uma analogia com as soluções para onda plana e uniforme, vimos que a
+solução geral (duas ondas propagantes em sentidos contrários) é fundamental para a descrição
+de obstáculos à propagação. Obstáculos refletem campo eletromagnético que aqui é
+representado por ondas de tensão e corrente. Sendo assim, vamos sempre considerar a
+solução geral da linha de transmissão, uma vez que sempre apresentará algum obstáculo, para
+um sistema real.
+Usando a Figura 07 como referência, assumimos tal proposta como padrão para
+descrever qualquer circuito em linha. O fluxo principal é o da fonte (gerador) à carga, dito
+incidente, representado pela solução positiva. O fluxo contrário, representado pela solução
+negativa, é devido a reflexão.
+Do Eletromagnetismo, já são conhecidas a indutância e capacitância na unidade de
+comprimento, tanto para o cabo coaxial quanto para a linha paralela, sendo as dimensões
+definidas. Sendo assim, supondo que o dielétrico nas linhas de transmissão possui as
+características iguais ao do ar, temos:
+Cabo Coaxial Linha Paralela
+Impedância Característica
+4. Coeficiente de Reflexão e Transmissão:
+Seja uma linha de transmissão de impedância , terminada por uma carga ,
+conforme a figura:
+Figura 11: Eixo de variação em para Linha de Transmissão
+Lembrando das soluções das ondas de tensão e corrente, fixamos o sistema de
+coordenadas como o proposto acima e inferimos que, na coordenada , as soluções terão
+*onde , e são dimensões de cada geometria16
+o seguinte aspecto:
+Fazendo a razão entre ambos:
+Esta razão entre a tensão total e a corrente total é igual a :
+Como havíamos discutido, a onda refletida aparece devido a alguma descontinuidade.
+Para tanto, é importante que relacionemos a onda que incide com a refletida a fim de
+determinarmos o fator de proporcionalidade entre elas. Assim saberemos quantitativamente a
+degradação do sistema devido a parcela que retorna ao gerador. Matematicamente,
+verificaremos:
+Precisamos apenas rearranjar a equação
+Portanto, o fator de proporcionalidade é obtido pela razão entre a diferença e a soma
+das impedâncias da carga e da linha, definindo assim o coeficiente de reflexão:
+Com isto, a impedância na coordenada de obstrução da linha pode ser reescrita como:17
+Para que não haja reflexão, lançamos mão do conceito de casamento de impedância
+que reflete a máxima transferência de potência do gerador à carga em questão, a qual poderia
+estar modelando a impedância de entrada de uma antena. Ou seja, na configuração de
+transmissão total, o coeficiente de reflexão é nulo.
+Observe que esta equação é semelhante a equação encontrada na incidência normal
+de uma onda uniforme em uma interface dielétrica. Lembrando:
+É importante notar que o coeficiente de reflexão é um número complexo, portanto
+constituído de módulo e fase. Reescrevendo-o:
+Onde:
+Utilizamos deste artifício para generalizarmos a definição de impedância, a fim de que
+a expressão reflita a impedância (de entrada) experimentada por qualquer dispositivo
+conectado em determinado ponto da linha de transmissão:
+Inserimos, então, o coeficiente de reflexão generalizado, que avalia em qualquer
+ponto fora da coordenada de obstrução:
+Vimos da equação o caso particular do coeficiente de reflexão generalizado na
+coordenada , o que se mantém em concordância com as definições.18
+5. Taxa de Onda Estacionária (SWR/RVOE)
+Ao invés de avaliarmos o casamento de impedâncias de um sistema através do
+coeficiente de reflexão, podemos inserir um novo parâmetro que relacione as ondas de
+máxima e de mínima tensão. Da solução da onda de tensão, reescreveremos-a em função do
+coeficiente de reflexão generalizado:
+O é definido como:
+Da equação tiramos que:
+Onde:
+Por fim,
+Feito isso, vale ressaltar a importância deste parâmetro na avaliação do desempenho
+de um sistema:
+? , esta condição implica que não haverá onda refletida na linha de
+transmissão. Sendo assim, o valor do é unitário e nos informa que haverá máxima
+transferência de potência para a carga, ou seja, toda a onda é transmitida.
+? já nesta configuração toda onda que incide na linha de transmissão é
+refletida na carga. Portanto, o valor do tende ao infinito e nos informa que não haverá se19
+quer alguma quantidade de onda transmitida. Este é um caso bastante grave, pois pode ser
+nocivo para o sistema. Ter uma grande parcela de onda refletida implica que o oscilador,
+responsável pela geração do sinal, pode vir a se desestabilizar e assim seu funcionamento é
+comprometido.
+Como já foi antecipado quando iniciamos o debate sobre o coeficiente de reflexão,
+precisamos atender ao critério do casamento de impedâncias, pois estamos sempre
+interessados em minimizar ao máximo a reflexão do sinal, uma vez que este provoca a
+interferência causada por ondas estacionárias. Buscamos nos aproximar tanto quanto
+pudermos do unitário.
+Da análise acima, concluímos:
+Observação 1: o coeficiente de onda estacionária também é identificado por ,
+, ou .
+Observação 2: isto deixa bastante claro que o tratamento que um técnico de
+telecomunicações poderia dar ao problema de reflexão não é solucionado ao cortar a linha de
+transmissão, pois a reflexão não depende da dimensão.
+Figura 12: Magnitude de Carga Desconhecida e de Curto-circuito
+6. Impedância Generalizada
+Vimos que podemos exprimir a impedância em qualquer ponto da linha de
+transmissão com a seguinte expressão:
+Por outro lado, podemos evocá-la alternativamente. Para seu desenvolvimento,
+faremos uso da Relação de Euler:20
+Mas,
+Então,
+Podemos ainda normalizar a expressão, o que se mostrará mais prático para a análise
+de uma carga utilizando o que chamamos de Carta de Smith:
+Onde
+7. Propriedades da Linha de Transmissão
+As linhas de transmissão apresentam algumas características peculiares de sua
+natureza quanto a impedância de uma carga conectada a esta. Seu comportamento é
+periódico, o que significa que a cada distância igual a metade do comprimento de onda do
+sinal propagado, a impedância retorna ao seu valor no estado anterior ao deslocamento na
+linha. Por outro lado, caso desloquemos a carga numa distância igual a um quarto do
+comprimento de onda, então o valor da impedância é idêntico ao da admitância da mesma.
+Em ambos os casos, isto também vale para distâncias que sejam múltiplas da distância
+percorrida. Isto ocorre pois a impedância está em função de um sinal periódico, a tangente.
+Este resultado é bastante interessante pois nos diz que um gerador conectado a uma linha de
+transmissão sempre experimentará a mesma carga caso esteja ligado a uma distância de21
+metade do comprimento de onda ou sua admitância para cada um quarto do comprimento de
+onda independente do restante da linha de transmissão.
+? Primeiro caso: variação de
+Observe que a impedância da carga se repete a cada distância igual a , onde
+Figura 13: Propriedade da variação da carga a cada
+? Segundo caso: variação de
+Observe que a impedância experimentada a cada distância igual a , onde pertence
+ao conjunto dos números inteiros ímpares, é exatamente a admitância da carga.
+Figura 14: Propriedade da variação da carga a cada22
+Observação: vale salientar que os dois casos avaliados são casos particulares da
+propriedade de transferência de impedância ao longo da linha de transmissão. Todavia, da
+análise da impedância generalizada, é importante se ter em mente que existem infinitas
+possibilidades de impedância dentro dos valores intermediários entre os pontos especiais
+estudados nesta seção.
+8. Potência em Linhas de Transmissão
+Na análise das linhas de transmissão, é sempre importante avaliar a quantidade de
+potência presente no sistema. Como se sabe, a maioria das cargas consome energia reativa
+indutiva pois necessitam de campo eletromagnético para seu funcionamento. Para tanto, a
+média da potência elétrica, ou a potência aparente, é dada como uma combinação da
+potência ativa e reativa. A primeira está relacionada com o trabalho efetivamente realizado,
+gerando calor, luz e movimento; por outro lado, a segunda está relacionada em criar e manter
+os campos eletromagnéticos.
+Sendo assim, da mesma maneira como se definiu, para os campos elétrico e
+magnético, o vetor de Poynting, a potência aparente global é definida como:
+Substituindo as equações e na expressão acima, temos:23
+Sabe-se que a potência ativa diz respeito a parte real da expressão acima. Já a potência
+reativa está relacionada com a parte imaginária da expressão. Isto significa que:
+Potência Ativa:
+Potência Reativa:
+No geral, estamos sempre interessados em transferir a máxima potência à carga
+instalada na linha de transmissão ao passo que também queremos minimizar os efeitos da
+potência reativa, levando-a o máximo possível próximo de nulo.
+9. Configurações especiais de Linhas de Transmissão
+Neste tópico, estudaremos alguns casos de cargas com características bem particulares
+e suas implicações aos parâmetros definidos das seções anteriores. São estas: linha casada (ou
+carga casada), linha em curto circuito e circuito aberto (stub*).
+9.1. Linha Casada (Carga Casada):
+Trata de toda e qualquer linha de transmissão terminada por uma carga de impedância
+igual a impedância característica da linha
+Figura 15: Linha Casada
+*stub, em inglês, comumente escrito como “estube” em português.24
+Coeficiente de Reflexão:
+a. Coeficiente de Onda Estacionária :
+b. Impedância Generalizada:
+c. Potência Ativa:
+d. Potência Reativa:
+9.2. Linha em Curto Circuito (Stub):
+Trata de toda linha de transmissão terminada por um curto circuito.
+Figura 16: Linha em Curto Circuito
+a. Coeficiente de Reflexão:25
+b. Coeficiente de Onda Estacionária :
+c. Impedância Generalizada:
+d. Potência Ativa:
+e. Potência Reativa:
+9.3. Linha com Circuito Aberto (Stub):
+Trata de toda linha de transmissão terminada em circuito aberto.
+Figura 17: Linha com Circuito Aberto
+a. Coeficiente de Reflexão:
+b. Coeficiente de Onda Estacionária :26
+c. Impedância Generalizada:
+d. Potência Ativa:
+e. Potência Reativa:
+Ambos dispositivos, os stubs são muito empregados para casamento de cargas com
+impedância complexa em virtude da característica reativa destas configurações em linhas de
+transmissão. É possível projetar filtros, acopladores de sinal, equalizadores, entre outros
+dispositivos.
+Observe também que, como o esperado, já que os stubs são entes que proporcionam
+reflexão ao sinal, então toda a potência entregue é convertida na forma de potência reativa. É
+importante notar que a impedância generalizada possui comportamento periódico, devido a
+dependência trigonométrica, e comportamento assintótico. Para cada região com inversão da
+função , temos uma carga com reatância ou puramente capacitiva ou puramente indutiva.
+Isto significa que um trecho de linha em curto ou aberta funciona com equivalência a um
+capacitor ou um indutor, e isto depende do comprimento do stub.
+Comprove através dos gráficos abaixo:
+Figura 18: Impedância de Stub em Curto Figura 19: Impedância de Stub em Aberto27
+10. Transformador de ¼ do Comprimento de Onda
+Vimos que podemos projetar filtros quando possuímos diversas interfaces entre meios
+de índices de refração diferentes. Um caso particular é aquele em que temos duas interfaces e
+três meios de índices de refração diferentes, onde o meio intermediário possui uma espessura
+igual a ¼ do comprimento de onda.
+O resultado desta análise provém da hipótese de estarmos tratando de um sistema de
+múltiplas interfaces com transmissão total, o que implica que o coeficiente de reflexão
+equivalente é nulo. A configuração não passa de um dispositivo casador de impedância. Sendo
+assim, podemos trazer o resultado para uma análise análoga em linhas de transmissão, a fim
+de desenvolver um dispositivo que faça o casamento entre uma linha qualquer e uma carga,
+pois nem sempre é possível obter um casamento direto entre a linha de transmissão e a carga.
+Neste caso, podemos imaginar pra efeito prático, que estamos alimentando uma antena
+através de uma linha de transmissão com sinal onde ambos elementos se encontram
+descasados, ou seja, o sinal possui reflexão na carga (a antena). Para sanar este problema,
+podemos introduzir no sistema um dispositivo, o transformador de ¼ do comprimento de
+onda, chamado por Ballun Trombone, que não passa de um trecho de linha de transmissão
+com impedância característica igual a média geométrica das impedâncias da linha principal e
+da carga.
+Por outro lado, em situações práticas, normalmente é necessário fazer a conexão entre
+duas linhas de transmissão. Para que não ocorram reflexões na descontinuidade entre as
+linhas, conectam-se entre as mesmas o dispositivo casador ideal para a frequência de
+operação do sinal, de tal forma que o trecho tenha exatamente ¼ do comprimento de onda.
+Imaginemos uma linha de transmissão de impedância característica igual a , uma
+carga, ou seja, uma descontinuidade em linha, resistiva de impedância e uma linha de
+transmissão de impedância característica igual a entre os dois primeiros elementos
+citados:
+Figura 20: Acoplamento de Transformador de ¼ do Comprimento de Onda a Linha de Transmissão
+O coeficiente de reflexão será:
+Da equação , que diz respeito da impedância generalizada, podemos aplicá-la na
+situação abordada, na linha de transmissão de impedância característica :28
+Como estamos interessados na realização do casamento, então a impedância
+equivalente na descontinuidade entre ambas linhas de transmissão, precisa ser igual a
+impedância característica da linha principal. Portanto:
+O que caracteriza o transformador de ¼ do comprimento de onda, a mesma média
+geométrica encontrada no problema inicialmente comentado.
+11. Típico Problema de Casamento
+Imaginemos que temos em mãos um gerador de sinal de impedância associada igual
+a conectado a uma linha de transmissão de impedância característica igual a a qual foi
+acoplada a um stub em série de comprimento a uma distância da carga de impedância
+conforme a figura abaixo.
+Figura 21:Típica Configuração de Linha de Transmissão a ser Casada por Stub29
+Lembrando que o casamento é uma necessidade, a impedância equivalente da
+associação em série do stub e a carga, transladada para o ponto de conexão do elemento
+reativo, é dada por:
+Observe que o problema envolve incógnitas e equações. Sendo assim, para que o
+sistema seja possível e determinado, agregando apenas uma solução para o problema, é
+necessário que conheçamos 3 variáveis inicialmente. Portanto, algumas variáveis são livres,
+dados do projeto, como a impedância intrínseca da linha e a a impedância da carga.
+Resolver analiticamente este problema é bastante laborioso, afinal, teríamos de
+resolver um sistema onde as variáveis de interesse estão sendo operadas
+trigonometricamente pela tangente. Mas isto trata apenas do problema mais simples que
+poderíamos enfrentar. Caso tivéssemos de solucionar casamentos que envolvessem dois ou
+mais stubs, aumentaríamos consideravelmente a dificuldade matemática da questão.
+Sendo assim, a ferramenta conhecida por Carta de Smith foi desenvolvida para facilitar
+a análise de qualquer problema de casamento em linha de transmissão utilizando apenas a
+abordagem gráfica de uma carta onde se expressam as impedâncias e admitâncias em um
+sistema de coordenadas complexo. Para tanto, partiremos da solução de um sistema
+proveninente das expressões generalizadas de impedância e do coeficiente de reflexão, dadas
+pelas equações e , respectivamente:
+Combinando as duas expressões, temos:30
+Onde:
+Manipulando a equação :
+Manipulando a equação :
+Note que ambas equações e tratam de uma família de circunferências onde
+a interseção de cada uma delas nos informa a solução do sistema. Como estamos lidando com
+um sistema quadrático, ambas incógnitas possuirão duas soluções, uma vez que tomada uma
+circunferência de uma das famílias e interceptada com uma outra da segunda família, teremos
+dois pontos de cruzamento, o que nos retorna dois valores para cada variável.31
+Figura 22: Família de Circunferências de Figura 23: Família de Circunferências de
+É importante perceber que os pontos coordenados considerados como solução do
+sistema (e existem infinitas possibilidades) são avaliados, justamente, pelas impedâncias
+relativas a carga da análise. E mais, as impedâncias da carta estão normalizadas, como se pode
+perceber desde o início do desenvolvimento.
+Figura 24: Interseção das Circunferências Figura 25: Esboço Simplificado da Carta de Smith
+Baseado nisso, podemos inferir ainda algumas propriedades a respeito da Carta de
+Smith:
+1. A parte superior corresponde às impedâncias indutivas e a inferior às impedâncias
+capacitivas;
+2. As impedâncias puramente resistivas são encontradas na horizontal central
+;
+3. Cada volta na Carta de Smith corresponde a um comprimento de na linha de
+transmissão;
+4. Transladar a carga ao encontro do gerador de significa girar o ponto que
+representa a impedância no sentido horário. Por outro lado, transladar a carga no
+sentido oposto significa girar o ponto no sentido anti-horário;
+5. Conhecido o módulo do coeficiente de reflexão (ou o ), é possível conhecer as
+impedâncias máxima e mínima normalizadas, bem como a localização dos pontos
+de máximo e mínimo. O ponto de máxima impedância reflete o valor do ,
+enquanto o ponto de mínima impedância reflete o valor de ;32
+6. Como a impedância é periódica, podemos inferir que o máximo de impedância
+ocorre quando a tensão é máxima e a corrente é mínima, ao passo que o mínimo
+de impedância ocorre quando a tensão é mínima e a corrente é máxima;
+7. A Carta de Smith pode ser utilizada tanto como uma carta de impedâncias como
+de admitâncias, a qual é simétrica da primeira. Para tanto, basta girar o ponto de
+para achar admitância correspondente a uma impedância. A explicação
+matemática é dada abaixo:
+12. Pontos Notáveis
+Além disso, podemos citar alguns pontos notáveis na Carta de Smith:
+12.1. Linha em Curto: como a impedância de carga é nula, então o ponto que
+representa a terminação em curto é dado pelo ponto no extremo esquerdo do eixo
+horizontal, o qual é a interseção deste eixo com a circunferência mais externa
+;
+12.2. Linha em Aberto: como a impedância de carga tende a infinito, então o ponto
+que representa a terminação em aberto é dado pelo ponto no extremo direito do eixo
+horizontal, o qual é a interseção deste eixo com a circunferência mais interna;
+12.3. Linha Puramente Reativa: como a impedância puramente reativa só apresenta
+o termo imaginário, então o lugar geométrico desses pontos será o círculo de maior
+raio da carta ;
+12.4. Linha Puramente Resistiva: como a impedância puramente resistiva não
+apresenta o termo imaginário, então o lugar geométrico desses pontos será o eixo
+horizontal;
+12.5. Linha Casada: é o lugar geométrico onde a impedância normalizada é unitária.
+Em problemas em que é necessário realizar o casamento de impedâncias, esta curva
+costuma ser a mais utilizada na avaliação.
+* isto informa que basta uma rotação de na Carta de Smith para se ter uma variação igual
+a , e portanto, a transferência da impedância para admitância.33
+13. Carta de Smith: uso do ábaco
+Esboçando todas as circunferência de cada família encontradas nas Figuras 21 e 22,
+somos capazes de determinar todas as possíveis interseções e assim contemplar o ábaco
+contendo o domínio de impedâncias e admitâncias, a Carta de Smith:
+Figura 26: Carta de Smith
+Considerando uma linha sem perdas de impedância característica
+terminada por uma carga genérica .
+1. A primeira coisa que precisamos fazer é normalizar a carga, pois só assim podemos
+utilizar a Carta de Smith:
+2. Podemos marcar tal carga na Carta de Smith através da interseção das duas
+coordenadas. Feito isso, podemos ligar o centro da carta ao ponto. O segmento é
+chamado de módulo.
+3. Através do uso do compasso, podemos gerar uma circunferência com raio igual ao
+módulo encontrado no item anterior. Essa é a circunferência do , cujo valor
+é igual a interseção deste círculo com o eixo horizontal à direita.
+4. Da Carta de Smith podemos determinar o coeficiente de reflexão através do
+conhecimento do módulo calculado, traçando uma reta que contenha o centro da
+carta e o ponto relacionada a carga em questão e fazendo a leitura na escala
+externa associada.34
+Figura 27: Carta de Smith Simplificada
+Podemos fazer o mesmo procedimento para obter tais informações para qualquer
+ponto da Carta de Smith.35
+14. Casamento de Carga: Stub Simples
+Já discutimos sobre a constante necessidade de se realizar o casamento entre a linha
+de transmissão que usamos pra o trânsito de um sinal e a carga a qual entregamos potência.
+No geral, potência esta o mais próximo possível da máxima transferível. Um dispositivo
+usualmente utilizado para esta finalidade é o stub, que não passa de um trecho de linha ou
+terminado em curto circuito ou em circuito aberto.
+Existem duas configurações para o uso dos stubs: em série ou em paralelo com a carga
+em questão.
+14.1. Stub em Série com Carga
+Consideremos a linha de transmissão citada no item anterior terminada com a mesma
+carga, a qual se encontra distante de a um stub conectado em série com a mesma. Nosso
+objetivo é fazer com que a impedância equivalente normalizada desta associação seja igual ao
+valor unitário, o que significa um casamento perfeito.
+Para tanto, sabemos que o stub pode ser modelado como uma carga de impedância
+reativa igual a . Se transladarmos a carga inicial de uma distância ao encontro
+do stub, o que implica girar o ponto representativo na Carta de Smith no sentido horário,
+então podemos fazer a associação em série das cargas resultando em:
+Mas como perseguimos o casamento, então a impedância equivalente normalizada
+precisará ser igual a 1:
+Sendo assim, os pontos notáveis que precisamos nos ater são aqueles em que o círculo
+na Carta de Smith é unitário. Podemos obter simplesmente rotacionando a carga ao
+encontro do circuito unitário. Perceba que teremos dois pontos de interseção, onde ambos
+podem ser lidos na carta. Note que os pontos possuem uma parte real (igual a 1, devido o
+casamento esperado) e uma imaginária. O stub associado a um dos pontos, então, terá sua
+reatância igual ao valor simétrico da parte imaginária do ponto em questão para justamente
+anular a parte imaginária da impedância equivalente.
+O valor da distância entre o stub e a carga pode ser obtido lendo a escala
+Wavelengths Toward Generator e avaliando quantos comprimentos de onda foram
+necessários variar desde o ponto inicial da carga até o momento de interseção com o raio
+unitário.
+Por fim, podemos determinar o comprimento do stub simplesmente fazendo uma
+outra análise à parte na carta. Na nova configuração, estamos tratando de uma carga de
+impedância nula (curto circuito). Sendo assim, seu ponto notável é o círculo mais externo
+interceptado com o eixo horizontal à esquerda. Para obtermos , basta rotacionarmos a carga
+(impedância nula) em questão em direção ao ponto onde obtemos o valor simétrico da parte36
+imaginária obtida de do primeiro passo do problema. Lê-se o valor na mesma escala
+usada para determinar de forma análoga. Com isso, finalizamos o problema.
+14.2. Stub em Paralelo com Carga
+A análise é análoga ao caso anterior. Todavia, como estamos tratando de associação
+em paralelo, é melhor trabalharmos com admitância ao invés de impedância. Isto porque
+numa associação em paralelo, basta somarmos as admitâncias das cargas para obtermos a
+admitância equivalente.
+Em um primeiro momento, determinamos o ponto da carga na carta e o rotacionamos
+de para obtermos sua admitância. Tal como no caso de stub em série, transladamos a
+carga em direção ao stub para termos uma admitância equivalente igual a:
+Toda a análise seguinte se faz de maneira análoga: rotacionamos o novo ponto de
+admitância em direção ao círculo unitário a fim determinar o valor de e o valor simétrico
+correspondente a susceptância da interseção do ponto com o círculo. Depois disso, calculamos
+o comprimento do stub rotacionando o ponto correspondente a admitância do curto circuito
+(que se encontra da interseção do raio externo com extremo direito do eixo horizontal) em
+direção ao simétrico da susceptância avaliada no passo anterior.
+Observe a figura abaixo a qual possui a resolução do problema:
+Figura 28: Resolução do Problema de Casamento com Stub Simples37
+Observação: cabe aqui salientar uma questão: os stubs considerados nas duas análises
+acima são do tipo terminados em curto circuito. Poderíamos ter utilizado stubs terminados em
+circuito aberto. A única diferença estaria no momento de obter o comprimento do stub, onde
+o ponto considerado na carta para a rotação seria o de impedância infinita (para o caso em
+série), e o de admitância infinita, ou seja, impedância nula (para o caso em paralelo).
+15. Casamento de Carga: Stub Duplo
+O casamento utilizando um segundo stub vem da necessidade de manter o sistema
+casado para um outro valor de carga. Ou seja, queremos ser capazes de inferir uma solução
+para o caso do sistema de transmissão fornecer energia a cargas de valores diferentes o qual
+não é alcançado com a utilização de apenas um stub.
+Neste arranjo temos dois elementos reativos ao longo da linha onde o primeiro
+funciona, pra todo efeito, da mesma maneira que o caso de stub simples; por outro lado, o
+segundo torna a distância fixa entre ambos elementos reativos correspondente ao ponto de
+parada sobre o círculo unitário da Carta de Smith. Vale salientar que as distâncias e são
+fixas e são critérios do projetista.
+Consideremos que a distância (que separa o primeiro stub da carga) é nula
+Isto implica que o primeiro stub se encontra exatamente em paralelo a carga em questão.
+Figura 29: Configuração de Linha de Transmissão em Típico problema de Casamento com Stub Duplo
+Onde estamos considerando que os stubs possuem admitâncias iguais a
+e , respectivamente. No final das contas, a admitância
+equivalente da associação em paralelo do primeiro stub com a carga, considerando a
+normalização das cargas, é dada por:
+Enquanto a admitância equivalente da configuração para casamento de stub duplo:
+Para tanto, a fim de realização o casamento, primeiro precisamos marcar a admitância
+da carga na Carta de Smith. Em segundo lugar, precisamos rotacionar a circunferência unitária38
+de tal forma a deslocá-la de um distância no sentido horário (para o caso de estarmos
+considerando a carga sendo transladada no sentido horário).
+A terceira etapa consiste em determinar a interseção entre a circunferência e a
+circunferência deslocada, onde o tal ponto é dado por . Substituímos o valor na equação
+para calcularmos . Note que ocorrerão duas interseções.
+Feito isso, a quarta e última etapa recai a um problema de stub simples, uma vez que
+calculamos a susceptância do primeiro stub.
+Avalie a figura abaixo junto com a descrição do método acima:
+Figura 30: Problema da Região Proibida no Casamento com Stub Duplo
+Podemos ainda perceber que algumas impedâncias não são possíveis de serem
+casadas, pela circunferência constante não intersetar com a circunferência unitária
+deslocada. Estas impedâncias, as quais se encontram na região hachurada, constituem a
+chamanda Região Proibida, por não haver solução por este método.
+Para contornar este problema, podemos utilizar do casamento com um terceiro stub, o
+qual está fora do escopo desta apostila, nos atentando apenas a casos simples e utilizados na
+prática.39
+16. Exercícios Propostos:
+1. Uma onda plana e uniforme, propagando-se no vácuo , incide normalmente num slab
+com de espessura. O material com o qual este slab é feito é um dielétrico sem perdas
+com permissividade relativa . Qual a porcentagem de potência incidente que é refletida,
+sabendo que a freqüência da onda eletromagnética é de .
+2. Uma carga de se encontra acoplada a uma linha de transmissão de impedância
+característica de A frequência de operação é de .
+a. Encontre os menores stubs que fazem o casamento da carga da linha.
+b. Com o casamento feito no , e se a frequência for alterada para , qual
+será o causado pelo descasamento?
+3. Uma antena tem admitância normalizada igual a . Pela Carta de Smith,
+determine:
+a. Qual o coeficiente de reflexão da antena;
+b. Qual o valor de ;
+c. A que distância da antena acontecerá o primeiro máximo de tensão na linha.
+4. Considere a linha terminada contendo dois stubs curto-circuitados. A posição em que
+os stubs estão ligados à linha é fixa, mas os comprimentos dos stubs (d1 e d2) são ajustáveis. A
+carga é . A linha e os stubs têm uma impedância característica
+. Determine os menores valores de d1 e d2 de maneira que não haja nenhuma
+onda refletida em A.40
+5. Calcular a impedância característica de um transformador de quarto de onda que
+transforme uma carga de de modo a casar esta carga com uma linha de .
+6. Considere as seguintes medidas:
+? ;
+? Distância da carga ao primeiro mínimo de tensão: ;
+? Distância da carga ao segundo mínimo de tensão: .
+Estas medidas foram obtidas em uma linha de transmissão sem perdas, de de
+impedância característica, quando terminada por uma carga desconhecida. Determine a
+impedância dessa carga.
+7. Uma linha de transmissão sem perdas, com o comprimento , de
+impedância característica está terminada por uma impedância
+. A partir da Carta de Smith, determine:
+? O coeficiente de reflexão na carga (módulo e fase);
+? ;
+? A impedância de entrada;
+? A localização de um máximo de tensão na linha.
+8. Uma linha de transmissão de foi casada a uma carga de através de um
+transformador de e frequência de . O comprimento do transformador é igual a
+. Encontre, através da Carta de Smith, o máximo quando esse mesmo sistema é
+utilizado na frequência de . Considere a velocidade da onda na linha igual a da onda
+no vácuo.
+9. Um stub em curto de está ligado em paralelo numa linha de transmissão e dista
+de uma carga com admitância normalizada igual a . Para ? igual a ,
+calcule o pela Carta de Smith.
+10. Considere uma carga de impedância relativa .
+? Case este sistema e calcule em centímetros o tamanho do stub (aberto) em
+série com a carga e a sua localização para comprimento de onda igual a ;
+? Mantendo os valores determinados antes, calcule, analiticamente, o valor de
+máximo para variação do comprimento de onda em .
+11. Dada a linha de transmissão ideal representada na figura, pede-se:
+a. o valor da carga quando a impedância de entrada da linha é igual a e
+o comprimento é qualquer;41
+b. o valor da menor carga puramente resistiva que admite uma impedância de
+entrada igual a ;
+c. o valor de , na condição b, se a excitação é igual a e o dielétrico é o
+ar.
+12. Ache a impedância de entrada da Linha de Transmissão abaixo:
+13. Dado a estrutura abaixo, determine:
+a. Mostre que e
+b. Mostre que é solução então é outra solução.42
+17. APÊNDICE: The Complete Smith Chart43
+18. Referências
+http://www.newtoncbraga.com.br/index.php/telecomunicacoes/8550-conheca-os-tipos-delinhas-de-transmissao-tel105. Tipos de Linhas de Transmissão. Página visitada em 17 de
+setembro de 2014.
+http://www.eletrica.ufpr.br/marlio/mestrado/te746/SI01.pdf. Parâmetros Distribuídos. Página
+visitada em 17 de setembro de 2014.
+http://materias.fi.uba.ar/6209/download/6-Lineas1.pdf. Descrição da Linha de Transmissão.
+Página visitada em 17 de setembro de 2014.
+http://www.dee.ufma.br/~srjonas/documentos/6lab_casamento_estube.pdf. Casamento de
+Impedância utilizando Stub. Página visitada 03 de outubro de 2014.
+http://files.sistele7.webnode.com/200000184-a3550a5493/Parte6_x.pdf. Casamento de
+Impedâncias. Página visitada 03 de outubro de 2014.
+http://wmedina.galeon.com/smith.gif. The Complete Smith Chart. Página visitada 10 de
+outubro 2014.44
+19. Bibliografia
+? MARTINS DANTAS, Tarcísio. Apostila de Eletromagnetismo III: Linhas de Transmissão,
+2005.
+? Notas de Aula do Curso de Eletromagnetismo II, 2013.
+? HAYT Jr, William H.; BUCK, John A. Engineering Electromagnetics. 6th Edition. McGrawHill, 2001.
+? SILVA, Gilberto Vianna Ferreira da; BARRADAS, Ovídio Cesar Machado.
+Telecomunicações – Sistemas Radiovisibilidade. 1ª Edição. Livros Técnicos e Científicos
+Editora, 1977.

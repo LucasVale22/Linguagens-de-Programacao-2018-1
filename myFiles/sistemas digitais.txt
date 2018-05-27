@@ -1,0 +1,42 @@
+EEL 480 - Sistemas Digitais
+
+
+Ementa
+
+Linguagens de descrição de hardware. 
+VHDL. 
+Projeto de controladores com múltiplas entradas. 
+Projeto de controladores usando circuitos MSI e LSI. 
+Projeto de controladores programáveis. 
+Projeto de circuitos assíncronos. 
+Bibliografia
+
+Milos Ercegovac, Tomas Lang e Jaime H. Moreno, "Introdução aos Sistemas Digitais", 1a Ed., Bookman.
+Daniel D. Gajski, "Principles of Digital Design", 1a Ed., Prentice Hall.
+Laboratório de Sistemas Digitais
+
+Hardware
+Kit Xilinx Spartan 3AN
+Software
+Configuração na conta pessoal do Linux: site do DEL
+Spartan-3AN User Guide - Spartan 3A/3AN
+Exemplos para o Display LCD - lcd.vhd, lcd.ucf 
+Exemplos para o teclado PS-2 - ps2_rx.vhd, fifo.vhd, kb_lcode.vhd 
+Mais exemplos para o teclado PS-2 - kb_mon.vhd, key2ascii.vhd, kb_test.vhd 
+Exemplos para UART - ch07.zip
+Roteiros
+
+1o Relatorio 
+2o Relatorio 
+Bibliografia
+Introdução à linguagem VHDL: Transparências
+
+Pong P. Chu, "FPGA Prototyping by Examples (Xilinx Spartan-3 Version)", Wiley-Interscience, 1st Ed.
+
+Volnei A. Pedroni, "Circuit Design and Simulation with VHDL", The MIT Press, 2nd Ed.
+
+Notas 2017/2 - EL3
+
+Notas 2017/2 - EL4
+
+To reach me, l u i s h at g t a . u f r j . b r

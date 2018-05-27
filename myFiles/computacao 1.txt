@@ -1,0 +1,52 @@
+EEL170 Computação I
+Objetivo: Capacitar o aluno a dominar a lógica de programação, desenvolver algoritmos e pequenos sistemas
+Carga Horária Teórica: 60 horas
+Carga Horária Prática: 30 horas
+Professor: Antônio Cláudio Gómez de Sousa ac@del.ufrj.br
+Professor: Celso A. de Souza Aguiar celsoale@gmail.com
+Professor: Pedro Braconnot Velloso velloso@poli.ufrj.br
+Monitor: Kaylani Bochie kaylani2@poli.ufrj.br
+Aulas teóricas: Segunda das 13:00 às 15:00 e terça das 15:00 às 17:00 na sala H209
+Aulas práticas: EL1 Segunda às 10:00, EL2 terça às 8:00 e EL3 terça às 15:00
+IMPORTANTE: netadmin@del.ufrj.br para resolver problemas com a conta
+Ementa
+A história da computação e o impacto da computação no trabalho.
+O computador. As redes de computadores.
+A solução de problemas via computador. O ciclo de vida de projetos computacionais.
+Algoritmos como representação da solução de problemas numéricos e não numéricos.
+Especificação de algoritmos.
+Algoritmos: estruturas de controle e estruturas de dados.
+Algoritmos: modularização.
+Algoritmos e refinamento etapa por etapa.
+Documentação de programas.
+Pascal: estruturas de controle; modularização; estruturas de dados: matrizes, arquivos; pointers.
+A programação com objetos em Pascal.
+Bibliografia
+AGUILAR, Luis J. Fundamentos de Programação - Algoritmos, Estruturas de Dados e Objetos. São Paulo: McGrawHill, 2008
+FORBELLONE, Andre L. V.; EBERSPACHER, Henri F. Lógica de Programação. 3a ed. São Paulo: Pearson Prentice Hall, 2005
+ASCENCIO, Alice F. G.; CAMPOS, Edilene A. V. Fundamentos da Programação de Computadores. 2a ed. São Paulo: Pearson Prentice Hall, 2007
+FARRER et al. Pascal Estruturado. 3a ed. Rio: Editora LTC, 1999
+VELLOSO, Fernando de C. Informática - Conceitos Básicos. 6a ed. Rio: Editora Campus, 1997
+Normas e Guias
+Guia para o Desenvolvimento de Projeto
+Linguagem de Especificação de Algoritmos - LEA
+Links
+Free Pascal Compiler
+Pascal GNU Compiler
+Lazarus IDE
+Download
+
+Apresentação parte 1 
+Apresentação parte 2 
+Apresentação parte 3 
+Apresentação parte 4 
+Apresentação parte 5 
+Exemplo de menu com barras deslizantes 
+Provas 1 
+Provas 2
+Planejamento
+Clique aqui para ver o Planejamento
+Notas
+Clique aqui para ver as notas até o momento
+Avisos
+Clique aqui para ver os avisos

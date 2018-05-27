@@ -1,0 +1,204 @@
+A disciplina de Eletrônica III é oferecida aos alunos do curso de Engenharia Eletrônica da UFRJ com o objetivo de familiarizar os alunos com a resposta em frequência de circuitos amplificadores, a análise e o projeto de amplificadores com realimentação negativa, juntamente com questões relativas à estabilidade (compensação) e a instabilidade (osciladores) de amplificadores realimentados. Nesta disciplina também é feito um estudo mais detalhado dos amplificadores operacionais e suas características não ideais.
+
+Nesta página encontram-se disponíveis informações sobre o curso ministrado no segundo semestre de 2015.
+
+Sala e Horários:
+
+· Aulas Teóricas: Sala H-211 (Segundas de 13:00 às 15:00 e Quintas de 15:00 às 17:00)
+
+· Aulas Práticas (EL1 e EL2): LEG Sala H-202 (Quintas de 08:00 às 12:00)
+
+· Aulas Práticas (EL3 e EL4): LEG Sala H-202 (Sextas de 08:00 às 12:00)
+
+Ementa da Disciplina:
+
+· Resposta em Frequência de Amplificadores
+
+· Amplificadores com Realimentação Negativa
+
+· Amplificadores Operacionais
+
+· Osciladores
+
+· Estabilidade de Amplificadores Realimentados  e Compensação
+
+Avaliações
+
+· Provas Escritas (90% da Média Teórica):
+
+- Prova #1 (P1): 14/01/2016
+
+- Prova #2 (P2): 10/03/2016
+
+· Listas de Exercícios (L) (10% da Média Teórica)
+
+· Avaliação de Laboratório (Lab) (20% da Média Final)
+
+· Cálculo da Média Teórica (M):
+
+MT ¬ 0.9*((P1 + P2)/2) + L
+
+· Prova de Segunda Chamada:
+
+- Caso o aluno tenha faltado a alguma das duas provas parciais P1 ou P2, este deverá realizar a Prova de Segunda Chamada. A nota dessa prova substituirá a nota da prova perdida no cálculo da média MT acima.
+
+- Prova de Segunda Chamada (P2a): 14/03/2016
+
+· Prova Final:
+
+- Caso o aluno obtenha 3.0 < MT < 7.0, deverá prestar uma Prova Final.
+
+- Caso  MT < 3.0, o aluno estará reprovado e não terá direito a fazer a Prova Final.
+
+- Prova Final (PF): 17/03/2016
+
+- Cálculo da nova Média Teórica com a Prova Final:
+
+MT ¬ (MT + PF)/2
+
+· Aprovação:
+
+- MT e LAB maiores ou iguais a 5.0: Aprovado
+
+- MT ou LAB inferior a 5.0: Reprovado
+
+ 
+
+· Média Final:
+
+- Caso o aluno tenha sido aprovado, sua média final será obtida da seguinte forma:
+
+MF ¬ 0.8*MT + 0.2*LAB
+
+- Caso o aluno tenha sido reprovado, a média final MF será igual à nota que o reprovou. Se MT < 5,0, então, MF ¬ MT.  Por outro lado, se LAB < 5,0, então teremos MF ¬ LAB.
+
+ 
+
+Listas de Exercícios:
+
+As listas de exercícios serão entregues aos alunos ao longo do curso. Os alunos possuem um prazo de duas semanas para resolver cada lista, cujas soluções deverão ser entregues na data estipulada pelo professor.
+
+As listas serão avaliadas pelo professor para verificar o progresso da turma no aprendizado da matéria ministrada em sala de aula. Cada um dos alunos receberá uma pontuação referente à quantidade de listas de exercícios entregues.
+
+Após a avaliação, o professor devolverá as listas de exercícios aos alunos com o respectivo gabarito, contendo a solução detalhada de cada uma das questões da lista.
+
+ 
+
+Listas
+
+Enunciados
+
+Gabaritos
+
+Datas de Entrega
+
+01
+
+Xerox - Pasta 328
+
+Xerox - Pasta 328
+
+17/12/2015
+
+02
+
+Xerox - Pasta 328
+
+Xerox - Pasta 328
+
+07/01/2016
+
+03
+
+Xerox - Pasta 328
+
+Xerox - Pasta 328
+
+15/02/2016
+
+04
+
+Xerox - Pasta 328
+
+Xerox - Pasta 328
+
+07/03/2016
+
+05
+
+Xerox - Pasta 328
+
+Xerox - Pasta 328
+
+Não será Entregue
+
+
+ 
+
+Bibliografia:
+
+A bibliografia adotada no curso é a seguinte:
+
+· A. S. Sedra e K. C. Smith. Microelectronic Circuits (Preferencialmente a 4ª ou a 6ª edições) .
+
+· As notas de aula com o resumo da teoria ensinada em sala, as listas de exercícios e seus respectivos gabaritos são disponibilizados na copiadora localizada no subsolo do bloco H, na pasta 328.
+
+· O material de aula do Prof. Joarez pode ser obtido aqui.
+
+Os slides utilizados em aula podem ser baixados aqui:
+
+· Revisão de Sistemas Lineares
+
+ 
+
+Aulas de Laboratório 
+
+Antes de qualquer aula prática, os alunos devem fazer o trabalho preparatório descrito no guia de laboratório e trazê-lo pronto no dia da aula para ser entregue ao professor. Nesse trabalho preparatório, deve constar o projeto do circuito a ser montado, juntamente com os resultados obtidos através de simulações Spice. O trabalho preparatório deverá ser obrigatoriamente redigido segundo as Normas para a Redação de Preparatórios.
+
+A seguir, estão alguns links com o material necessário para as aulas práticas:
+
+Simulador PSpice Student:
+
+· Orcad 16.6 Versão Estudante (download - 980 MB)
+
+Tutorial sobre o Orcad:
+
+· Orcad PSpice A/D - User’s Guide
+
+Experimentos das Aulas Práticas:
+
+· 1ª Aula Prática - Resposta em Frequência
+
+· 2ª Aula Prática - Amplificador Operacional Elementar
+
+· 3ª Aula Prática - Realimentação Negativa
+
+· 4ª Aula Prática - Conversores de Impedância
+
+· 5ª Aula Prática - Osciladores Senoidais em Ponte de Wien
+
+· 6ª Aula Prática - Oscilador  de Onda Quadrada Triangular e Senoidal
+
+· 7ª Aula Prática - Gerador de Funções
+
+Manuais dos Componentes Utilizados (Data Sheets):
+
+· BC546/547/548/549/550 (Transistor Bipolar NPN)
+
+· BC556/557/558/559/560 (Transistor Bipolar PNP)
+
+· BF245 (JFET de Canal N)
+
+· TL072 (Amplificador Operacional)
+
+Bibliotecas PSpice dos Componentes:
+
+· Biblioteca 
+
+Resultados (2015/2)
+
+· Listas de Exercícios
+
+· Provas
+
+ 

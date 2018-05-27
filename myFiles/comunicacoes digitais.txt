@@ -1,0 +1,8 @@
+Comunicações Digitais
+Código: 
+EEL740
+Créditos: 
+5
+URL: 
+Ementa: 
+Informação e entropia: códigos de fonte. Códigos de Huffman, codificação aritmética. Informação mútua e capacidade do canal. Espaço de sinais: decomposição de Gram-Schmidt. Deteção por correlação e por filtros casados. Probabilidade de erro. Quantização de sinais: escalar e noção da vetorial. DPCM, DM e ADM. Critério de Nyquist. Correlação correlativas. Modulação digital: PSK, FSK, MSK e QAM. Códigos de controle de erro: em blocos fixos, convolucional e por treliças de Ungerboeck. Modulação por espalhamento de espectro. Noções de redes de comunicações digitais.

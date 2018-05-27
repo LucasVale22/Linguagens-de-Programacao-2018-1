@@ -1,0 +1,8 @@
+Sistemas Lineares I
+Código: 
+EEL350
+Créditos: 
+5
+URL: 
+Ementa: 
+Modelagem, analogias e análise de sistemas físicos. Resposta a entrada zero, resposta ao estado zero e convolução. Resposta a uma entrada exponencial. Transformação de Fourier. Transformação de Laplace. Função de transferência, pólos e zeros. Resposta impulsional, resposta ao degrau, resposta senoidal. Sistemas de 1ª e 2ª ordens e de ordem superior, sistemas de fase não mínima: Resposta em freqüência e Diagramas de Bode.

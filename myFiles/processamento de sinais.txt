@@ -1,0 +1,67 @@
+EEL711 - Processamento de Sinais
+
+DEL/POLI/UFRJ – 2018/1
+
+Profa. Mariane R. Petraglia (Sala H219/11 - Tel. 39388162) mariane@pads.ufrj.br
+
+_______________________________________________________________________
+
+SOBRE O CURSO
+
+·        Ementa, avaliação, bibliografia: pdf
+
+_______________________________________________________________________
+
+TESTES E PROVAS
+
+·        4º. Teste: 05/06 (Estruturas e Projeto de Filtros FIR)
+
+·        5º. Teste: 07/06 (Projeto de Filtros IIR)
+
+ 
+
+·        2ª. Prova: 21/06
+
+_______________________________________________________________________
+
+SLIDES                                                                         
+
+·        Introdução: pdf
+
+·        Sinais e sistemas discretos: pdf
+
+·        DTFT: pdf
+
+·        Amostragem: pdf
+
+·        DFT: pdf
+
+·        Transformada Z: pdf
+
+·        Propriedades de sistemas LTI: pdf, pdf2
+
+·        Estruturas de Filtros Digitais: pdf
+
+·        Projeto de Filtros FIR: pdf
+
+·        Projeto de Filtros IIR: pdf1, pdf2
+
+_______________________________________________________________________
+
+LISTAS DE EXERCÍCIOS                                         
+
+·        1ª. Lista: pdf – Entrega: 27/03
+
+·        2ª. Lista: pdf – Entrega: 05/04
+
+·        3ª. Lista: pdf – Entrega: 12/04
+
+·        4ª. Lista: pdf – Entrega: 19/04
+
+·        5ª. Lista: pdf – Entrega: 03/05
+
+·        6ª. Lista: pdf – Entrega: 24/05
+
+ 
+
+ 

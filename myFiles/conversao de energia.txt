@@ -1,0 +1,8 @@
+Conversão de Energia
+Código: 
+EEE387
+Créditos: 
+5
+URL: 
+Ementa: 
+Circuitos monofásicos e trifásicos em regime permanente. Transformadores trifásicos. Máquinas elétricas em regime permanente: síncronas, assíncronas, trifásicas e monofásicas e de corrente continua.

@@ -1,0 +1,8 @@
+Comunicações Analógicas
+Código: 
+EEL640
+Créditos: 
+5
+URL: 
+Ementa: 
+Revisão da Transformada de Fourier, DFT e FFT. Amostragem de sinais. Taxa de Nyquist. Densidade espectral, uso da FFT. Modulação em amplitude. Geração/demodulação: DSB, AM, SSB e VSB. Modulação em ângulo: FM e PM. Multiplex em freqüência. Modulação por pulsos: PAM, PDM (PWM) e PPM.; multiplex de sinais PAM. Representação do ruído de banda básica: relação sinal/ruído na entrada e saída de demoduladores. Ruído térmico. Cálculo de potencia em sistemas de visada direta.

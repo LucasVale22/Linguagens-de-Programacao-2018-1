@@ -1,0 +1,101 @@
+
+Informações Gerais
+
+
+ 
+
+Aula #1 (16/03/2018 correções feitas: fator 2 no expoente da fórmula para ni (Seção 1.1.1); esclarecimento da expressão “p. majoritários = portadores majoritários” (final da Seção 1.1.2)).
+
+Aula de Laboratório Inicial (não cai na prova. É um apoio teórico para a Experiência #1).
+
+Aula #2
+
+Aulas #3 e #4
+
+Aula #5 (cálculo de valores DC e RMS. E senóides retificadas: meia-onda e onda completa. Aula dada no dia da Aula #6 do Calendário: 24/04/2018)
+
+Aula de Exercícios anterior à Prova Parcial #1 (destaques: 1) correção sobre a primeira derivação de VAC,RMS = VR,P/sqrt(3) da Aula #5; 2) algumas sugestões para a Lista #6, complementares às do Gabarito #6; 3) uso de modelos lineares por partes do diodo Zener (bateria e resistência) em uma aplicação prática)
+
+Aula #5 – uma correção adicional, na última página
+
+Aula #6 (aula teórica dos dias 08 e 10/05/2018, dada no LEG)
+
+Aula #7 (aulas teóricas dos dias 15 e 22/05/2018)
+
+ 
+
+2. Exercícios
+
+ 
+
+Lista de Exercícios #1                    
+
+Gabarito da Lista #1
+
+Lista de Exercícios #2                    
+
+Gabarito das Questões 1 e 2 da Lista #2
+
+Gabarito das Questões 1 e 2 da Lista #2 (pequenas correções)
+
+Gabarito das Questões 3 e 4 da Lista #2
+
+Gabarito da Lista de Exercícios Extra (resolvida pelo monitor em 27/03/2018)
+
+Listas de Exercícios #3 e #4
+
+Gabarito das Listas de Exercícios #3 e #4
+
+Gabarito das Listas de Exercícios #3 e #4 (versão 2, 28/04/2018, questões com diodo Zener)
+
+Lista de Exercícios #5
+
+Gabarito da Lista de Exercícios #5
+
+Lista de Exercícios #6 (referente à aula do dia 24/04/2018. Para entrega no dia 01/05/2018)
+
+                Gabarito da Lista de Exercícios #6
+
+Dados e Lista de Equações para a Prova Parcial #1
+
+Lista de Exercícios #7 (para entrega na terça-feira 05/06/2018 – prazo de duas semanas a partir de 22/05/2018)
+
+ 
+
+3. Experiências de Laboratório
+
+ 
+
+Experiência 1                    Experiência 2
+
+Experiência 3                    Experiência 4
+
+Experiência 5                    Experiência 6
+
+Experiência 7                    Experiência 8
+
+ 
+
+4. Simulador
+
+ 
+
+Apostila Introdutória
+
+Simulador (OrCAD 16.6 Lite)
+
+Biblioteca de componentes (use somente diode.olb e diode.lib)
+
+ 
+
+5. Provas Anteriores
+
+ 
+
+Prova Parcial #1 08/05/2018                       Gabarito P1 08/05/2018
+
+ 
+
+Página criada: 12/03/2018 17:55
+
+Última atualização: 19/05/2018 16:40

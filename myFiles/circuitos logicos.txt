@@ -1,0 +1,37 @@
+Módulos (notas de aula) 
+ 
+Disponíveis em arquivos Acrobat Reader ( .pdf )
+
+Módulo 1	    
+Projeto de Sistemas Digitais
+
+Módulo 2	    
+Sistemas de numeração, Funções Lógicas, Tabela Verdade, Teoremas da Álgebra de Boole 
+Circuitos presentes no módulo 2 
+
+Módulo 3	    
+Circuitos Lógicos e a Tecnologia de CI's
+
+Módulo 4	    
+Tabelas verdade e Mapas de Karnaugh
+
+Módulo 5	    
+Projeto de Circuitos Combinacionais: Codificadores, Decodificadores,
+Conversores de Código, Multiplexadores, Comparadores. 
+Circuitos presentes no módulo 5 
+
+Módulo 6	    
+Circuitos Aritméticos: Sistemas de Numeração, Somadores, Carry
+Lookahead, ULA, Adição BCD
+
+Módulo 7	    
+   Módulo VHDL   OBS: Os módulos acima (zip, doc, pdf) incluem a parte relacionada a Circuitos Sequenciais, que será vista posteriormente. 
+
+Módulo VHDL Especial      
+Texto de artigo  
+Tutorial-VHDL-MaxPlus   
+
+Introdução ao VHDL
+
+Módulo 8	    
+Dispositivos Lógicos Programáveis - PLDs

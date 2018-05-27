@@ -1,0 +1,88 @@
+
+
+
+
+Projeto Integrado - 2017.2 | Orientadores: Joarez Bastos | Carlos José
+
+Alunos: 	Fernanda Ferreira Blumenthal Cassinelli 
+	   	Lucas do Vale Santos
+		Lucas do Santos Gonçalves de Miranda
+
+
+
+1. Sumário
+
+O presente projeto consiste na implementação de um sistema destinado ao monitoramento eletrônico de um ambiente onde uma planta esteja inserida. Este projeto visa atender às necessidades de um usuário que não disponha de tempo ou conhecimentos suficientes para cuidar bem de sua planta. Através de um sistema automatizado e que funciona através de plataformas portáteis, o usuário poderá acompanhar à distância todas as informações necessárias para a manutenção da sua planta, coletando e acompanhando características fundamentais para a sobrevivência da mesma. 
+O projeto foi desenvolvido pelos alunos citados através do Projeto Integrado, cuja iniciativa é oferecida pelo Departamento de Engenharia Eletrônica e de Computação (Escola Politécnica - UFRJ)  aos alunos de graduação, onde os mesmos têm a oportunidade de aplicar seus conhecimentos adquiridos durante o curso para a simulação de um produto profissional.
+Para a execução deste projeto, foi estabelecida uma meta de dezesseis semanas, sendo agrupadas nas seguintes partes: plano de trabalho (duas semanas), avaliação intermediária (seis semanas),  avaliação final (sete semanas) e entrega da documentação (1 semana). O cronograma será esclarecido posteriormente na seção 4. 
+
+
+
+
+
+		
+
+2. Objetivo do Projeto
+
+O projeto tem como objetivo facilitar a manutenção de um ambiente ideal de acordo com as necessidades de uma planta, monitorar a umidade do solo, a umidade do ar, e a temperatura do ambiente no qual a planta está inserida. Com isso o projeto auxilia o dono da planta que não possui disponibilidade de tempo para checar o estado da sua planta com frequência, e facilita assim a manutenção do ambiente ideal de acordo com a planta cultivada.
+Trata-se de um projeto compacto com poucos processos, onde tentamos minimizar o máximo de ferramentas possíveis para aquisição e tratamento dos dados. De maneira geral, dispomos de sensores interligados entre a planta a e um módulo programável. Por sua vez, este sensor foi alimentado por uma bateria externa. O módulo apenas foi conectado ao computador para efeitos de programação.
+	Já existem projetos que são responsáveis por monitorar as condições do ambiente onde a planta está inserida, mas que não incluem a avaliação dessas condições levando em conta os parâmetros de referência de uma planta específica para que esta se mantenha saudável. Os sistemas que já existem para ambientes domésticos costumam ser desenvolvidos para fins pessoais ou didáticos, não sendo encontrados facilmente para aquisição em lojas físicas ou virtuais. Existem também sistemas projetados em larga escala voltados para a agricultura, mas que não se adequam a propósitos não industriais
+	Por ser um produto de baixo custo e de fácil adaptação para diversas espécies de plantas, pode ser produzido em larga escala sem grande necessidade de desenvolvimento de novas lógicas de implementação.
+
+
+3. Implementação e funcionamento
+
+Para o projeto utilizamos um módulo NodeMCU, que possui Wi-Fi integrado (ESP8266), um sensor de umidade do ar e temperatura DHT11, um sensor de umidade do solo (higrômetro), além de uma bateria externa para alimentação.
+A partir do Arduino Software (IDE), criamos um código de extensão .ino para a captura dos dados dos sensores e o tratamento dessas informações. Os dados processados pelo NodeMCU são enviados, em tempo real, para o servidor web via Wi-Fi para que o usuário tenha acesso às informações sobre o estado físico do ambiente da planta. É possível ver um breve resumo do funcionamento do sistema a partir da figura 1, bem como uma imagem ilustrativa da montagem do circuito.
+Na página web o usuário pode verificar as últimas 48 medições da temperatura, umidade do ar e umidade do solo, que correspondem a medições feitas de trinta em trinta minutos nas últimas vinte e quatro horas. A partir desses dados é informado se, nas últimas vinte e quatro horas, a planta estava em um local adequado e com a terra suficientemente molhada. É possível observar a interface do usuário nas figuras 3 e 4, que apresentam possíveis respostas do sistema.
+
+
+Figura 1 - Diagrama de blocos do funcionamento do sistema.
+
+
+
+Figura 2 - Imagem ilustrativa da montagem do circuito.
+
+
+Figura 3 - Exemplo da página exibida quando a temperatura e umidade do ar estão dentro do ideal, mas a umidade do solo está abaixo do esperado.
+
+
+
+
+Figura 4 - Exemplo de exibição da página quando o ambiente no qual a planta se encontra estão nas condições ideais.
+
+
+
+
+
+
+
+
+
+4. Cronograma
+
+5. Orçamento
+
+	O custo total do projeto se limitou à compra dos componentes eletrônicos para a montagem do hardware. Foram eles:
+
+NodeMCU Esp8266: R$ 27,59;
+Sensor de umidade do solo: R$ 8,99;
+Sensor de temperatura e umidade do ar R$ 6,00;
+Bateria externa: R$ 5,00;
+Jumpers: R$ 3,00.
+
+Portanto, toda a implementação do sistema de monitoramento custou 50,58 reais, podendo ser considerada uma tecnologia de baixo custo, sendo acessível a mais pessoas.
+
+
+6. Testes e Resultados
+
+Uma sequência de testes foi realizada para garantir que o sistema cumpriria seus requisitos básicos, foram eles:
+
+Leitura dos valores analógicos obtidos pelos sensores de forma individual, para garantir que cada um deles funcionava corretamente.
+Teste da montagem com todos os sensores simultaneamente e suas leituras pelo módulo NodeMCU através da IDE própria do Node.
+Testes de conexão via Wi-Fi com o servidor web criado para envio dos dados obtidos pelo NodeMCU.
+Teste do envio de dados para o servidor.
+Simulação de resposta do sistema às mudanças nas condições do ambiente.
+
+A versão final do sistema respondeu bem a todos os testes listados acima, o que garantiu que suas funcionalidades implementadas estavam de acordo com o que foi proposto.
+Os resultados dos testes foram satisfatórios, o sistema implementado cumpre o objetivo para o qual foi projetado.

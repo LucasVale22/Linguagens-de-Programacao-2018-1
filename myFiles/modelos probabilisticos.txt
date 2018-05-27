@@ -1,0 +1,4259 @@
+MP
+EEL630 — Modelos Probabilísticos em Engenharia
+Notas de aula
+Profs. Wallace Alves Martins & Vitor Rosa Meireles Elias
+Laboratório de Sinais, Multimídia e Telecomunicações (SMT)
+Departamento de Engenharia Eletrônica e de Computação (DEL)
+Escola Politécnica (Poli)
+Universidade Federal do Rio de Janeiro (UFRJ)
+wallace.martins@smt.ufrj.br
+vitor.elias@smt.ufrj.br
+Tais notas de aula consistem em modificações das notas de aula do
+Prof. Luiz Wagner Pereira Biscainho (wagner@smt.ufrj.br)
+13 de Junho de 2017
+1 / 248MP
+Informações Sobre o Curso
+Horário
+Horário de nossas aulas (4h/semana):
+Quartas: de 8h às 10h
+Sextas: de 8h às 10h
+Atendimento prioritário para dúvidas com Prof. Vitor:
+Enviar email para vitor.elias@smt.ufrj.br para agendar
+Tipicamente, encontra-se disponível no SMT-1 (H221) na parte da tarde
+Atendimento com Prof. Wallace:
+Quartas-feiras, de 14h às 17h, no gabinete 12 (H219, professores)
+Facilita se enviar email antes (wallace.martins@smt.ufrj.br)
+2 / 248MP
+Informações Sobre o Curso
+Avaliação
+8 testes (˜ 45 min de duração) distribuídos ao longo do curso
+Média final = média aritmética das 7 maiores notas
+Ou seja, a menor nota será descartada
+Não há testes repositivos. A nota descartada serve como reposição
+Se média final = 5, então aprovado. Caso contrário, reprovado
+Listas podem compor as notas dos testes como bônus
+3 / 248MP
+Informações Sobre o Curso
+Datas dos Testes
+Teste 1: 17/03/2017 – sexta-feira
+Teste 2: 31/03/2017 – sexta-feira
+Teste 3: 19/04/2017 – quarta-feira
+Teste 4: 05/05/2017 – sexta-feira
+Teste 5: 19/05/2017 – sexta-feira
+Teste 6: 02/06/2017 – sexta-feira
+Teste 7: 23/06/2017 – sexta-feira
+Teste 8: 07/07/2017 – sexta-feira
+4 / 248MP
+Informações Sobre o Curso
+Bibliografia
+Livro-texto
+Peyton Z. Peebles Jr., “Probability, Random Variables and Random
+Signal Principles”, 4th Edition, McGraw Hill, New York, NY, 2000.
+5 / 248MP
+Informações Sobre o Curso
+Bibliografia
+Outras referências:
+José P. A. e Albuquerque, José M. P. Fortes, Weiler A. Finamore,
+“Probabilidade, Variáveis Aleatórias e Processos Estocásticos”,
+1a Edição, Editoras Interciência e PUC-Rio, Rio de Janeiro, RJ, 2008.
+Barry R. James, “Probabilidade: Um Curso em Nível Intermediário”,
+3a Edição, IMPA, Rio de Janeiro, RJ, 2006.
+Steven Kay, “Intuitive Probability and Random Processes Using
+MATLAB®”, 1st Edition, Springer, New York, NY, 2006.
+6 / 248MP
+Informações Sobre o Curso
+Ementa
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+7 / 248MP
+Informações Sobre o Curso
+Ementa
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+7 / 248MP
+Informações Sobre o Curso
+Ementa
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+7 / 248MP
+Informações Sobre o Curso
+Ementa
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+7 / 248MP
+Probabilidade
+Sumário
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+8 / 248MP
+Probabilidade
+Motivação
+Introdução
+James Clerk Maxwell
+“The true logic of this world is in the calculus of probabilities.”
+Probabilidade lida com
+cálculos de chance de algo ocorrer
+predição de comportamentos médios
+regularidade estatística
+É comum que seja inviável/inadequado usar um modelo em que causas
+e efeitos sejam totalmente previsíveis (tenham natureza determinística)
+Complexidade dos fenômenos físicos ? incertezas
+Modelos probabílistos podem ser mais úteis em tais ocasiões
+Os exemplos a seguir ilustram tais fatos
+9 / 248MP
+Probabilidade
+Motivação
+Exemplo: Tráfego Telefônico — Teoria de Filas
+Problema
+200 terminais telefônicos são ligados a uma central A. Deseja-se determinar
+o número de circuitos que devem ser instalados entre a central A e uma
+outra central B para que se possa atender o tráfego gerado em A e
+destinado a B.
+10 / 248MP
+Probabilidade
+Motivação
+Exemplo: Tráfego Telefônico — Teoria de Filas
+Note que n = 200 (considerando, e.g., redundância) seria uma resposta
+Solução cara!
+Porém, dificilmente os 200 assinantes iriam falar ao mesmo tempo
+Assim, poder-se-ia fazer uma pesquisa de campo junto aos assinantes e
+mapear o número máximo de chamadas simultâneas em progresso
+Viável? Os próprios assinantes têm como prever isso?
+Essas seriam abordagens determinísticas que, claramente, não se aplicam
+A principal falha dessa abordagem está no enunciado do problema
+O aspecto importante seria requerer apenas certo comportamento médio
+Ex.: qual deve ser n para que em média 99,9% das chamadas não
+deixem de ser completadas por falta de circuitos entre A e B
+11 / 248MP
+Probabilidade
+Motivação
+Exemplo: Tráfego Telefônico — Teoria de Filas
+O problema descrito lida com uma população de usuários que solicita
+em diferentes instantes de tempo um determinado serviço
+O serviço é prestado por um número finito de postos de serviço, de
+modo que é possível que um dado usuário (e.g. M. Campos) encontre
+todos os postos ocupados
+Teoria de filas lida com tais problemas, os quais são caracterizados por
+Tráfego de entrada
+Fila
+Postos de serviço
+12 / 248MP
+Probabilidade
+Motivação
+Exemplo: Redundância — Teoria da Confiabilidade
+Problema
+Um gerador elétrico alimenta uma instalação que não admite interrupção
+de fornecimento de energia. Uma unidade reserva entra automaticamente
+em operação sempre que qualquer falha ocorre. Qual o número N de
+unidades de reserva que devem ser instaladas?
+13 / 248MP
+Probabilidade
+Motivação
+Exemplo: Redundância — Teoria da Confiabilidade
+Note que N -? 8 para garantir a não interrupção
+Solução determinística inviável!
+Enfraquecimento dos requisitos é a chave aqui
+Abordagem probabilística para o problema de redundância
+Teoria da confiabilidade lida com modelos probabilísticos tais qual esse
+14 / 248MP
+Probabilidade
+Motivação
+Exemplo: Peças Defeituosas — Teoria da Decisão
+Problema
+Um fabricante de peças garante que o número de unidades defeituosas em
+cada lote vendido não ultrapassa 5% do número total. De cada 1000 peças
+recebidas o comprador resolve examinar 20 peças. Supondo que encontre 2
+peças defeituosas, alguém lhe sugere que rejeite o lote. Outra pessoa porém
+lembra de todos os inconvenientes relacionados à rejeição (e.g. atraso),
+ponderando que, afinal, o lote inteiro teria até 50 peças defeituosas.
+15 / 248MP
+Probabilidade
+Motivação
+Exemplo: Peças Defeituosas — Teoria da Decisão
+Solução determinística inconcebível dada sua natureza “aleatória”
+Enfraquecimento dos requisitos é a chave aqui
+Abordagem probabilística para o problema de decisão
+Definição de riscos associados a decisões
+Requerer que em média um lote bom fosse rejeitado em no máximo 10%
+das aplicações da regra
+Teoria da decisão/teste de hipóteses lida com tais modelos
+16 / 248MP
+Probabilidade
+Motivação
+Exemplo: Comunicações Digitais — Teoria da Decisão
+Descrição
+Em um sistema de comunicações digitais, o sinal a ser transmitido é
+inicialmente transformado em uma sequência de bits. O transmissor associa
+ao bit 0 um determinado sinal (ou ausência de sinal) e ao bit 1 um outro
+sinal (pulso retangular, por exemplo). Os próprios circuitos eletrônicos que
+transmitem estes sinais desde o transmissor até o receptor adicionam ruído
+aos mesmos. O receptor deseja reconstruir a sequência transmitida de bits.
+Ele pode, por exemplo, amostrar o sinal recebido no ponto médio do
+intervalo correspondente a cada dígito e então decidir por 0 ou 1.
+17 / 248MP
+Probabilidade
+Motivação
+Exemplo: Vazão — Séries Temporais
+Descrição
+A capacidade geradora de uma usina hidroelétrica depende da vazão dos
+rios da bacia hidrográfica que a alimenta. O conhecimento preciso dessas
+vazões em instantes futuros é inexequível. É bem possível, porém, que
+valores médios de vazão sejam conhecidos, dada a série temporal referente a
+muitos anos passados até a presente data.
+18 / 248MP
+Probabilidade
+Motivação
+Lições para a Vida...
+Modelos Determinísticos × Probabilísticos
+Muitos fenômenos são inviáveis de serem tratados de forma
+determinística
+Ao se adotar uma abordagem probabilística, modificam-se também as
+perguntas a serem respondidas
+19 / 248MP
+Probabilidade
+Conjuntos
+Definições de Conjuntos
+Elemento & conjunto
+(Elemento a) ? ou 6? (conjunto A)
+Conjunto de conjuntos ? classe de conjuntos
+Especificação de conjuntos: {· · · }
+método tabular — Ex.: {6,7,8,9}
+método da regra — Ex.: {inteiros entre 5 e 10}
+Conjunto:
+vazio
+contavel ´
+incontavel ´
+infinito
+finito
+A é contável/enumerável quando A é finito ou ? bijeção f : N ? A
+A é incontável/não-contável/não-enumerável quando A não é contável
+20 / 248MP
+Probabilidade
+Conjuntos
+Definições de Conjuntos
+Conjunto & conjunto
+(Conjunto A) ? ou 6? (conjunto B)
+(Conjunto B) ? ou 6? (conjunto A)
+A ? B ? A é subconjunto de B
+A ? B, A 6= B ? A é subconjunto próprio de B
+Conjunto universal: S
+Conjunto das partes de A: 2A = {B | B ? A}
+Ex.: se A = {a, b, c} então 2A = {Ø, {a}, {b}, {c}, {ab}, {ac}, {bc}, {abc}}
+Fatos:
+Se card{A} = N, então card{2A} = 2N
+Se card{A} = card{N} = ?0, então card{2A} = card{R} = ?1 > ?0
+21 / 248MP
+Probabilidade
+Conjuntos
+Relações entre Conjuntos
+Igualdade: A = B
+S
+A B
+22 / 248MP
+Probabilidade
+Conjuntos
+Operações entre Conjuntos
+Diferença: A - B ou A \ B
+A B
+S
+Note que, em geral, A - B 6= B - A
+23 / 248MP
+Probabilidade
+Conjuntos
+Relações entre Conjuntos
+Complementaridade: A é o complemento de A
+S
+A
+Note que A = S \ A
+24 / 248MP
+Probabilidade
+Conjuntos
+Operações entre Conjuntos
+União: A ? B
+A B
+S
+Generalizações:
+União finita:
+N[ n
+=1
+An = A1 ? A2 ? · · · ? AN
+União (infinita) enumerável:
+8[ n
+=1
+An = [
+n?N
+An = A1 ? A2 ? · · ·
+União não-enumerável: [
+i?I
+Ai, onde I é um conjunto não-enumerável
+25 / 248MP
+Probabilidade
+Conjuntos
+Operações entre Conjuntos
+Interseção: A n B
+A B
+S
+Caso importante: A n B = Ø ? A e B disjuntos ou mutuamente exclusivos
+Generalizações:
+N\ n
+=1
+An = A1 n · · · n AN , \
+n?N
+An, \
+i?I
+Ai, I não-enumerável
+26 / 248MP
+Probabilidade
+Conjuntos
+Relações & Operações entre Conjuntos
+Lei comutativa
+A n B = B n A
+A ? B = B ? A
+Lei distributiva
+A n (B ? C) = (A n B) ? (A n C)
+A ? (B n C) = (A ? B) n (A ? C)
+27 / 248MP
+Probabilidade
+Conjuntos
+Relações & Operações entre Conjuntos
+Lei associativa
+(A ? B) ? C = A ? (B ? C) = A ? B ? C
+(A n B) n C = A n (B n C) = A n B n C
+Lei de De Morgan
+A ? B = A n B
+A n B = A ? B
+28 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Visão geral
+Contexto:
+Experimento aleatório ? tentativa ? resultado
+Ingredientes fundamentais:
+Espaço amostral + eventos aleatórios + medida de probabilidade
+29 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Experimento aleatório
+Procedimento (hipotético) através do qual se produz um resultado outrora
+impossível/inviável de prever de forma determinística
+O experimento aleatório pode ser repetido em condições idênticas
+Tentativa
+Uma realização (hipotética) particular de um experimento aleatório
+Resultado
+Produto de uma tentativa de um experimento aleatório
+No exemplo das “peças defeituosas”:
+Experimento aleatório: escolher ao acaso 20 peças de 1000 e observar
+quantas são defeituosas
+Tentativa: execução particular desse experimento
+Resultado: o número de peças defeituosas
+30 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Espaço amostral S
+Conjunto de todos os resultados possíveis
+discreto
+cont´inuo infinito
+finito
+Um dado fenômeno (físico) pode admitir diferentes espaços amostrais
+Tudo depende de como o experimento aleatório foi definido
+O que se entende por resultado do experimento deve ser explicitado
+O espaço amostral deve ser tal que não o seja mais detalhado do que
+necessário nem omita aspectos importantes do fenômeno (físico) que
+está sendo modelado
+No exemplo das “peças defeituosas”, S = {0, 1, 2, · · · , 20}
+Porém, o experimento poderia ter sido definido de tal forma a verificar
+se mais de uma peça defeituosa (> 5%) são encontradas dentre as 20
+Neste caso, S = {sim, não}
+31 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Evento
+Qualquer subconjunto de S, i.e. um elemento de 2S (partes de S)
+discreto
+cont´inuo infinito
+finito
+Modela também o interesse em um conjunto de resultados individuais
+Elemento de um evento será denotado por s (resultado individual)
+Às vezes, há interesse na “não-ocorrência” de um evento
+Eventos complementares & eventos mutuamente exclusivos
+Evento aleatório é um evento para o qual atribui-se probabilidade
+No caso discreto, é comum que “evento = evento aleatório”
+É comum trabalhar com o conjunto das partes aqui
+No caso contínuo, nem todos eventos admitem probabilidade
+Paradoxo de Banach-Tarski
+Mas isso não se constitui um problema na prática
+Os eventos que não admitem medida não são de “interesse prático”
+Porém, não se pode trabalhar com o conjunto das partes aqui
+32 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Evento
+Álgebra A é uma classe de subconjuntos de S que satisfaz
+se A ? A ? A ? A (fechamento para complemento)
+se A, B ? A ? A ? B ? A (fechamento para união)
+Como consequência, toda álgebra A de subconjuntos de S é tal que
+se A, B ? A ? A n B ? A
+se A, B ? A ? A \ B ? A
+Ø ? A
+S ? A
+se An ? A ?n ? {1, 2, · · · , N} ?
+N[ n
+=1
+An ? A
+s-álgebra As é uma álgebra de subconjuntos de S tal que
+se An ? As ?n ? N ?
+8[ n
+=1
+An ? As (fechamento para união contável)
+33 / 248MP
+Probabilidade
+Probabilidade
+Definições Básicas
+Evento
+Manipular conjuntos de resultados é fundamental para a teoria aqui
+s-álgebra é fechada relativamente a todas as operações de interesse
+Sendo assim, a s-álgebra é o segundo ingrediente fundamental
+Os eventos aleatórios são elementos da s-álgebra em questão
+No caso discreto, usualmente tem-se As = 2S
+No caso contínuo, dependerá do problema particular
+Em R, utiliza-se a s-álgebra de Borel, que é a “menor” s-álgebra que
+contém todos os intervalos (conjuntos que sabemos medir!)
+No exemplo das “peças defeituosas”, As = 2S, S = {0, 1, · · · , 20}
+34 / 248MP
+Probabilidade
+Probabilidade
+Probabilidade como Frequência Relativa
+Frequência Relativa de evento A
+Comportamento médio ?? frequência de ocorrência de um evento
+associado a uma experiência
+Para N tentativas em que N(A) vezes o evento aleatório A ? As
+ocorreu, tem-se a frequência relativa NN(A)
+Princípio da indiferença ?? resultados individuais equiprováveis
+Escolhas ao acaso
+Note que
+0 = NN(A) = 1, pois 0 = N(A) = N
+N(S)
+N = 1, pois N(S) = N (sempre ocorre um resultado)
+Se A n B = Ø ? N(A?B)
+N =
+N(A)
+N + NN(B) , pois
+A n B = Ø ? N(A ? B) = N(A) + N(B)
+35 / 248MP
+Probabilidade
+Probabilidade
+Axiomas da Probabilidade
+Probabilidade de evento aleatório A ? As: P(A), P({· · · }) = P{· · · }
+1 P(A) = 0
+2 P(S) = 1
+3 P
+8[ n
+=1
+An! = Xn8=1 P(An), se Am m\6=n An = Ø
+A ideia é trabalhar com funções P : As ? [0, 1] ? R que satisfaçam os
+axiomas e sejam coerentes com a regularidade estatística encontrada
+na prática
+Assim, P(A) = lim
+N-?8
+N(A)
+N
+No caso discreto finito, define-se P{s} para cada s ? S e estende-se sua
+definição para qualquer A ? As através de uniões
+36 / 248MP
+Probabilidade
+Probabilidade
+Eventos Particulares
+Evento:
+impossível: A = Ø ? P(A) = 0
+certo: A = S ? P(S) = 1
+possível com P(A) = 0 (ex.: evento discreto em espaço contínuo)
+incerto com P(A) = 1 (ex.: complemento do anterior)
+37 / 248MP
+Probabilidade
+Probabilidade
+Lições para a Vida...
+Modelo probabilístico
+Parte da definição de um experimento aleatório e é constituído de
+Um conjunto não-vazio de resultados possíveis, o espaço amostral
+Uma s-álgebra de eventos aleatórios
+Uma probabilidade definida na s-álgebra em questão
+Satisfaz 3 axiomas
+É coerente com a regularidade estatística ?? frequência relativa
+38 / 248MP
+Probabilidade
+Probabilidade
+Propriedades & Probabilidade Conjunta
+1
+? ?
+? ?
+P (A) = 1 - P (A)
+pois A ? A = S e A n A = Ø
+2
+? ?
+? ?
+A1 ? A2 ? P (A1) = P (A2)
+pois A2 = A1 ? (A2 \ A1)
+3
+? ?
+? ?
+P nS8=1 An = nP8=1 P (An)
+pois A1 ? A2 = A1 ? (A2 n A1), e A1 n (A2 n A1) = Ø e A2 n A1 ? A2
+4
+? ?
+? ?
+P (A ? B) = P (A) + P (B) - P (A n B)
+pois A ? B = A ? (A n B) e B = (A n B) ? (A n B)
+Probabilidade conjunta de A e B
+P (A n B) = P (A) + P (B) - P (A ? B)
+39 / 248MP
+Probabilidade
+Probabilidade
+Probabilidade Condicional
+Probabilidade condicional de A condicionada a B
+P(A|B) = P(A n B)
+P(B) , P(B) > 0
+Satisfaz os 3 axiomas
+Interpretação “frequentista” da definição (para N grande)
+P (A|B) ˜ N(A n B)
+N(B)
+P (A n B) ˜ N(A n B)
+N
+P (B) ˜ N(B)
+N
+Note que
+Se A n B = Ø (mutuamente exclusivos) e P (B) > 0, então P (A|B) = 0
+Se B ? A e P (B) > 0, então P (A|B) = 1
+40 / 248MP
+Probabilidade
+Probabilidade
+Teorema da Probabilidade Composta
+Probabilidade composta de A1, A2, · · · , AN
+P(A1nA2n· · ·nAN)=P(A1)P(A2|A1)P(A3|A1nA2)· · ·P(AN|A1n· · ·nAN-1)
+41 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Selecionar 3 cartas de um baralho, uma seguida da outra, ao acaso e sem
+reposição. Qual é a probabilidade de tirar 3 reis?
+42 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Seja Ai o evento “tirar rei na i-ésima extração”. Então
+P(A1 n A2 n A3) = P(A1)
+| {z }
+=
+4
+52
+P(A2|A1)
+| {z }
+=
+3
+51
+P(A3|A1 n A2)
+| {z }
+=
+2
+50
+˜ 1,81 · 10-4.
+43 / 248MP
+Probabilidade
+Probabilidade
+Teorema da Probabilidade Total
+Probabilidade total de A
+Se
+N[ n
+=1
+Bn = S, Bm \
+m6=n
+Bn = Ø (partição do espaço amostral), então
+P(A) =
+NX n
+=1
+P(A|Bn)P(Bn)
+S
+44 / 248MP
+Probabilidade
+Probabilidade
+Teorema de Bayes
+Regra de Bayes
+Se
+N[ n
+=1
+Bn = S, Bm \
+m6=n
+Bn = Ø (partição do espaço amostral), então
+P(Bn|A)
+| {z }
+a posteriori
+=
+de transição
+z }| {
+P(A|Bn)
+a priori
+z }| {
+P(Bn)
+P(A)
+ou ainda (usando a probabilidade total)
+P(Bn|A)
+| {z }
+a posteriori
+=
+de transição
+z }| {
+P(A|Bn)
+a priori
+z }| {
+P(Bn)
+NPn
+=1
+P(A|Bn)P(Bn)
+45 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Um móvel tem três gavetas iguais. Em uma gaveta há duas bolas brancas,
+em outra há duas bolas pretas, e na terceira há uma bola branca e outra
+preta. Na escuridão, a Pequena Anta abre uma gaveta ao acaso, retira uma
+bola ao acaso e fecha a gaveta novamente. Já na claridade, descobre que a
+bola que retirou da gaveta é branca. Qual é a probabilidade de que a
+segunda bola que restou na gaveta também seja branca?
+46 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+P (B2 = branca|B1 = branca) = P (B2 = branca ? B1 = branca)
+P (B1 = branca) ,
+com
+P (B1 = branca) = P (B1 = branca|Cbb)P (Cbb) + P (B1 = branca|Cbp)P (Cbp)
++ P (B1 = branca|Cpp)P (Cpp),
+em que os índices b e p representam branco e preto, respectivamente. Assim
+Cbp é a caixa com uma bola branca e uma bola preta. Logo,
+P (B1 = branca) = 1 × 1
+3
++
+12
+×
+13
++ 0 × 1
+3
+.
+Portanto,
+P (B2 = branca|B1 = branca) = 1/3
+1/2 =
+23
+,
+47 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Sabe-se que 0,75% da população brasileira hospeda uma determinada
+bactéria em seu organismo. O teste para detectá-la resulta positivo para
+99% dos pacientes que realmente possuem a bactéria, e resulta negativo
+para 95% dos pacientes que não possuem a bactéria. Considere um cidadão
+brasileiro selecionado ao acaso. Se seu teste resultou positivo, calcule a
+probabilidade de que ele realmente hospede a bactéria em seu organismo.
+Comente sobre o resultado obtido.
+48 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+P (D|T P ) = P (T P |D)P (D)
+P (T P )
+=
+0,99 × 0,0075
+0,99 × 0,0075 + 0,05 × 0,9925
+˜ 0,1301 ˜ 13%
+O valor ficou baixo porque o conhecimento a priori de que é raro ter um
+indivíduo que sofra desta doença faz com que o teste não seja tão confiável.
+49 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+A figura abaixo é usada para caracterizar o canal de um sistema de
+comunicação digital, através do qual se envia uma mensagem X (entrada do
+canal) que pode assumir valores binários no conjunto {0, 1} e que
+disponibiliza na sua saída (saída do canal) um valor binário Y ? {0, 1}. A
+probabilidade de observar um valor zero na entrada do canal,
+P ({X = 0}) = p0, é conhecida, bem como as seguintes probabilidades de
+transição (do canal):
+P ({Y = 0}|{X = 0}) = q,
+P ({Y = 1}|{X = 1}) = p.
+0 1
+X Y
+0 1
+P({Y = 0}|{X = 0})
+P({Y = 1}|{X = 1})
+P({Y = 1}|{X = 0})
+P({Y = 0}|{X = 1})
+50 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+O valor de Y observado na saída do canal é utilizado por um processador
+que, de acordo com uma regra de decisão determinística, sempre associa
+a cada um dos valores (Y = 0 e Y = 1) uma estimativa Xˆ ? {0, 1} do bit
+transmitido que deu origem àquela saída Y do canal. Considere que a
+regra de decisão utilizada pelo processador se baseia no critério da
+máxima probabilidade a posteriori que, em poucas palavras, consiste
+em atribuir a Xˆ o valor de X com maior probabilidade de ocorrer dado que
+o evento {Y = 0} ou que o evento {Y = 1} tenha ocorrido. Assuma que
+p > 1 2, q > 12 e qp0 < (1 - p0)(1 - p).
+1 Especifique a regra de decisão de máxima probabilidade a
+posteriori, ou seja, que valor deve ser atribuído a Xˆ quando Y = 0 e
+quando Y = 1. Justifique detalhadamente.
+2 Encontre a probabilidade de cometer um erro na decisão, ou seja,
+P({Xˆ 6= X}).
+0 1
+X Y
+0 1
+P({Y = 0}|{X = 0})
+P({Y = 1}|{X = 1})
+P({Y = 1}|{X = 0})
+P({Y = 0}|{X = 1})
+51 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+1
+P ({X = 0}|{Y = 0}) = P ({Y = 0}|{X = 0})P ({X = 0})
+P ({Y = 0}) =
+qp0
+qp0 + (1 - p)(1 - p0)
+P ({X = 1}|{Y = 0}) = P ({Y = 0}|{X = 1})P ({X = 1})
+P ({Y = 0}) =
+(1 - p)(1 - p0)
+qp0 + (1 - p)(1 - p0)
+P ({X = 0}|{Y = 1}) = P ({Y = 1}|{X = 0})P ({X = 0})
+P ({Y = 1}) =
+(1 - q)p0
+(1 - q)p0 + p(1 - p0)
+P ({X = 1}|{Y = 1}) = P ({Y = 1}|{X = 1})P ({X = 1})
+P ({Y = 1}) =
+p(1 - p0)
+(1 - q)p0 + p(1 - p0)
+Portanto, quando Y = 0, vemos que
+P ({X = 1}|{Y = 0}) > P ({X = 0}|{Y = 0}), pois (1 - p)(1 - p0) > qp0 por
+hipótese. Logo, Xˆ = 1, quando Y = 0. Já quando Y = 1, vemos que
+P ({X = 1}|{Y = 1}) > P ({X = 0}|{Y = 1}), pois como p > 12 e q > 1 2 ,
+então p > 1 - p e q > 1 - q, o que implica
+p(1 - p0) > (1 - p)(1 - p0) > qp0 > (1 - q)p0. Logo, Xˆ = 1, quando Y = 1.
+Em outras palavras, Xˆ = 1 sempre.
+52 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+2 P ({Xˆ 6= X}) = P ({Xˆ = 1} n {X = 0}) + P ({Xˆ = 0} n {X = 1}) =
+P ({Xˆ = 1} n {X = 0}) = P ({Xˆ = 1}|{X = 0})P ({X = 0}) = 1 × p0 =
+p0
+Note que a hipótese (1 - p)(1 - p0) > qp0 gerou uma situação estranha
+de um sistema de comunicação que recebe uma mensagem “constante”.
+Essa hipótese de certa forma indica que a probabilidade de transmitir 0
+é (bem) menor do que a de transmitir 1, o que fez com que o decisor
+sempre optasse pelo bit 1. De fato, essa escolha é a que minimiza a
+probabilidade de erro de decisão nas condições do enunciado.
+53 / 248MP
+Probabilidade
+Probabilidade
+Eventos Independentes
+Eventos A e B: Condição necessária e suficiente para independência:
+Ideia: a ocorrência de um não afeta a probabilidade de ocorrência do outro
+1 P(A|B) = P(A) ou
+2 P(B|A) = P(B) ou
+3 P(A n B) = P(A)P(B)
+N eventos: Condição análoga à 3a acima.
+satisfeita 2 a 2 e
+satisfeita 3 a 3 e
+...
+satisfeita N a N
+54 / 248MP
+Probabilidade
+Probabilidade
+Propriedades de Eventos Independentes
+Eventos de probabilidade 0 ou 1 são independentes de quaisquer outros
+Um evento é independente de si mesmo ? tiver probabilidade 0 ou 1
+Eventos mutuamente exclusivos não são independentes, a menos que
+um deles tenha probabilidade 0
+Ex.: No lançamento de um dado honesto, seja o evento A = “face
+ímpar”. Note que P(A) = P(A) = 1 2 e que
+P(A n A) = P(Ø) = 0 6= 14 = P(A)P(A)
+Se A e B são independentes, então também são A e B, A e B, A e B
+Para N eventos, independência 2 a 2 não implica a coletiva
+Ex.: No lançamento de dois dados honestos, sejam os eventos A = “face
+ímpar no primeiro dado”, B = “face ímpar no segundo dado”, C =
+“soma ímpar das duas faces”. Note que P(A) = P(B) = P(C) = 1 2 e que
+os eventos são independentes 2 a 2. Porém, eles não podem ocorrer
+simultaneamente, de modo que A n B n C = Ø e
+P(A n B n C) = 0 6= 1 8 = P(A)P(B)P(C)
+Para N eventos independentes, qualquer deles é independente de
+qualquer evento formado por uniões, interseções e complementares dos
+demais
+Ex.: P(A1 n (A2 ? A3)) = P(A1)P(A2 ? A3)
+55 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Sejam A1, A2, A3 eventos independentes. Demonstre que A1 é independente
+de A2 ? A3.
+56 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Basta mostrar que P (A1 n (A2 ? A3)) = P (A1)P (A2 ? A3). Como
+A1 n (A2 ? A3) = (A1 n A2) ? (A1 n A3), então
+P (A1 n (A2 ? A3)) = P (A1 n A2)
+| {z }
+=P (A1)P (A2)
++ P (A1 n A3)
+| {z }
+=P (A1)P (A3)
+- P (A1 n A2 n A3)
+| {z }
+=P (A1) P (A2)P (A3)
+| {z }
+=P (A2nA3)
+= P (A1) [P (A2) + P (A3) - P (A2 n A3)]
+= P (A1)P (A2 ? A3).
+57 / 248MP
+Probabilidade
+Probabilidade
+Eventos Múltiplos
+Generalização
+Experimento combinado: S = S1 × S2 × · · · × SN
+Elemento de um evento: ênupla (s1, s2, . . . , sN)
+Evento: A1 × A2 × · · · × AN, com An ? An ? 2Sn, ?n ? {1, 2, · · · , N}
+(sub-)experimentos independentes ? eventos independentes:
+P(A1 × A2 × · · · × AN) = P(A1)P(A2) . . . P(AN)
+58 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Um par de dados de seis faces honestos é utilizado em um jogo em que
+ambos os dados são lançados simultaneamente e os números das faces
+voltadas para cima são anotados. O jogador 1 ganha se a soma dos números
+é menor ou igual a seis e pelo menos um dos dados mostra o número
+quatro. O jogador 2 ganha quando a soma é maior ou igual a cinco e pelo
+menos um dos dados mostra o número quatro. Determine:
+1 Um espaço amostral adequado para tal experimento aleatório.
+2 O evento que indica quando o jogador 1 ganha.
+3 A probabilidade de o jogador 1 ganhar.
+4 O evento que indica quando o jogador 2 ganha.
+5 A probabilidade de o jogador 2 ganhar.
+59 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Um par de dados de seis faces honestos é utilizado em um jogo em que
+ambos os dados são lançados simultaneamente e os números das faces
+voltadas para cima são anotados. O jogador 1 ganha se a soma dos números
+é menor ou igual a seis e pelo menos um dos dados mostra o número
+quatro. O jogador 2 ganha quando a soma é maior ou igual a cinco e pelo
+menos um dos dados mostra o número quatro. Determine:
+6 O evento que indica quando os jogadores 1 e 2 ganham.
+7 A probabilidade de ambos os jogadores ganharem.
+8 A probabilidade de o jogador 1 ganhar, dada a informação de que o
+jogador 2 ganhou.
+9 A probabilidade de o jogador 2 ganhar, dada a informação de que o
+jogador 1 ganhou.
+60 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+1 Um espaço amostral S adequado seria aquele que explicita os números
+das faces para cada resultado individual
+s = (número da face 1, número da face 2), ou seja:
+S =
+?????????????
+(1,1) (1,2) (1,3) (1,4) (1,5) (1,6)
+(2,1) (2,2) (2,3) (2,4) (2,5) (2,6)
+(3,1) (3,2) (3,3) (3,4) (3,5) (3,6)
+(4,1) (4,2) (4,3) (4,4) (4,5) (4,6)
+(5,1) (5,2) (5,3) (5,4) (5,5) (5,6)
+(6,1) (6,2) (6,3) (6,4) (6,5) (6,6)
+?????????????
+.
+2 A1 = {(1, 4), (4, 1), (2, 4), (4, 2)}.
+3 P(A1) = |A|S1|| = 36 4 = 1 9 .
+61 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+4 A2 =
+{(1, 4), (4, 1), (2, 4), (4, 2), (4, 3), (3, 4), (4, 4), (4, 5), (5, 4), (6, 4), (4, 6)}.
+5 P(A2) = |A|S2|| = 11 36 .
+6 A3 = A1 n A2 = A1, pois A1 ? A2.
+7 P(A3) = P(A1).
+8 P(A1|A2) = P (PA(1An2A)2) = P P ( (A A1 2) ) = 11 4 .
+9 P(A2|A1) = P (PA(1An1A)2) = P P ( (A A1 1) ) = 1.
+62 / 248MP
+Probabilidade
+Probabilidade
+Tentativas de Bernoulli
+Eventos A com probabilidade p, A com probabilidade 1 - p
+N repetições do experimento
+Probabilidade de A ocorrer k vezes: Nk  pk(1 - p)N-k
+Para N grande, N! ˜ v2pN Ne N (fórmula de Stirling)
+Erro da ordem de 1
+12N
+Erro menor que 1% para N = 10
+Se N ? 8, p ? 0, com Np ? b.: Nk  pk(1 - p)N-k ? bkke!-b
+63 / 248MP
+Probabilidade
+Probabilidade
+Tentativas de Bernoulli
+Note que, pela fórmula de Stirling, tem-se
+N!
+k!(N - k)!p
+k(1 - p)N-k ?
+v2pN  Ne N
+k!p2p(N - k)  N-e k N-k p
+k(1 - p)N-k
+= rNN- k Nk!e Nkp(kN(1--kp))NN--kk ? Nk!e Nkp(kN(1--kp))NN--kk ? NNk!eNbk(Nk -1 -k)NNb-kN-k
+?
+bk 1 - Nb N-k
+k!ek 1 - Nk N-k ?
+bk 1 - Nb N
+k!ek 1 - Nk N ?
+bke-b
+k!eke-k
+64 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Considere o experimento “jogar 2 dados honestos e verificar a soma dos
+resultados”. Repete-se o experimento 5 vezes.
+1 Qual a probabilidade de exatamente 3 jogadas terem soma igual a 9?
+2 Qual a probabilidade de pelos menos 1 jogada ter soma igual a 9?
+65 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Temos um espaço amostral discreto com 6 × 6 = 36 resultados possíveis. Os
+resultados favoráveis são os pares ordenados (6; 3), (5; 4), (4; 5), (3; 6),
+totalizando-se 4 casos favoráveis. Sendo assim, a probabilidade de que uma
+jogada tenha soma 9 é 4/36 = 1/9. Como o problema pode ser modelado
+por tentativas de Bernoulli (duas possibilidades quanto ao resultado
+desejado: ocorrer com probabilidade 1/9 ou não ocorrer com probabilidade
+8/9), temos:
+1 P (exatamente 3 jogadas terem soma igual a 9) = 5 3  19 3  8 9 2 ˜ 0,01.
+2 P (pelo menos 1 jogada ter soma igual a 9) = 1 - 5 0  1 9 0  8 9 5 ˜ 0,45.
+66 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Problema
+Considere o experimento “jogar 3 dados”, e o resultado “saírem 3 dados
+iguais”. Repete-se o experimento 10 vezes.
+1 Qual a probabilidade do resultado ocorrer mais de 8 vezes se sabemos
+que ocorreu mais de 9 vezes?
+2 Qual a probabilidade do resultado ocorrer mais de 9 vezes se sabemos
+que ocorreu mais de 8 vezes?
+67 / 248MP
+Probabilidade
+Probabilidade
+Exemplo
+Probabilidade do resultado favorável: p = 6 × 6×1 6×6 = 36 1 .
+1 Note que A = {k > 9} ? B = {k > 8}. Logo,
+P(B|A) = P(A)/P(A) = 1.
+2 P(A|B) = P(A)/P(B), onde
+P(A) = 10 0  1 × 36110
+P(B) = 10 9  35 × 36110 + 10 0  1 × 36110 ,
+portanto P(A|B) = P(A)/P(B) = 351 1 ˜ 2,85 · 10-3.
+68 / 248MP
+Variável Aleatória
+Sumário
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+69 / 248MP
+Variável Aleatória
+Impulso e Degrau Unitários
+Impulso e Degrau Unitários
+Impulso unitário
+Definição:
+???
+d(x) = 0, x 6= 0
+Z0-0+ d(x)dx = 1
+Amostragem: Z-8 8 f(x)d(x - x0)dx = f(x0)
+Degrau unitário
+Definição: u(x) = 0 1, x < , x = 0 0
+u(x) = Z-8 x d(?)d? ou dud(xx) = d(x)
+70 / 248MP
+Variável Aleatória
+Variável Aleatória
+Variável Aleatória
+Caracterização
+Definição: Função X que mapeia cada s ? S num X(s) ? R ? {-8, 8}
+Condições:
+{X = x} define evento aleatório ?x ? R ? {-8, +8}
+P {X = -8} = P {X = 8} = 0
+X pode ser ±8, mas apenas com probabilidade zero
+Classificação (p/ conjunto imagem = novo espaço amostral):
+contínua
+discreta
+mista
+106 CHAPTER 5. DISCRETE RANDOM VARIABLES
+is given by (5.10). It can be used as an equivalent description for the probability
+of a discrete random variable. Its properties are summarized in Section 5.8. The
+computer simulation of discrete random variables is revisited in Section 5.9 with the
+estimate of the probability mass function and the cumulative distribution function
+given by (5.14) and (5.15),(5.16), respectively. Finally, the application of the Poisson
+probability model to determining the resources required to service customers is
+described in Section 5.10.
+5.3 Definition of Discrete Random Variable
+We have previously used a coin toss and a die toss as examples of a random experiment. In the case of a die toss the outcomes comprised the sample space
+S = {1,2,3,4,5,6}. This was because each face of a die has a dot pattern consisting of 1, 2, 3, 4, 5, or 6 dots. A natural description of the outcome of a die toss
+is therefore the number of dots observed on the face that appears upward. In effect,
+we have mapped the dot pattern into the number of dots in describing the outcome.
+This type of experiment is called a numerically valued random phenomenon since the
+basic output is a real number. In the case of a coin toss the outcomes comprise the
+nonnumerical sample space S = {head, tail}. We have, however, at times replaced
+the sample space by one consisting only of real numbers such as «?x = {0,1}, where
+a head is mapped into a 1 and a tail is mapped into a 0. This mapping is shown
+in Figure 5.1. For many applications this is a convenient mapping. For example, in
+• X
+Figure 5.1: Mapping of the outcome of a coin toss into the set of real numbers.
+a succession of M coin tosses, we might be interested in the total number of heads
+observed. With the defined mapping of
+X(Si) = 0 Si = tail
+1 52 = head
+108 CHAPTER 5. DISCRETE RANDOM VARIABLES
+• X
+X2 X^
+Sx = {xi,X2,X3,...}
+S = {51,52,53,. ..}
+Figure 5.2: Discrete random variable as a one-to-one mapping of a countably infinite
+sample space into set of real numbers.
+• X
+108 CHAPTER 5. DISCRETE RANDOM VARIABLES
+• X
+X2 X^
+Sx = {xi,X2,X3,...}
+S = {51,52,53,. ..}
+Figure 5.2: Discrete random variable as a one-to-one mapping of a countably infinite
+sample space into set of real numbers.
+• X
+Sx = {xi,X2,xs,...}
+S = {51,52,53,.. .}
+10.3. DEFINITION OF A CONTINUOUS RANDOM VARIABLE 287
+as summarized in Theorem 10.9.1. Examples are given in Section 10.9. Estimation
+of the PDF and CDF can be accomphshed by using (10.38) and (10.39). Finally, an
+example of the application of the theory to the problem of speech clipping is given
+in Section 10.10.
+10.3 Definition of a Continuous Random Variable
+A continuous random variable X is defined as a mapping from the experimental
+sample space <5 to a numerical (or measurement) sample space «Sx, which is a subset
+of the real line R^. In contrast to the sample space of a discrete random variable,
+Sx consists of an infinite and uncountable number of outcomes. As an example,
+consider an experiment in which a dart is thrown at the circular dartboard shown in
+Figure 10.1. The outcome of the dart-throwing experiment is a point Si in the circle
+X(si)
+71 / 248MP
+Variável Aleatória
+Variável Aleatória
+Função de Distribuição de Probabilidade Acumulada
+Definição e propriedades:
+CDF = Cumulative Distribution Function: FX(x) = P {X = x}
+1 FX(-8) = 0
+2 FX(8) = 1
+3 0 = FX(x) = 1
+4 FX(x1) = FX(x2), se x1 < x2 (monótona não-decrescente)
+5 P {x1 < X = x2} = FX(x2) - FX(x1)
+6 FX(x+) = FX(x) (contínua pela direita)
+7 Para X discreta:
+FX(x) =
+NPn
+=1
+P {X = xn}u(x - xn) =
+NPn
+=1
+P (xn)u(x - xn)
+72 / 248MP
+Variável Aleatória
+Variável Aleatória
+Função de Densidade de Probabilidade
+Definição e propriedades:
+PDF = Probability Density Function: fX(x) = dFX(x)
+dx
+1 fX(x) = 0
+2 Z-8 8 fX(x)dx = 1
+3 FX(x) = Z-8 x+ fX(?)d?
+4 P{x1 < X = x2} = Z x
++2
+x
++1
+fX(x)dx
+5 Para X discreta:
+fX(x) =
+NP n
+=1
+P{X = xn}d(x - xn) =
+NP n
+=1
+P (xn)d(x - xn)
+73 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Gaussiana ou Normal: X ~ N X, sX2 
+fX(x) = p21psX2 e- (x2-sXX2 )2
+Usualmente resulta da composição de efeitos aleatórios independentes
+Ex.: ruído num resistor na saída de um amplificador
+Versões normalizadas:
+Normal padrão: F (x) = Z-8 x v12p e- ?22 d?
+Note que F (-x) = 1 - F (x) e que FX (x) = F  xs-XX 
+Função Q: Q(x) = 1 - F (x)
+Função erro: erf(x) = 1 - 2Q v2x
+Função erro complementar: erfc(x) = 2Q v2x
+74 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplos de PDFs gaussianas e realizações das VAs correspondentes
+10.5. IMPORTANT PDFS 297
+4\
+si
+<v 2
+o 1
+o
+-21-
+-3
+-4
+-5
+• f:ILt*^T^ . • l , , | t Tl J l Tj
+(a)/^ = 0,^2 = 1
+10 15 20
+Trial number
+(b) /i = 0,0-2 = 1
+25 30
+10 15 20
+Trial number
+(c)Ai = 2,cr2 = l {d)f, = 2,a^ = l
+Figure 10.8: Examples of Gaussian PDF with different //'s. 75 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplos de PDFs gaussianas e realizações das VAs correspondentes
+298 CHAPTER 10. CONTINUOUS RANDOM VARIABLES
+4Y
+si
+o 1
+o
+o_i
+-21-
+- 3 ^
+-4\
+- 5
+. 1 tftT.tT,^^i^.t^Ttl .f I;
+10 15 20
+Trial number
+25 30
+(a) /i = 0, o-^ = 1 (b) fx = 0,a^ = 1
+0.5
+0.4
+:o.3^
+0.2
+0.1
+-5
+5
+4
+3
+a; 2
+8 '
+-§ 0
+o_i
+-2
+-3
+[..TII
+i^;l:i l;'*|]i
+10 15 20
+Trial number
+liTl :
+25 30
+(c) /i = 0, o-^ = 2 (d) n = 0,a^ = 2
+Figure 10.9: Examples of Gaussian PDF with different cr^'s. 76 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplo de CDF gaussiana (normal padrão) 306 CHAPTER 10. CONTINUOUS RANDOM VARIABLES
+Figure 10.16: CDF for standard normal or Gaussian random variable.
+0.5
+0.4
+•* I
+0.2 [
+o.n
+- 4 - 3 - 2 -1 0 1
+X
+(a) Shaded area = $(1) (b) Shaded area = Q(l)
+Exemplos: F (1) (PDF da esquerda) e Q(1) (PDF da direita)
+306 CHAPTER 10. CONTINUOUS RANDOM VARIABLES
+Figure 10.16: CDF for standard normal or Gaussian random variable.
+0.5
+0.4
+•* I
+0.2 [
+o.n
+- 4 - 3 - 2 -1 0 1
+X
+(a) Shaded area = $(1) (b) Shaded area = Q(l)
+Figure 10.17: Definitions of ^(x) and Q{x) functions.
+77 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplo de tabela da normal padrão
+78 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Uniforme: X ~ U (a, b)
+fX(x) = 1
+b - a[u(x - a) - u(x - b)], b > a
+Ex.: quantização
+PDF (esquerda, VA X ~ U (1, 3)) & CDF (direita, VA X ~ U (1, 2))
+296 CHAPTER 10. CONTINUOUS RANDOM VARIABLES
+0.6
+0.5 ^
+^0.41-
+51,0.3
+0.2 h
+o.n
+1
+I i
+i
+1
+1 : : :
+i : .: ;
+1 : : :
+i : 1 : : : 1
+^ f
+i
+r •
+1
+i
+1 • . :
+i ; : :
+1 ; : :
+i ': ': ':
+0.6
+0.5
+go.4
+^HO.S
+0.2
+0.1
+3 4
+X
+3 4 5
+X
+(a) a = 1,6 = 3 (b) a = 1,6 = 6
+Figure 10.7: Examples of uniform PDF.
+Some examples of the evaluation of the CDF are given next.
+10.6.1 Uniform
+Using (10.6) we have
+r 0
+Fx{x) = {
+X < a
+fnir^dt a<x<b
+Ja b—a
+1 x>b
+which is
+{ 0 x<a
+^(x-a) a<x<b
+1 x>b.
+An example is shown in Figure 10.14 for a = 1 and 6 = 2.
+1.2[
+1
+^0.81-
+0.41-
+0.2
+-1
+A
+Figure 10.14: CDF for uniform random variable over interval (1,2).
+10.6.2 Exponential 79 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exponencial: X ~ exp(a, b)
+fX(x) = e-
+(x-a)
+b
+b u(x - a), b > 0
+Ex.: potência de sinal refletido em avião, recebido por radar
+294 PDF (VACHAPTER X ~10. exp(0CONTINUOUS , 1), exp(0RANDOM , 1 2 ) VARIABLES ) & CDF (VA X ~ exp(0, 1))
+Figure 10.6: Exponential PDF.
+value. It is the area under the PDF that cannot exceed one. As expected px(x) > 0
+for —(X) < a; < 00 and
+OO pCX)
+10.6. CUMULATIVE DISTRIBUTION FUNCTIONS 3
+so that
+Fx{x) = 0 x<0
+1 — exp(—Aa;) a; > 0.
+An example is shown in Figure 10.15 for A = 1.
+Figure 10.15: CDF for exponential random variable with A = 1.
+Note that for the uniform and exponential random variables the CDFs are co
+tinuous even though the PDFs are discontinuous. This property motivate 80 / 248s anMP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+De Laplace
+fX(x) = p21sX2 e-qs2X2 |x-X|
+Exs.: modelo para amplitude de sinais de fala
+81 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplos de PDFs de Laplace e realizações das VAs correspondentes
+10.5. IMPORTANT PDFS 299
+0 _ 1
+-2^
+-3[
+- 5
+,JT..I^.IIIIJI.1
+0
+I
+10 15 20
+Trial number
+j l i U
+25 30
+(a) a^ = 1 (b) a' = 1
+0.8 h
+0.6 h
+0.4 F
+0.2 h
+"^1
+Sh
+a; 2h
+S 1
+o 1 r
+o_i
+-si
+-AY
+-5^
+.J
+H iJ.r:,T.:: ni II l r
+10 15 20 25 30
+Trial number
+( c ) a ^ = 4 (d) a' =4
+Figure 10.10: Examples of Laplacian PDF with diflFerent cr^'s. 82 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+De Rayleigh
+fX(x) = 2(x - a)
+b e
+-
+(x-a)2
+b u(x - a), b > 0
+Exs.: erro em sistemas de medida; envoltória de ruído após passa-faixa
+PDF para uma VA de Rayleigh com parâmetros 10.6. CUMULATIVE DISTRIBUTION FUNCTIONS (a, b) = (0, 1)303
+Figure 10.13: Rayleigh PDF with a^ = 1.
+probability of any interval It can be shown to arise as the PDF of the square root
+83 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Gama: X ~ G(a, ?)
+fX(x) = (0G( ?, x < aa)xa-1e-?x, x = 0 0 , onde ? > 0 e a > 0
+Função gama (fator de normalização): G(z) = Z08 tz-1e-tdt
+Propriedades:
+G(z + 1) = zG(z)
+G(N) = (N - 1)! para N ? N
+G 1 2 = vp
+G(1, ?) = exp 0, ?1  (exponencial é um caso particular da gama)
+84 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Exemplos de PDFs gama
+10.5. IMPORTANT PDFS 301
+1.5
+B 1
+0.5 h
+A = : ^ 1
+t
+X = 1
+- 2 - 1 0 1 2 3 4 5
+X
+(a) A = 1 (b) a = 2
+Figure 10.12: Examples of Gamma PDF.
+Property 10.4 - r{N) = {N - 1)!
+Proof: Follows from Property 10.4 with z = N — I since
+T{N) = {N-l)r{N-l)
+= {N-l){N-2)r{N-3) (let z = N-2now)
+= {N-1){N-2)...1 = {N-1)\ 85 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Chi-Quadrado de ordem N: X ~ ?2 N = G  N2 , 12 
+fX(x) = (02, x < N2 G1(N2 )xN2 -1e- x2 , x = 0 0
+Ex.: soma dos quadrados de N VAs independentes com PDF N(0, 1)
+86 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Contínuas
+Erlang de ordem N: X ~ G (N, ?)
+fX(x) = (0(N, x < ?-N1)!xN-1e-?x, x = 0 0 , onde ? > 0 e N ? N
+Ex.: soma de N VAs independentes com PDF exp(0, ?);
+estimar tempo entre chamadas telefônicas
+87 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Discretas
+Binomial
+fX(x) =
+NX k
+=0
+Nkpk(1 - p)N-kd(x - k)
+Exs.: jogos de azar; detecção por radar/sonar
+88 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuições Discretas
+De Poisson
+fX(x) = e-b
+8X k
+=0
+bk
+k! d(x - k), b > 0
+Exs.: unidades defeituosas na produção;
+chamadas telefônicas num dado intervalo
+Binomial com N p ?? 8 0 : N = Np = b
+num intervalo T, taxa ? = N
+T
+? b = ?T
+89 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuição Condicional
+Funções associadas:
+FX(x|B) = P {X = x|B} = P ({X = x} n B)
+P (B)
+fX(x|B) = dFX(x|B)
+dx
+CDF e PDF têm as mesmas propriedades de antes
+90 / 248MP
+Variável Aleatória
+Variável Aleatória
+Distribuição Condicional
+Evento condicionante = intervalo
+B = {a < X = b}
+FX(x|a < X = b) =
+?????
+0, x = a
+FX (x)-FX (a)
+FX (b)-FX (a) , a < x = b
+1, x > b
+fX(x|a < X = b) = (0R, x abffXX((xx))dx, a < x = a =oubx > b
+91 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Problema
+Uma variável aleatória (VA) gaussiana X tem média zero e variância
+unitária. Descreva analiticamente a PDF da VA X restrita ao intervalo
+(-1, 1), isto é fX(x| - 1 < X < 1), e esboce seu gráfico.
+92 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Note que, como X é VA contínua (implica P (X = 1) = 0), podemos escrever
+fX(x| - 1 < X < 1) = fX(x) [u(x + 1) - u(x - 1)]
+P (-1 < X < 1)
+=
+fX(x) [u(x + 1) - u(x - 1)]
+P (-1 < X = 1)
+=
+fX(x) [u(x + 1) - u(x - 1)]
+F (1) - F (-1) ,
+onde, pela tabela, F (1) ˜ 0,8413 e F (-1) = 1 - F (1). Logo,
+fX(x| - 1 < X < 1) ˜ e-
+x2
+2
+0,6826v2p [u(x + 1) - u(x - 1)]
+˜ 0,5844e-
+x2
+2 [u(x + 1) - u(x - 1)] .
+93 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Problema
+A tensão na entrada do receptor de um sistema de comunicação binária
+digital é modelada por uma variável aleatória X. Quando o bit 1 é
+transmitido, X é gaussiana com média m (em V) e variância s2 (em V2);
+quando o bit 0 é transmitido, X é gaussiana com média -m e variância s2.
+A probabilidade de que o bit 1 seja transmitido é 40%.
+1 Determine as expressões de FX(x|T 0) e FX(x|T 1) em função de m e s,
+onde T 0 e T 1 são os eventos que indicam as transmissões dos bits 0 e 1,
+respectivamente.
+94 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+1 Quando sabemos que o evento T 0 “ocorreu”, a VA X é uma gaussiana
+com média -m (em V) e variância s2 (em V2). Sendo assim, temos
+FX(x|T 0) = v21ps Z-8 x e- (y2+sm2)2 dy.
+Analogamente, quando sabemos que o evento T 1 “ocorreu”, a VA X é
+uma gaussiana com média m (em V) e variância s2 (em V2). Sendo
+assim, temos
+FX(x|T 1) = v21ps Z-8 x e- (y-2sm2)2 dy.
+95 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Problema
+A tensão na entrada do receptor de um sistema de comunicação binária
+digital é modelada por uma variável aleatória X. Quando o bit 1 é
+transmitido, X é gaussiana com média m (em V) e variância s2 (em V2);
+quando o bit 0 é transmitido, X é gaussiana com média -m e variância s2.
+A probabilidade de que o bit 1 seja transmitido é 40%.
+2 O receptor decide se chegou um bit 0 ou um bit 1 com base no valor
+medido X = x. É comum nas aplicações práticas que essa decisão seja
+tomada comparando-se o nível do sinal recebido com um limiar de
+decisão ? (em V) pré-fixado:
+quando x = ?, decide-se pelo bit 0 (evento R0);
+quando x > ?, decide-se pelo bit 1 (evento R1).
+1 Determine as probabilidades P (R1|T 0) e P (R0|T 1) em função de
+FX(·|T 0), FX(·|T 1) e ?.
+2 Determine a probabilidade de erro de bit.
+96 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+2 1 Uma vez que P (R1|T 0) = 1 - P ({X = ?}|T 0) e
+P (R0|T 1) = P ({X = ?}|T 1), temos
+P (R1|T 0) = 1 - FX (?|T 0)
+P (R0|T 1) = FX (?|T 1)
+2 Do enunciado, sabemos que P (T 0) = 0,6 e P (T 1) = 0,4. Sendo assim, o
+evento E relacionado ao erro de bits do sistema tem a seguinte
+probabilidade de ocorrência:
+P (E) = P (R1|T 0)P (T 0) + P (R0|T 1)P (T 1)
+P (E) = P (T 0) - P (T 0)FX (?|T 0) + P (T 1)FX (?|T 1)
+97 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Problema
+A tensão na entrada do receptor de um sistema de comunicação binária
+digital é modelada por uma variável aleatória X. Quando o bit 1 é
+transmitido, X é gaussiana com média m (em V) e variância s2 (em V2);
+quando o bit 0 é transmitido, X é gaussiana com média -m e variância s2.
+A probabilidade de que o bit 1 seja transmitido é 40%.
+3 Encontre o limiar ótimo ?o que minimiza a probabilidade de erro de bit
+do item b.II) em função de m e s.
+98 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+3 O limiar ótimo pode ser encontrado derivando-se a expressão
+encontrada para P (E) e igualando-se o resultado a zero. Assim, temos:
+dP (E)
+d? = -P (T 0)fX(?|T 0) + P (T 1)fX(?|T 1)
+= -
+P (T 0)
+v2ps e
+-
+(?+m)2
+2s2 +
+P (T 1)
+v2ps e
+-
+(?-m)2
+2s2
+,
+logo
+dP (E)
+d?
+?o
+= 0 ? e-
+1
+2s2 [(?o+m)2-(?o-m)2] = P (T 1)
+P (T 0) ?
+2?om
+s2 = ln P P ( (T T 0) 1) ,
+portanto, temos:
+?o ˜ 0,2027 s2
+m
+99 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+Problema
+A tensão na entrada do receptor de um sistema de comunicação binária
+digital é modelada por uma variável aleatória X. Quando o bit 1 é
+transmitido, X é gaussiana com média m (em V) e variância s2 (em V2);
+quando o bit 0 é transmitido, X é gaussiana com média -m e variância s2.
+A probabilidade de que o bit 1 seja transmitido é 40%.
+4 O parâmetro m está ligado à potência do sinal transmitido, e o
+parâmetro s2, à potência do ruído do canal de comunicação. O
+projetista do sistema tem controle sobre o primeiro (que idealmente
+deve ser minimizado), mas não sobre o segundo. Suponha que s2 = 2
+V2. Encontre o menor valor do parâmetro m para garantir que a
+probabilidade de X = 0 seja menor que 0,2%, caso tenha sido
+transmitido um bit 1. Esboce as PDFs fX(x|T 0) e fX(x|T 1) no mesmo
+gráfico, marcando sobre ele o limiar ótimo.
+100 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+4 Quanto maior for m, menor será a probabilidade de termos X = 0,
+caso tenha sido transmitido um bit 1. Sendo assim, o menor m será
+aquele em que a probabilidade de termos X = 0 caso tenha sido
+transmitido um bit 1 (= FX(0|T1)) é 0,2%. Como FX(0|T1) =
+F  0-sm  = F (-m/s) = 1 - F (m/s) = 0,002 ? F (m/s) = 0,998,
+então m/s = 2,88. Como s = v2 V, então m ˜ 4,07 V. Com esses
+valores de m e s2, temos ?o ˜ 0,1.
+101 / 248MP
+Variável Aleatória
+Variável Aleatória
+Exemplo
+-10 0 -8 -6 -4 -2 0 2 4 6 8 10
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+X=x (em V)
+PDFs de X dado T0 e dado T1
+Limiar
+102 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Média Estatística
+Valor esperado de X
+Definição: E[X] = X = Z-8 8 x fX(x)dx
+Para variável aleatória discreta: E[X] =
+N X i
+=1
+xi P (xi)
+Generalização: E[g(X)] = Z-8 8 g(x) fX(x)dx
+Média condicional: E[X|B] = Z-8 8 x fX(x|B)dx
+Se B = {a < X = b}: E[X|a < X = b] =
+Rab x fX(x)dx
+Rab fX(x)dx
+103 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Momentos
+em torno da origem:
+Definição: mn = E[Xn]
+m1 = X: média
+m2 = X2: valor quadrático médio
+centrais (em torno da média):
+Definição: µn = E[(X - X)n]
+µ2 = sX2 : variância; sX: desvio padrão
+µ3 -?
+µ3
+s3
+X
+: obliquidade/assimetria (skewness)
+µ4 -?
+µ4
+s4
+X
+- 3: curtose
+Relação importante: sX2 = X2 - X2 (“potências”)
+104 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Problema
+Uma caixa contém 4 bolas numeradas de 1 a 4. Uma pessoa retira uma
+bola e a devolve, retira outra e a devolve, continuando esse processo até
+retirar uma bola que já foi retirada anteriormente. Seja N uma variável
+aleatória que indica o número total de retiradas necessárias para obter essa
+repetição.
+1 Para cada n ? {2, 3, 4, 5}, determine P (N = n).
+2 Determine a expressão de fN(n).
+3 Determine a expressão de FN(n).
+4 Calcule N.
+5 Calcule o desvio-padrão da variável aleatória N.
+6 Calcule a probabilidade de N ser menor ou igual a 4.
+105 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+1
+P (N = 2) = 4
+4
+×
+14
+=
+14
+=
+8
+32
+P (N = 3) = 4
+4
+×
+34
+×
+24
+=
+38
+=
+12
+32
+P (N = 4) = 4
+4
+×
+34
+×
+24
+×
+34
+=
+9
+32
+P (N = 5) = 4
+4
+×
+34
+×
+24
+×
+14
+×
+44
+=
+3
+32
+2
+fN(n) = 8d(n - 2) + 12d(n - 3) + 9d(n - 4) + 3d(n - 5)
+32
+3
+FN(n) = 8u(n - 2) + 12u(n - 3) + 9u(n - 4) + 3u(n - 5)
+32
+106 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+4
+N = 8 × 2 + 12 × 3 + 9 × 4 + 3 × 5
+32
+˜ 3,2188
+5 Calculemos primeiramente N2:
+N2 = 8 × 22 + 12 × 32 + 9 × 42 + 3 × 52
+32
+˜ 11,2188.
+Portanto, sN2 = N2 - N2 ˜ 11,2188 - (3,2188)2 ˜ 0,8584. Logo, o
+desvio-padrão da VA N é sN ˜ 0,9265.
+6 Basta calcularmos FN(4). Sendo assim,
+FN(4) = 8 + 12 + 9
+32
+˜ 90,62%.
+107 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Funções Geradoras de Momentos
+Função característica
+Definição: FX(?) = E[ej?X], ? ? R
+Uso: mn = (-j)n dndF?Xn(?)
+?=0
+Função geradora de momento
+Definição: MX(?) = E[e?X], ? ? R
+Uso: mn = dnMd?Xn(?)
+?=0
+108 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Desigualdades Úteis
+Limitantes para evitar cálculo de probabilidades
+Chebyshev: P {|X - X| = } = sX2
+2 , ? > 0
+Markov: P {X = a} = X
+a
+, ?a > 0 (para variáveis X = 0)
+Chernoff: P {X = a} = e-?aMX(?), ?? = 0
+Limite de Chernoff: min
+?
+{e-?aMX(?)}
+109 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Problema
+Seja X uma variável aleatória binomial com PDF
+fX(x) =
+NX k
+=0
+Nkpk(1 - p)N-kd(x - k), N = 2, p > 0.
+1 Utilize a função geradora de momentos para calcular a média de X.
+2 Utilize a função geradora de momentos para calcular a variância de X.
+3 O que o limite de Chernoff pode informar sobre a probabilidade de
+X = X? Justifique.
+110 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Note que
+MX(?) =
+NX k
+=0
+Nk(pe?)k(1 - p)N-k = [pe? + (1 - p)]N .
+Portanto,
+M? X(?) = Npe? [pe? + (1 - p)]N-1 ? X = M? X(0) = Np,
+o que responde o item (a) e
+M¨X(?) = Npe? [pe? + (1 - p)]N-1 + N(N - 1)p2e2? [pe? + (1 - p)]N-2
+? X2 = M¨X(0) = N2p2 + Np(1 - p),
+de forma que sX2 = X2 - X2 = Np(1 - p), o que responde o item (b).
+111 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Quanto ao item (c), seja LX(?) = e-Np?MX(?). Note que
+L? X(?) = -Npe-Np? [pe? + (1 - p)]N + e-Np?Npe? [pe? + (1 - p)]N-1 .
+Observe que L? X(?) = 0 se e somente se
+-pe
+?
+- (1 - p) + e? = 0 ? ? = 0.
+Portanto, o limite de Chernoff é dado por LX(0) = e-Np·0MX(0) = 1, de
+forma que ele não traz nenhuma informação adicional sobre P{X = X}.
+112 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Transformação de Variável Aleatória
+Distribuição de Y = T(X) a partir da distribuição de X
+Princípio: FX(x) -? FY (y)
+Pelas PDFs: fY (y) = X
+n
+fX(xn)
+dT (x)
+dx x=xn
+, sendo y = T(xn)
+Para variável aleatória discreta:
+fY (y) = X
+i
+P(yi)d(y - yi),
+sendo yi = T(xin) e P(yi) = X
+n
+P(xin)
+113 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Problema
+A tensão sobre um resistor é modelada como uma variável aleatória E
+uniformemente distribuída entre 5 e 10 V. Sabendo que a potência (em
+Watts) dissipada no resistor é
+W = E2
+r
+,
+com r = 1000 ?, determine:
+1 A PDF fE(e).
+2 O valor esperado E.
+3 A PDF fW (w).
+4 O valor esperado W. Compare o valor obtido com E2/r.
+5 O desvio-padrão da variável aleatória W.
+114 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+1 fE(e) = 15 [u(e - 5) - u(e - 10)].
+2 Por simetria, tem-se que E = 7,5 V. Poderíamos também aplicar a
+definição de valor esperado da seguinte forma:
+E = Z-8 +8 efE(e)de = Z510 1 5 ede = 10 e2 10 5 = (10 - 5)(10 + 5) 10 = 7,5.
+3 Como W = E2
+r
+, então E = ±vrW . Uma vez que a tensão está restrita
+ao intervalo [5, 10] em Volts, então a potência estará restrita ao
+intevalo [ 40 1 , 10 1 ] em Watts. Considerando também que
+dw
+de = 2 re = ±r4rw = ±q250 w ,
+115 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+temos que, para w ? [ 40 1 , 10 1 ],
+fW (w) = fE(vrW)
+|p250 w | +
+fE(-vrW)
+| - p250 w | =
+1/5
+p250 w = r10 w ,
+uma vez que fE(-vrW) = 0. Portanto,
+fW (w) = r10 w huw - 40 1  - uw - 10 1 i.
+4
+W = Z-8 +8 wfW (w)dw = Z 110 1
+40
+wr10 w dw
+= Z-8 +8 er2 fE(e)de = Z510 1 5 1000 e2 de
+=
+1
+15000
+e
+3
+10
+5
+=
+1000 - 125
+15000
+˜ 0,0583.
+116 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Note que E2/r = (7)2/1000 ˜ 0,0563. Isso ocorre porque, embora a
+potência seja uma função da tensão, há distorções durante a conversão
+entre as PDFs de E e W.
+5 Calculemos primeiramente W2:
+W2 = Z-8 +8 w2fW (w)dw = Z 110 1
+40
+w
+2r10 w dw
+= v10 Z 110 1
+40
+w
+3/2dw = v102
+5
+w
+5/2
+1
+10
+1
+40
+˜ 0,0039.
+Isso implica que
+sW2 = W2 - W2 ˜ 0,0039 - (0,0583)2 ˜ 4,72.10-4 ? sW ˜ 0,0217 (em
+Watts).
+117 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Problema
+Uma partícula de massa não-nula deixa a origem com uma velocidade
+vetorial com magnitude v > 0 e ângulo T.
+v ?
+D
+0
+g
+A única força que atua sobre a partícula é a gravidade. O ponto onde a
+partícula atinge o solo dista
+D = v2
+g
+sen(2T)
+da origem, onde g > 0 é a aceleração da gravidade. Assuma que T é uma
+variável aleatória uniforme entre 0 e p
+2 .
+118 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+Problema
+v ?
+D
+0
+g
+1 Desenhe a PDF fT(?) e descreva-a analiticamente.
+2 Calcule T.
+3 Calcule D utilizando explicitamente fT(?).
+4 Desenhe a PDF fD(d) e descreva-a analiticamente.
+5 Calcule D utilizando explicitamente fD(d).
+6 Calcule sD2 .
+119 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+1 fT(?) = p2 u(?) - u ? - p2 
+2 T = p
+4
+3 E[D] = v2
+g
+E[sen(2T)] = v2
+g
+2p
+R0p2 sen(2?)d? = vg2 p1 [-cos(2?)]0p2 = 2pg v2
+4 Note que d = T (?) e
+T 0(?) = 2v2
+g
+cos(2?) = ±2q vg2 2 -  vg2 2 sen2(2?), de forma que, para
+? entre 0 e p
+2 , temos T 0(T -1{d}) = 2q vg2 2 - d2 ou
+T 0(T -1{d}) = -2q vg2 2 - d2. Portanto, para ? entre 0 e p2 , temos d
+variando de 0 a v2
+g
+e
+fD(d) =
+2p
+2q vg2 2 - d2
++
+2p
+-2q vg2 2 - d2
+=
+2
+pq vg2 2 - d2 ,
+120 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Exemplo
+enquanto que, para os demais valores de ?, temos
+fT(?) = 0 ? fD(d) = 0. Portanto,
+fD(d) = 2
+pqvg2 2 - d2 u(d) - ud - vg2  (desenhar).
+5
+E[D] = Z0 vg2 2d
+pqvg2 2 - d2 dd = -p2 ? ?svg2 2 - d2? ?0vg2 = 2pg v2
+6 E[D2] = v4
+g2 E[sen2(2T)] = vg24 p1 R0p2 [1 - cos(4?)]d? = 2vg42 ? sD2 =
+v4
+g2 p22p-28
+121 / 248MP
+Variável Aleatória
+Operações sobre Variável Aleatória
+Geração de Variável Aleatória com Dada Distribuição
+Amostras y de Y dada a partir de amostras x de X uniforme em [0, 1)
+FX(x) = x em [0, 1)
+Hipótese: Existe Y = T (X) monotonicamente não-decrescente
+FY (y = T (x)) = FX(x) ? y = T (x) = FY-1(x)
+Restrição: FY (y) inversível
+Como fica o caso geral ‘X qualquer’?
+122 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Variável Aleatória Múltipla (Vetorial)
+Obs.: Desenvolvimentos para 2 variáveis, por simplicidade
+Construção
+Mapeamento de cada resultado de um experimento aleatório
+em mais de um valor real: s ? (X(s), Y (s))
+Múltiplas variáveis aleatórias (X(s) e Y (s)) descritas conjuntamente
+Se A = {X = x} e B = {Y = y},
+A n B = {X = x, Y = y} é evento conjunto
+Extensível para qualquer ordem N: s ? (X1(s), X2(s), . . . , XN(s))
+123 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Distribuição de Probabilidade Acumulada Conjunta
+Definições e propriedades
+CDF conjunta: FX,Y (x, y) = P {X = x, Y = y}
+FX,Y (-8, -8) = FX,Y (-8, y) = FX,Y (x, -8) = 0
+FX,Y (8, 8) = 1
+0 = FX,Y (x, y) = 1
+FX,Y (x, y) é não-decrescente em x e y
+P {x1 < X = x2, y1 < Y = y2} =
+FX,Y (x2, y2) + FX,Y (x1, y1) - FX,Y (x1, y2) - FX,Y (x2, y1) = 0
+124 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Distribuição de Probabilidade Acumulada Conjunta
+Definições e propriedades
+CDFs marginais:
+FX,Y (x, 8) = FX (x)
+FX,Y (8, y) = FY (y)
+variáveis aleatórias discretas:
+FX,Y (x, y) =
+NX n
+=1
+MX m
+=1
+P (xn, ym)u(x - xn)u(y - ym)
+extensão para N variáveis:
+FX(x)=FX1,X2,...,XN (x1, x2, . . . , xN)=P{X1 = x1, X2 = x2, . . . , XN = xN}
+125 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Densidade de Probabilidade Conjunta
+Definições e propriedades
+PDF conjunta: fX,Y (x, y) = ?2FX,Y (x, y)
+?x?y
+fX,Y (x, y) = 0
+Z-8 8 Z-8 8 fX,Y (x, y)dxdy = 1
+FX,Y (x, y) = Z-8 y Z-8 x fX,Y (?1, ?2)d?1d?2
+FX(x) = Z-8 x Z-8 8 fX,Y (?1, y)dyd?1
+FY (y) = Z-8 y Z-8 8 fX,Y (x, ?2)dxd?2
+P{x1 < X = x2, y1 < Y = y2} = Zy1y2 Zx1x2 fX,Y (x, y)dxdy
+126 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Densidade de Probabilidade Conjunta
+Definições e propriedades
+PDFs marginais:
+fX (x) = Z-8 8 fX,Y (x, y)dy
+fY (y) = Z-8 8 fX,Y (x, y)dx
+variáveis aleatórias discretas:
+fX,Y (x, y) =
+N X n
+=1
+M X m
+=1
+P (xn, ym)d(x - xn)d(y - ym)
+extensão para N variáveis:
+fX(x) = fX1,X2,...,XN (x1, x2, . . . , xN) = ?N FX1,X2,...,XN (x1, x2, . . . , xN)
+?x1?x2 . . . ?xN
+PDF marginal entre N variáveis:
+fX1,...,Xk(x1, . . . , xk) = Z-8 8 · · · Z-8 8 fX1,...,XN (x1, . . . , xN)dxk+1 . . . dxN
+127 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Distribuição Condicional
+Condição pontual
+FX(x|Y = y) = FX(x|y) =
+R-8 x fX,Y (?, y)d?
+R-8 8 fX,Y (x, y)dx =
+R-8 x fX,Y (?, y)d?
+fY (y)
+fX(x|Y = y) = fX(x|y) = fX,Y (x, y)
+fY (y)
+variáveis aleatórias discretas:
+FX (x|yk) =
+N X i
+=1
+P (xi|yk)u(x - xi)
+fX (x|yk) =
+N X i
+=1
+P (xi|yk)d(x - xi)
+P (xi|yk) = P (xi, yk)
+P (yk)
+128 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Distribuição Condicional
+Condição intervalar
+FX(x|ya < Y = yb) = FFX,Y (x,yb)-FX,Y (x,ya)
+X,Y (8,yb)-FX,Y (8,ya) =
+FX,Y (x,yb)-FX,Y (x,ya)
+FY (yb)-FY (ya)
+fX(x|ya < Y = yb) =
+Ryyab fX,Y (x,y)dy
+Ryyab R-8 8 fX,Y (x,y)dxdy =
+Ryyab fX,Y (x,y)dy
+Ryyab fY (y)dy
+129 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Independência Estatística
+Variáveis aleatórias independentes
+X e Y são estatisticamente independentes ?
+FX,Y (x, y) = FX (x)FY (y).
+fX,Y (x, y) = fX (x)fY (y).
+FX (x|condição em y) = FX (x).
+fX (x|condição em y) = fX (x).
+FY (y|condição em x) = FY (y).
+fY (y|condição em x) = fY (y).
+A extensão para X1, X2, . . . , XN é imediata.
+130 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Independência Estatística
+Soma de variáveis aleatórias independentes
+Para duas VAs independentes, com Y = X1 + X2, tem-se:
+FY (y) = P {X1 = y - X2} = Z-8 8 Z-8 y-x2 fX1,X2(x1, x2)dx1dx2
+= Z-8 8 fX2(x2) Z-8 y-x2 fX1(x1)dx1 dx2
+?
+fY (y) = Z-8 8 fX2(x2)fX1(y - x2)dx2
+A extensão para X1, X2, . . . , XN é:
+Y =
+N X n
+=1
+Xn ? fY (y) = (fX1 * fX2 * · · · * fXN )(y)
+131 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+O último ônibus do BRT chega no Terminal Aroldo Melodia (Fundão) e
+para por 5 min antes de prosseguir. O instante de chegada do ônibus,
+contado a partir das 22h30, pode ser modelado por uma variável aleatória
+X (em minutos). Considere que o instante de chegada de um estudante da
+UFRJ no terminal em questão, também contado a partir das 22h30, seja
+uma variável aleatória Y (em minutos) e que a distribuição conjunta de tais
+variáveis seja
+fX,Y (x, y) = 0,06e-(0,15x+0,4y)u(x)u(y).
+1 Encontre as distribuições marginais de X, fX(x), e de Y , fY (y).
+2 Encontre as distribuições condicionais pontuais de X, fX(x|Y = y), e
+de Y , fY (y|X = x).
+3 As variáveis X e Y são estatisticamente independentes? Justifique.
+4 Calcule a probabilidade de o ônibus chegar antes de 22h50.
+132 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+fX,Y (x, y) = 0,06e-(0,15x+0,4y)u(x)u(y).
+1 fX(x) = R-8 8 fX,Y (x, y)dy = 0,15e-0,15xu(x) e fY (y) = 0,4e-0,4yu(y).
+2 fX(x|Y = y) = fX,Y (x, y)/fY (y) = fX(x) e
+fY (y|X = x) = fX,Y (x, y)/fX(x) = fY (y).
+3 Sim, pois fX,Y (x, y) = fX(x)fY (y).
+4 Basta calcular P {X < 20} = R020 0,15e-0,15xdx = 1 - e-3 ˜ 0,95.
+133 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+O último ônibus do BRT chega no Terminal Aroldo Melodia (Fundão) e
+para por 5 min antes de prosseguir. O instante de chegada do ônibus,
+contado a partir das 22h30, pode ser modelado por uma variável aleatória
+X (em minutos). Considere que o instante de chegada de um estudante da
+UFRJ no terminal em questão, também contado a partir das 22h30, seja
+uma variável aleatória Y (em minutos) e que a distribuição conjunta de tais
+variáveis seja
+fX,Y (x, y) = 0,06e-(0,15x+0,4y)u(x)u(y).
+5 Calcule o horário máximo que o estudante pode chegar no terminal e
+ainda garantir que sua probabilidade de pegar o ônibus seja, pelo
+menos, 50%.
+6 Calcule a probabilidade de o estudante pegar o ônibus.
+7 Encontre a distribuição da variável aleatória W = X - Y , fW (w).
+134 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+5 Tal horário será 22h30min +ymax, onde ymax pode ser calculado a
+partir de P {X + 5 > ymax} = 0,5. Portanto, ymax = 9,62 min, ou seja,
+o horário máximo seria 22 horas e 39,62 minutos.
+6 Basta calcular P {X + 5 = Y } = R08 R0x+5 fX,Y (x, y)dydx ˜ 0,963.
+7 Note que W = X + Y 0, onde Y 0 = -Y e fY 0(y0) = fY (-y0). Note
+também que X e Y 0 são VAs independentes. Logo, tem-se:
+fW (w) = (fX * fY 0)(w) = Z-8 8 fX(t)fY 0(w - t)dt
+= Z-8 8 0,06e-[0,15t+0,4(t-w)]u(t)u(t - w)dt
+= e
+0,4w Zmax 8 {0,w} 0,06e-0,55tdt
+= ( 0 0 00, , ,,06 55 06 55e e0 -,04,w15, w < w, w = 0 0 .
+135 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+O último ônibus do BRT chega no Terminal Aroldo Melodia (Fundão) e
+para por 5 min antes de prosseguir. O instante de chegada do ônibus,
+contado a partir das 22h30, pode ser modelado por uma variável aleatória
+X (em minutos). Considere que o instante de chegada de um estudante da
+UFRJ no terminal em questão, também contado a partir das 22h30, seja
+uma variável aleatória Y (em minutos) e que a distribuição conjunta de tais
+variáveis seja
+fX,Y (x, y) = 0,06e-(0,15x+0,4y)u(x)u(y).
+8 Dado que o ônibus não chega antes do (sortudo) estudante, encontre a
+distribuição do tempo de espera pela chegada do ônibus,
+fW (w | W = 0).
+9 Calcule o tempo médio de espera pela chegada do ônibus, dado que o
+ônibus não chega antes do estudante no terminal (W = 0).
+136 / 248MP
+Variável Aleatória
+Variáveis Aleatórias Múltiplas
+Exemplo
+8 Tem-se
+fW (w | W = 0) = 0 fW, w < (w)/P {W = 0} = 0,15e-0,15w, w = 0 0 .
+9 W | W = 0 = R08 wfW (w | W = 0)dw = 0,115 ˜ 6,66 min.
+137 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Momentos conjuntos
+Valor esperado
+E[g(X1, · · · , XN )] = Z-8 8 · · · Z-8 8 g(x1, . . . , xN )fX1,...,XN (x1, . . . , xN )dx1 . . . dxN
+Momentos em torno da origem
+Definição para 2 variáveis: mnk = E[XnY k], ordem n + k
+Extensão para N variáveis imediata
+m11 = E[XY ] = RXY : correlação
+RXY = 0: X e Y ortogonais
+RXY = X Y : X e Y descorrelacionadas
+Independência ? descorrelação
+138 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Momentos conjuntos
+Momentos centrais (em torno da média)
+Definição para 2 variáveis: µnk = E[(X - X)n(Y - Y )k)], ordem n + k
+Extensão para N variáveis imediata
+µ11 = E[(X - X)(Y - Y )] = CXY : covariância
+CXY = RXY - X Y
+CXY = 0: X e Y descorrelacionadas
+?XY =
+CXY
+sXsY
+= E Xs-XX · Y s-Y Y : coeficiente de correlação
+Fato: -1 = ?XY = 1
+Para provar, use g(X, Y ) = Xs-XX ± Ys-YY 2
+139 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Função Geradora de Momentos
+Função característica
+FX1,...,XN (?1, . . . , ?N) = E[ej?1X1+···+j?N XN ]
+mn1,...,nN = (-j)n1+···+nN ?n1+···+nN FX1,...,XN (?1, . . . , ?N)
+??n1
+1 · · · ??NnN
+140 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Teorema Central do Limite ou Teorema do Limite Central
+TCL
+Sendo YN =
+NX n
+=1
+Xn, com Xn independentes, lim
+N?8
+YN ? gaussiana
+Também se aplica para certos casos de variáveis aleatórias dependentes
+Condições conjuntamente suficientes:
+s2
+Xn > B1 > 0
+E[|Xn - Xn|3] < B2 > 0
+Caracteriza aproximadamente a CDF, mas não necessariamente a
+PDF. Ex.: caso discreto
+Utilidade: N elevado
+O erro aumenta longe da média
+141 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+Considere uma variável aleatória X com média X e variância sX2 = 1.
+Dispõe-se de N amostras de X, denotadas por x1, x2, · · · , xN, obtidas
+independentemente. Estime o valor necessário de N para que a média
+amostral
+xˆ =
+NPn
+=1
+xn
+N
+esteja numa faixa de ±0,098 em torno de X com 95% de segurança, isto é,
+P[|Xˆ - X| = 0,098] = 0,95.
+Dica: Para obter a estimativa de N, determine uma aproximação para a
+PDF f ˆ
+X
+(xˆ) utilizando o Teorema Central do Limite.
+142 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Pelo Teorema Central do Limite, a PDF f ˆ
+X
+(xˆ) pode ser aproximada por uma
+PDF gaussiana, já que Xˆ é uma soma de VAs i.i.d., em que Xˆ = X e
+s2
+ˆX
+= s2
+X/N = 1/N. Logo,
+f ˆ
+X
+(xˆ) ˜ p21p N1 e- (2(1 xˆ-/N X))2 .
+Para facilitar, note que Y = Xˆ - X é uma VA gaussiana com média zero e
+variância 1/N. Queremos calcular N tal que
+P [|Y | = 0,098] = P [-0,098 = Y = 0,098] = 0,95. Como
+P [-0,098 = Y = 0,098] = P [Y = 0,098] - P [Y = -0,098] e como
+P [Y = -0,098] = 1 - P [Y = 0,098], então
+P [|Y | = 0,098] = 2P [Y = 0,098] - 1 = 0,95 ? P [Y = 0,098] = 0,975. Uma vez que
+P [Y = 0,098] = FY (0,098) = F 0p,098 1/N - 0! = F (0,098vN) = 0,95,
+então, pela tabela da normal padrão, temos 0,098vN ˜ 1,96 ? N ˜ 400.
+143 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Variáveis Aleatórias Conjuntamente Gaussianas
+Densidade gaussiana bivariável
+fX,Y (x, y) =
+1
+2psXsY p1-?2 XY e
+-
+1
+2(1-?2
+XY )h(x-sX2X)2 - 2?XY (sxX-sXY)(y-Y ) + (y-sY2Y )2 i
+?XY = 0 ? fX,Y (x, y) = fX(x)fY (y) (descorrelação ? independência)
+N variáveis gaussianas
+fX(x) = v(2p)1N |CX| e-
+(x-X)TC-1
+X (x-X)
+2
+Completamente definidas por seus momentos de 1a. e 2a. ordens
+Descorrelação ? independência
+Transformação linear também é gaussiana
+Marginais são gaussianas
+Condicionais pontuais são gaussianas
+144 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Transformações
+Quaisquer: Y = T(X)
+Princípio: FX(x) -? FY(y)
+Se T é inversível, isto é, X = T-1(Y):
+fY(y) = fX(x = T-1(y))|J(y)|, J(Y) =
+?X1
+?Y1 · · ·
+?X1
+?YN
+...
+...
+?XN
+?Y1 · · ·
+?XN
+?YN
+Lineares: Y = TX
+Se X tem vetor de médias X e matriz de covariâncias CX:
+Y = TX
+CY = TCXTT
+No caso de X gaussiana, isso determina completamente Y
+145 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Variáveis Aleatórias Complexas
+Simples
+Possível modelo: Z = X + jY com fX,Y (x, y)
+Valor esperado: E[g(Z)] = Z-8 8 Z-8 8 g(z)fX,Y (x, y)dxdy
+Média: Z = X + jY
+Variância: sZ2 = E[|Z - Z|2]
+146 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Variáveis Aleatórias Complexas
+Múltiplas
+Duas variáveis:
+Z Zm n ==XXnm+ j + j YYnm com fXm,Ym,Xn,Yn(xm, ym, xn, yn)
+Zm e Zn independentes:
+fXm,Ym,Xn,Yn(xm, ym, xn, yn) = fXm,Ym(xm, ym)fXn,Yn(xn, yn)
+Correlação: RZmZn = E[Zm* Zn]
+RZmZn = Zm* Zn: Zm e Zn descorrelacionadas
+RZmZn = 0: Zm e Zn ortogonais
+Covariância: CZmZn = E[(Zm - Zm)*(Zn - Zn)]
+CZmZn = 0: Zm e Zn descorrelacionadas
+147 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+Nome:
+MODELOS PROBABIL´ISTICOS EM ENGENHARIA
+Prof. Luiz Wagner – 2013/1
+TESTE 5
+• Quest˜ao 1: Na vari´avel complexa Z = Mej?, M e ? s˜ao vari´aveis aleat´orias reais
+mutuamente independentes, com M = 0 e !M2 , ? e !?2 conhecidos. Calcule !Z2 em
+fun¸c˜ao desses parˆametros.
+• Quest˜ao 2: As vari´aveis aleat´orias X1 e X2 com PDF conjunta fX1,X2(x1, x2) s˜ao
+transformadas nas vari´aveis aleat´orias Y1 = aX1 + bX2 e Y2 = cX1 + dX2. A
+transforma¸c˜ao ´e invers´ivel.
+(a) Escreva na forma matricial a transforma¸c˜ao Y = TX.
+(b) Escreva na forma matricial a transforma¸c˜ao inversa X = T!1Y.
+(c) Escreva a express˜ao de fY1,Y2(y1, y2).
+!!!!!!
+@X1
+@Y1
+@X1
+@Y2 · · ·
+@X1
+@YN
+@X2 @X2 @X2
+!!!!!!
+148 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Nome: Gabarito
+MODELOS PROBABIL´ISTICOS EM ENGENHARIA
+Prof. Luiz Wagner – 2013/1
+TESTE 5
+• Quest˜ao 1: !Z2 = E[|Z|2] ! |E[Z]|2 = E[|Mej?|2] ! |E[Mej?]|2
+E[|Mej?|2] = E[M 2] = !M2 + M 2 = !M2 + 02 = !M2
+E[Mej?] = E[M]E[ej?] = (0)E[ej?] = 0
+!Z2 = !M2 ! |0|2 = !M2
+• Quest˜ao 2:
+(a) Y1
+Y2 ! = a b c d ! X X1 2 !
+(b) X1
+X2 ! = ad !1 bc !dc a !b ! Y Y1 2 !
+(c) J =
+#######
+d
+ad ! bc
+!b
+ad ! bc
+!c
+ad ! bc
+a
+ad ! bc
+#######
+=
+1
+ad ! bc
+fY Y (y1 y2) = 1 fX X ?dy1 ! by2 !cy1 + ay2 ? 149 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+• Quest˜ao 1: Na vari´avel complexa Z = Mej?, M e ? s˜ao vari´aveis aleat´orias reais
+mutuamente independentes, com M = 0 e !M2 , ? e !?2 conhecidos. Calcule !Z2 em
+fun¸c˜ao desses parˆametros.
+• Quest˜ao 2: As vari´aveis aleat´orias X1 e X2 com PDF conjunta fX1,X2(x1, x2) s˜ao
+transformadas nas vari´aveis aleat´orias Y1 = aX1 + bX2 e Y2 = cX1 + dX2. A
+transforma¸c˜ao ´e invers´ivel.
+(a) Escreva na forma matricial a transforma¸c˜ao Y = TX.
+(b) Escreva na forma matricial a transforma¸c˜ao inversa X = T!1Y.
+(c) Escreva a express˜ao de fY1,Y2(y1, y2).
+fY(y) = fX(T!1(y))|J|, J =
+!!!!!!!!!!!!!!!
+@X1
+@Y1
+@X1
+@Y2 · · ·
+@X1
+@YN
+@X2
+@Y1
+@X2
+@Y2 · · ·
+@X2
+@YN
+...
+...
+.
+.
+.
+...
+@XN
+@Y1
+@XN
+@Y2 · · ·
+@XN
+@YN
+!!!!!!!!!!!!!!!
+• Quest˜ao 3: A vetor de vari´aveis aleat´orias reais X = X1
+X2 ! ´e caracterizado por seu
+vetor de m´edias X = X1
+X2 ! e sua matriz de covariˆancias CX = C!XX2 X1 C!X21X2 !150 / 248 .MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+• Quest˜ao 1: !Z2 = E[|Z|2] ! |E[Z]|2 = E[|Mej?|2] ! |E[Mej?]|2
+E[|Mej?|2] = E[M 2] = !M2 + M 2 = !M2 + 02 = !M2
+E[Mej?] = E[M]E[ej?] = (0)E[ej?] = 0
+!Z2 = !M2 ! |0|2 = !M2
+• Quest˜ao 2:
+(a) Y1
+Y2 ! = a b c d ! X X1 2 !
+(b) X1
+X2 ! = ad !1 bc !dc a !b ! Y Y1 2 !
+(c) J =
+#######
+d
+ad ! bc
+!b
+ad ! bc
+!c
+ad ! bc
+a
+ad ! bc
+#######
+=
+1
+ad ! bc
+fY1,Y2(y1, y2) = 1
+|ad ! bc|fX1,X2 ?dy ad1 !! by bc2 , !cy ad1!+bc ay2 ?.
+• Quest˜ao 3:
+(a) I. RY1Y2 = E[Y1Y2] = E[(X1 + aX2)(X1 ! aX2)] = E[X12 ! a2X22]
+= E[X12] ! a2E[X22]
+RY1Y2 = 0 , a = ±
+vuuut
+!2
+X1 + X12
+!2
+X + X22 151 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+Problema
+fY(y) = fX(T!1(y))|J|, J =
+!!!!!!!!!!!!!!!
+@X1
+@Y1
+@X1
+@Y2 · · ·
+@X1
+@YN
+@X2
+@Y1
+@X2
+@Y2 · · ·
+@X2
+@YN
+...
+...
+.
+.
+.
+...
+@XN
+@Y1
+@XN
+@Y2 · · ·
+@XN
+@YN
+!!!!!!!!!!!!!!!
+• Quest˜ao 3: A vetor de vari´aveis aleat´orias reais X = X1
+X2 ! ´e caracterizado por seu
+vetor de m´edias X = X1
+X2 ! e sua matriz de covariˆancias CX = C!XX22X1 1 C!XX21X2 2 ! .
+Definindo-se a transforma¸c˜ao Y = TX, sendo Y = Y1
+Y2 ! e T = 1 1 !aa! ,
+(a) calcule a em fun¸c˜ao dos momentos dados para que as novas vari´aveis sejam:
+I. ortogonais.
+II. descorrelacionadas.
+(b) X1 e X2 independentes garantem Y1 e Y2 descorrelacionadas?
+152 / 248MP
+Variável Aleatória
+Operações sobre Variáveis Aleatórias Múltiplas
+Exemplo
+(c) J =
+#######
+d
+ad ! bc
+!b
+ad ! bc
+!c
+ad ! bc
+a
+ad ! bc
+#######
+=
+1
+ad ! bc
+fY1,Y2(y1, y2) = 1
+|ad ! bc|fX1,X2 ?dy ad1 !! by bc2 , !cy ad1!+bc ay2 ?.
+• Quest˜ao 3:
+(a) I. RY1Y2 = E[Y1Y2] = E[(X1 + aX2)(X1 ! aX2)] = E[X12 ! a2X22]
+= E[X12] ! a2E[X22]
+RY1Y2 = 0 , a = ±
+vuuut
+!2
+X1 + X12
+!2
+X2 + X22
+II. CY1Y2 = E[(Y1 ! Y1)(Y2 ! Y2)]
+= E[(X1 ! X1 + a(X2 ! X2))(X1 ! X1 ! a(X2 ! X2))]
+= E[(X1 ! X1)2 ! a2(X2 ! X2)2] = !X2 1 ! a2!X2 1
+CY1Y2 = 0 , a = ±!X1
+!X2
+(b) N˜ao. A condi¸c˜ao para que Y1 e Y2 sejam descorrelacionadas independe da
+dependˆencia entre X1 e X2.
+153 / 248MP
+Inferência Estatística
+Sumário
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+154 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estatística
+Definição
+Contexto: N Variáveis aleatórias i.i.d. Xn, n ? {1, . . . , N}
+(por exemplo, N amostras independentes de fX(x))
+g(X) é uma estatística se não depende de parâmetros desconhecidos
+Exemplos:
+Xb = 1
+N
+N X n
+=1
+Xn é uma estatística
+scX2 = 1
+N
+N X n
+=1
+(Xn - X)2 não é uma estatística
+155 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estimação
+Nomenclatura
+Um estimador obtém estimativas
+a partir de dados observados (observações) X
+Um estimador paramétrico pressupõe um modelo
+e resume o problema à estimação de seus parâmetros
+Ex.: Estimar uma PDF gaussiana a partir de amostras da distribuição
+Um estimador não-paramétrico é geral
+Ex.: Estimar uma PDF qualquer a partir de amostras da distribuição
+156 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estimador Pontual de Parâmetro Fixo
+Definições
+Estimador T = b g(X) obtém estimativas ?b= g(x)
+a partir de observações X
+Tb é uma variável aleatória com amostras ?b
+157 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estimador Pontual de Parâmetro Fixo
+Exemplos
+Estimadores para a média (Xb ):
+média amostral: 1
+N
+N X n
+=1
+Xn = XcN
+valor médio: Xmáx + Xmín
+2
+mediana empírica: x tal que FbX(x|x) = 0,5
+Estimadores para a variância (scX2 ):
+1 N
+N X n
+=1
+(Xn - XcN )2
+1
+N - 1
+N X n
+=1
+(Xn - XcN )2 = SN2
+158 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estimadores Populares
+Clássicos - de parâmetro ? fixo
+Verosimilhança: L(?) = fX(x|?) =
+NY i
+=1
+fX(xi|?)
+Verossimilhança logarítmica: ln[L(?)]
+Estimador de máxima verossimilhança:
+TbML (Interpretação?)
+Bayesianos - de parâmetro T aleatório
+Distribuição a priori para T: fT(?)
+Distribuição a posteriori para T: fT(?|x) = fX,T(x, ?)
+fX(x) ? L(?)fT(?)
+Estimador de máxima distribuição a posteriori:
+TbMAP (Interpretação?)
+159 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Avaliação dos Estimadores
+Consideramos aqui o caso em que o parâmetro ? é constante a determinar.
+Critérios de qualidade
+Polarização:
+b(T) = b E[T] b - ?
+b(T) b diz se o estimador acerta na média (se é acurado).
+MSE – Mean Square Error:
+MSE(T) = b E[(Tb - ?)2] = b2(T) + b s2
+Tb
+s2
+Tb diz se as estimativas são pouco espalhadas (se o estimador é preciso).
+MSE(T) b dá o erro total, combinando os dois aspectos.
+Consistência:
+Tb é consistente se lim
+N?8
+P (|Tb - ?| = ) = 0, ? > 0 ou
+lim
+N?8
+P (|Tb - ?| < ) = 1, ? > 0
+Por Chebyshev, mostra-se que um estimador não polarizado com
+lim
+N?8
+s2
+Tb = 0 é consistente
+160 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Estimação de Intervalo
+Limites de Confiança
+Hipótese: O estimador não é polarizado.
+Calcula-se que ? está no intervalo hTb - ?2 , T + b ?2 i
+com P % de probabilidade
+Diz-se que ? é o intervalo de P % de confiança das estimativas
+161 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+Problema
+Sabe-se que a variável aleatória (VA) discreta X possui distribuição de
+Poisson
+fX(x) = e-?
+8X k
+=0
+?k
+k! d(x - k) , com ? > 0.
+O parâmetro ? é uma constante desconhecida. Deseja-se estimar ? através
+de amostras aleatórias i.i.d. X = [ X1 X2 · · · XN ] obtidas a partir da VA
+X.
+1 Dado x ? N, escreva a probabilidade do evento aleatório {X = x} em
+função do parâmetro desconhecido ? e denote-a por P {X = x | ?}.
+2 Escreva a verossimilhança
+P {X = x | ?} = P {X1 = x1, X2 = x2, · · · , XN = xN | ?}.
+3 Encontre o estimador TbML.
+162 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+1 P {X = x | ?} = e-x?!?x
+2
+P {X = x | ?} =
+NY n
+=1
+P {Xn = xn | ?} = e-N? Q?nPxnn! xn
+3 Basta maximizar P {X = x | ?} em termos de ?. Como
+?P {X = x | ?}
+?? =
+1
+Qn xn!
+? e-N?+Pn xn ln ?
+??
+=
+e
+-N?+Pn xn ln ?
+Qn xn! -N + Pn? xn,
+então
+?P nX = x | ?bMLo
+?? = 0 ? -N +
+Pn xn
+?bML = 0 ? TbML = N1
+NX n
+=1
+Xn
+163 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+Problema
+Sabe-se que a variável aleatória (VA) discreta X possui distribuição de
+Poisson
+fX(x) = e-?
+8X k
+=0
+?k
+k! d(x - k) , com ? > 0.
+O parâmetro ? é uma constante desconhecida. Deseja-se estimar ? através
+de amostras aleatórias i.i.d. X = [ X1 X2 · · · XN ] obtidas a partir da VA
+X.
+4 O estimador TbML é polarizado? Justifique detalhadamente.
+5 O estimador TbML é consistente? Justifique detalhadamente.
+164 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+4 Não, pois
+E hTbMLi = N1
+N X n
+=1
+E[Xn] = 1
+N
+N X n
+=1
+X = X = e-?
+8 X k
+=0
+?k
+k! k = e-?
+8 X k
+=1
+?k
+k! k
+= ?e-?
+8 X l
+=0
+?l
+l!
+| {z }
+=e?
+= ?.
+5 Sim, pois, uma vez que ele não é polarizado, basta olharmos para sb T2 ML
+dado por
+s
+2bT
+ML
+= E h(TbML - X)2i = N12
+N X n
+=1
+N X m
+=1
+E[(Xn - X)(Xm - X)] = sX2
+N
+N?8
+-? 0.
+165 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+Problema
+6 Se em vez de constante, ? é uma amostra da variável aleatória T, então
+é possível buscar um estimador TbMAP que maximiza
+fT(?|x) = P {X = x | ?} fT(?)
+P {X = x} .
+1 Se T é uniformemente distribuída entre 0 e M, sendo M > 0 uma
+constante desconhecida grande, o que muda de TbML para TbMAP?
+Justifique.
+2 Se T possui distribuição exponencial
+fT(?) = ?e-??u(?) , com ? > 0 (conhecido),
+encontre TbMAP e forneça uma explicação “intuitiva” sobre o porquê de,
+neste caso, ?bMAP < ?bML.
+166 / 248MP
+Inferência Estatística
+Estatística e Estimadores
+Exemplo
+6 1 Neste caso, fT(?) = M1 [u(?) - u(? - M)] de tal forma que maximizar
+fT(?|x) equivale a maximizar P {X = x | ?} pois os demais termos não
+dependem de ?. Portanto, TbML = TbMAP.
+2
+?fT(?|x)
+??
+=
+?
+P {X = x} Qn xn!
+? e-N?-??+Pn xn ln ?
+?? ,
+então
+?fT(?bMAP|x)
+??
+= 0 ? -N - ? +
+Pn xn
+?bMAP = 0 ? TbMAP = N 1+ ?
+N X n
+=1
+Xn.
+De fato, como ? > 0, temos ?bMAP < ?bML sempre. Isso era esperado pois,
+diferentemente do caso uniforme em que não há preferências a priori
+entre valores de ? (entre 0 e M), no caso exponencial, faixas de valores
+de ? maiores possuem probabilidade a priori menor de ocorrência do que
+faixas de valores de ? menores. Ou seja, valores menores de ? são
+preferíveis a priori e essa preferência é parametrizada por ? (quanto
+maior for esse valor, mais preferência a valores menores de ?). Portanto,
+o resultado obtido já era esperado, do ponto de vista “intuitivo”.
+167 / 248MP
+Processo Aleatório
+Sumário
+1 Probabilidade
+2 Variável Aleatória
+3 Inferência Estatística
+4 Processo Aleatório
+168 / 248MP
+Processo Aleatório
+Processo Aleatório
+Conceito de Processo Aleatório
+Construção e terminologia
+Dados os resultados s de um experimento aleatório, constrói-se:
+variável aleatória X(s) = X com valores reais x;
+processo aleatório X(s, t) = X(t) com funções reais x(t).
+Um conjunto de x(t) = ensemble.
+Cada x(t) = [membro de ensemble, função-amostra ou realização]
+do processo.
+Cada X(s, ti) = X(ti) é uma variável aleatória com valores x(ti).
+169 / 248MP
+Processo Aleatório
+Processo Aleatório
+Classificações
+Generalização
+Processo aleatório X(t) (tempo contínuo t)
+Sequência aleatória X[n] (tempo discreto n)
+Conforme a amplitude x:
+contínuo/a
+discreto/a
+Conforme a preditibilidade:
+determinístico/a = x(t) ou x[n] preditível por suas amostras passadas
+não-determinístico/a = x(t) ou x[n] impreditível por suas amostras
+passadas
+170 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+Problema
+Considere a grandeza D que descreve o número de dias em que houve mais
+que 5 mm de precipitação de chuva, a cada mês m, em cada local
+(aleatoriamente escolhido) sobre o hemisfério sul da Terra.
+1 O modelo probabilístico mais adequado para isso é na forma de um
+processo aleatório ou de uma sequência aleatória? Explique sua
+resposta.
+2 O modelo escolhido no item anterior deve ser tornado contínuo ou
+discreto? Explique sua resposta.
+3 Esboce 2 ou 3 realizações do modelo como exemplos.
+171 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+1 D[m] é um sequência aleatória, pois m é uma contagem de meses, que
+descreve o tempo de forma discreta.
+2 D[m] é uma sequência discreta, pois, dado m0 fixado, D[m0] é uma VA
+discreta que só pode assumir valores inteiros de 0 a 28, ou 29, ou 30, ou
+31.
+3 Quaisquer gráficos d × m com 0 = d = 31 arbitrários contra m ? Z.
+172 / 248MP
+Processo Aleatório
+Processo Aleatório
+Descrição Estatística
+Processo aleatório X(t)
+de 1a. ordem:
+CDF: FX (x1; t1) = P {X(t1) = x1}
+PDF: fX (x1; t1) = dFX (x1; t1)
+dx1
+...
+de La. ordem:
+CDF: FX (x1, . . . , xL; t1, . . . , tL) = P {X(t1) = x1, . . . , X(tL) = xL}
+PDF: fX (x1, . . . , xL; t1, . . . , tL) = ?LFX (x1, . . . , xL; t1, . . . , tL)
+?x1 · · · ?xL
+173 / 248MP
+Processo Aleatório
+Processo Aleatório
+Descrição Estatística
+Sequência aleatória X[n]
+distribuição de 1a. ordem:
+CDF: FX (x1; n1) = P {X[n1] = x1}
+PDF: fX (x1; n1) = dFX (x1; n1)
+dx1
+...
+distribuição de La. ordem:
+CDF: FX (x1, . . . , xL; n1, . . . , nL) = P {X[n1] = x1, . . . , X[nL] = xL}
+PDF: fX (x1, . . . , xL; n1, . . . , nL) = ?LFX (x1, . . . , xL; n1, . . . , nL)
+?x1 · · · ?xL
+174 / 248MP
+Processo Aleatório
+Processo Aleatório
+Independência Estatística
+entre processos aleatórios X(t) e Y (t)
+fX,Y (x1, . . . , xL, y1, . . . , yM; t1, . . . , tL, t0 1, . . . , t0 M) =
+fX(x1, . . . , xL; t1, . . . , tL)fY (y1, . . . , yM; t0 1, . . . , t0 M), ?t1, . . . , tL, t0 1, . . . , t0 M
+entre sequências aleatórias X[n] e Y [n]
+fX,Y (x1, . . . , xL, y1, . . . , yM; n1, . . . , nL, n0 1, . . . , n0 M) =
+fX(x1, . . . , xL; n1, . . . , nL)fY (y1, . . . , yM; n0 1, . . . , n0 M), ?n1, . . . , nL, n0 1, . . . , n0 M
+Generalização para mais de 2 processos/sequências é trivial.
+175 / 248MP
+Processo Aleatório
+Processo Aleatório
+Momentos de Primeira e Segunda Ordens
+de processo aleatório X(t)
+Média: X(t) = E[X(t)]
+Valor quadrático médio, ou potência instantânea média: X2(t) = E[X2(t)]
+Variância: s2
+X (t) = E[(X(t) - X(t))2]
+Autocorrelação: RXX (t1, t2) = E[X(t1)X(t2)]
+Autocovariância: CXX (t1, t2) = E[(X(t1) - X(t1))(X(t2) - X(t2))]
+de processos aleatórios X(t) e Y (t)
+Correlação cruzada: RXY (t1, t2) = E[X(t1)Y (t2)]
+ortogonais se RXY (t1, t2) = 0, ?t1, t2
+descorrelacionados se RXY (t1, t2) = X(t1).Y (t2), ?t1, t2
+Covariância cruzada: CXY (t1, t2) = E[(X(t1) - X(t1))(Y (t2) - Y (t2))]
+CXY (t1, t2) = RXY (t1, t2) - X(t1).Y (t2)
+descorrelacionados se CXY (t1, t2) = 0, ?t1, t2
+176 / 248MP
+Processo Aleatório
+Processo Aleatório
+Momentos de Primeira e Segunda Ordens
+de sequência aleatória X[n]
+Média: X[n] = E[X[n]]
+Valor quadrático médio, ou potência instantânea média: X2[n] = E[X2[n]]
+Variância: s2
+X[n] = E[(X[n] - X[n])2]
+Autocorrelação: RXX[n1, n2] = E[X[n1]X[n2]]
+Autocovariância: CXX[n1, n2] = E[(X[n1] - X[n1])(X[n2] - X[n2])]
+de sequências aleatórias X[n] e Y [n]
+Correlação cruzada: RXY [n1, n2] = E[X[n1]Y [n2]]
+ortogonais se RXY [n1, n2] = 0, ?n1, n2
+descorrelacionadas se RXY [n1, n2] = X[n1].Y [n2], ?n1, n2
+Covariância cruzada: CXY [n1, n2] = E[(X[n1] - X[n1])(Y [n2] - Y [n2])]
+CXY [n1, n2] = RXY [n1, n2] - X[n1].Y [n2]
+descorrelacionadas se CXY [n1, n2] = 0, ?n1, n2
+177 / 248MP
+Processo Aleatório
+Processo Aleatório
+Estacionariedade
+de processo aleatório
+de 1a. ordem:
+fX (x1; t1) = fX (x1; t1 + ?), ?t1, ?
+fX (x1; t) independe de t
+Consequência: X(t) = X
+de 2a. ordem:
+fX (x1, x2; t1, t2) = fX (x1, x2; t1 + ?, t2 + ?), ?t1, t2, ?
+fX (x1, x2; t, t + t) independe de t, ?t
+Consequência: RXX (t, t + t) = RXX (t)
+...
+de La. ordem
+178 / 248MP
+Processo Aleatório
+Processo Aleatório
+Estacionariedade
+de processo aleatório
+no sentido estrito (SSS – strict-sense stationarity): ?L
+no sentido amplo (WSS – wide-sense stationarity):
+X RXX (t) = (t, t X+ t) = RXX(t)
+conjunta no sentido amplo: X RXY (t)(et, t Y +(t)tWSS ) = RXY (t)
+179 / 248MP
+Processo Aleatório
+Processo Aleatório
+Estacionariedade
+de sequência aleatória
+de 1a. ordem:
+fX (x1; n1) = fX (x1; n1 + ?), ?n1, ?
+fX (x1; n) independe de n
+Consequência: X[n] = X
+de 2a. ordem:
+fX (x1, x2; n1, n2) = fX (x1, x2; n1 + ?, n2 + ?), ?n1, n2, ?
+fX (x1, x2; n, n + k) independe de n, ?k
+Consequência: RXX [n, n + k] = RXX [k]
+...
+de La. ordem
+180 / 248MP
+Processo Aleatório
+Processo Aleatório
+Estacionariedade
+de sequência aleatória
+no sentido estrito (SSS – strict-sense stationarity): ?L
+no sentido amplo (WSS – wide-sense stationarity):
+X RXX [n] = [n, n X + k] = RXX[k]
+conjunta no sentido amplo: XRXY [n][en, n Y [n+] kWSS ] = RXY [k]
+181 / 248MP
+Processo Aleatório
+Processo Aleatório
+Médias temporais
+em processos aleatórios
+Definição: A[f(t)] = lim
+T?8
+1
+2T Z-TT f(t)dt
+Média temporal de realização do processo X(t): x = A[x(t)]
+Calculada sobre todas as realizações, X é uma variável aleatória.
+E[X] = E[A[X(t)]] = A[E[X(t)]] = A[X(t)]
+Autocorrelação temporal de realização do processo X(t):
+rxx(t) = A[x(t)x(t + t)]
+Calculada sobre todas as realizações, Rxx(t) é uma variável aleatória.
+E[Rxx(t)] = E[A[X(t)X(t+t)]] = A[E[X(t)X(t+t)]] = A[RXX(t, t+t)]
+Correlação temporal cruzada de realizações dos processos X(t) e Y (t):
+r
+xy(t) = A[x(t)y(t + t)]
+182 / 248MP
+Processo Aleatório
+Processo Aleatório
+Médias temporais
+em sequências aleatórias
+Definição: A[f[n]] = lim
+N?8
+1
+2N + 1
+NX
+n=-N
+f[n]
+Média temporal de realização da sequência X[n]: x = A[x[n]]
+Calculada sobre todas as realizações, X é uma variável aleatória.
+E[X] = E[A[X[n]]] = A[E[X[n]]] = A[X[n]]
+Autocorrelação temporal de realização da sequência X[n]:
+rxx[k] = A[x[n]x[n + k]]
+Calculada sobre todas as realizações, Rxx[k] é uma variável aleatória.
+E[Rxx[k]] = E[A[X[n]X[n+k]]] = A[E[X[n]X[n+k]]] = A[RXX[n, n+k]]
+Correlação temporal cruzada de realizações das sequências X[n] e Y [n]:
+r
+xy[k] = A[x[n]y[n + k]]
+183 / 248MP
+Processo Aleatório
+Processo Aleatório
+Ergodicidade
+Conceito
+A propriedade da ergodicidade autoriza a substituição de E[·] por A[·].
+Há diversos níveis de ergodicidade.
+184 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processo Ergódico
+para a média:
+Processo X(t) com X é ergódico para a média se X = x ? sX2 = 0.
+Se X(t) é WSS, é ergódico para a média:
+? lim
+T ?8
+1 T
+Z02T CXX(t) 1 - 2tT  dt = 0.
+se CXX(0) < 8, lim
+|t|?8
+CXX(t) ? 0 e Z-8 8 |CXX(t)|dt < 8.
+185 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processo(s) Ergódico(s)
+para a correlação:
+Processo X(t) com RXX(t) é ergódico para a autocorrelação se
+RXX(t) = rxx(t) ? sR2 xx(t) = 0.
+Dois processos X(t) e Y (t) são ergódicos para a correlação cruzada se
+RXY (t) = rxy(t).
+As condições para isso recaem sobre momentos de 4a. ordem.
+186 / 248MP
+Processo Aleatório
+Processo Aleatório
+Sequência Ergódica
+para a média:
+Sequência X[n] com X é ergódica para a média se X = x ? sX2 = 0.
+Se X[n] é WSS, é ergódica para a média:
+? lim
+M?8
+1
+2M + 1
+MX
+k=-M
+CXX[k]1 - 2M|k+ 1 |  = 0.
+se CXX[0] < 8, lim
+|k|?8
+CXX[k] ? 0 e
+8X
+k=-8
+|CXX[k]| < 8.
+187 / 248MP
+Processo Aleatório
+Processo Aleatório
+Sequência(s) Ergódica(s)
+para a correlação:
+Sequência X[n] com RXX[k] é ergódica para a autocorrelação se
+RXX[k] = rxx[k] ? sR2 xx[k] = 0.
+Duas sequências X[n] e Y [n] são ergódicas para a correlação cruzada se
+RXY [k] = rxy[k].
+As condições para isso recaem sobre momentos de 4a. ordem.
+188 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+Problema
+Considere a grandeza D que descreve o número de dias em que houve mais
+que 5 mm de precipitação de chuva, a cada mês m, em cada local
+(aleatoriamente escolhido) sobre o hemisfério sul da Terra.
+1 Você acha razoável atribuir estacionariedade ao modelo? Argumente.
+2 Você acha razoável atribuir ergodicidade ao modelo? Argumente.
+189 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+1 Não. Fatores externos podem provocar comportamentos globais
+diferentes no hemisfério sul ao longo dos meses (mais chuvosos uns,
+menos chuvosos outros), não garantindo equivalência entre as VAs que
+compõem o processo.
+2 Não. Locais diferentes podem ter comportamentos diferentes (mais
+chuvosos uns, menos chuvosos outros), não garantindo equivalência
+entre as realizações que compõem o processo.
+190 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+Problema
+As baterias AAA de 1,5 V da Tabajara Ltda. apresentam em circuito
+aberto uma tensão b constante em seus terminais, que pode ser modelada
+estatisticamente como uma variável aleatória B com densidade de
+probabilidade fB(b) uniforme entre 1,62 e 1,66 V. Suponha que as baterias
+foram fabricadas há um tempo “infinito”, e que em circuito aberto elas não
+sofram descarga. Considere o processo aleatório B(t) que modela a tensão
+em circuito aberto de cada bateria, aleatoriamente escolhida, ao longo do
+tempo.
+(a) Escreva a PDF fB(b; t).
+(b) Escreva a PDF fB(b1, b2; t1, t2).
+(c) Quão estacionário é o processo? Justifique.
+(d) O processo é ergódico para a média? Justifique.
+(e) Calcule E[B(t)] e A[b(t)].
+(f) Calcule RBB(t, t + t) e rbb(t).
+191 / 248MP
+Processo Aleatório
+Processo Aleatório
+Exemplo
+(e) N˜ao. Locais diferentes podem ter comportamentos diferentes (mais chuvosos
+uns, menos chuvosos outros), n˜ao garantindo equivalˆencia entre as realiza¸c˜oes
+que comp˜oem o processo.
+• Quest˜ao 2:
+(a) fB(b; t) = fB(b) = 1
+0,04
+(u(b - 1,62) - u(b - 1,66)).
+(b) fB(b1, b2; t1, t2) = fB1(b1)fB2(b2|b1) = fB(b1)d(b2 - b1)
+=
+1
+0,04
+(u(b1 - 1,62) - u(b1 - 1,66))d(b2 - b1) ou
+fB(b1, b2; t1, t2) = fB2(b2)fB1(b1|b2) = fB(b2)d(b1 - b2)
+=
+1
+0,04
+(u(b2 - 1,62) - u(b2 - 1,66))d(b1 - b2).
+(c) Quaisquer distribui¸c˜oes conjuntas das vari´aveis aleat´orias referentes a n instantes de tempo ser˜ao iguais, j´a que cada realiza¸c˜ao ´e constante no tempo.
+Portanto, o processo ´e SSS.
+(d) N˜ao. Realiza¸c˜oes diferentes podem apresentar m´edias temporais diferentes,
+aleatoriamente distribu´idas entre 1,62 e 1,66 V.
+(e) E[B(t)] = 1,62 + 1,66
+2
+= 1,64 V,
+A[b(t)] = A[b] = b.
+(f) RBB(t, t + t) = !1,162 ,66 0,104b2db = 0,104 1,663 -3 1,623 ˜ 2,69 V2,
+rbb(t) = b2.
+• Quest˜ao 3: X[n] = acos "2Np n# Y [n] = bcos "22Np n#,
+(a) fX,Y (x, y; n1, n2) =
+1 $d ( ( )) d( b) + d " pn1 # d ( b ( ))% 192 / 248MP
+Processo Aleatório
+Processo Aleatório
+Propriedades das Funções de Correlação
+Obs.: RXX(t, t) = X2(t) e CXX(t, t) = sX2 (t).
+Hipótese: X(t) é WSS.
+|RXX(t)| = RXX(0)
+RXX(-t) = RXX(t)
+Se X(t) é ergódico sem componentes periódicas, lim
+|t|?8
+RXX(t) = X2
+Se X(t) tem componentes periódicas, RXX(t) também as tem.
+Hipótese: X(t) e Y (t) são conjuntamente WSS.
+RXY (-t) = RY X(t)
+RXY (t) = pRXX RXX (0)+2(0) RY Y RY Y (0)(0)
+193 / 248MP
+Processo Aleatório
+Processo Aleatório
+Propriedades das Funções de Correlação
+Obs.: RXX[n, n] = X2[n] e CXX[n, n] = sX2 [n].
+Hipótese: X[n] é WSS.
+|RXX[k]| = RXX[0]
+RXX[-k] = RXX[k]
+Se X[n] é ergódico sem componentes periódicas, lim
+|k|?8
+RXX[k] = X2
+Se X[n] tem componentes periódicas, RXX[k] também as tem.
+Hipótese: X[n] e Y [n] são conjuntamente WSS.
+RXY [-k] = RY X[k]
+RXY [k] = pRXX RXX [0]+2[0] RY Y RY Y [0] [0]
+194 / 248MP
+Processo Aleatório
+Processo Aleatório
+Estimação de correlação
+Hipótese: Ergodicidade
+RXY (t) ˜ rxy(t) ˜ 1
+2T Z-TT x(t)y(t + t)dt, T ?
+RXY [k] ˜ rxy[k] ˜ 1
+2N + 1
+N X
+n=-N
+x[n]y[n + k], N ?
+195 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processo/Sequência Aleatório/a Gaussiana
+PDF e propriedades
+fX(x1, . . . , xN; t1, . . . , tN) ou fX(x1, . . . , xN; n1, . . . , nN) =
+1
+v(2p)N |CX | e-
+12
+(x-X)T C- X1(x-X)
+Xi = X(ti) ou X[ni], CXik = CXX(ti, tk) ou CXX[ni, nk]
+Processos/sequências gaussianos/as WSS são SSS.
+Processos/sequências conjuntamente gaussianos/as
+descorrelacionados/as são independentes.
+196 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processo Aleatório de Poisson
+Definições
+Descreve a contagem de ocorrências de um evento
+com taxa média de ocorrência ? ao longo do tempo t ? é discreto.
+Exs.: chegada de cliente num banco, ocorrência de raio numa área,
+emissão de elétron por um material fotossensível etc.
+Convenção:
+???
+X(t < 0) = -(contagem entre t e 0)
+X(0) = 0
+X(t > 0) = contagem entre 0 e t
+Condições de validade do modelo:
+Não ocorrem eventos simultâneos.
+Seus tempos de ocorrência são independentes.
+197 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processo Aleatório de Poisson
+PDF
+de 1a. ordem:
+fX(x; t) =
+8X k
+=0
+(?t)ke-?t
+k! d(x - k)
+de 2a. ordem, t1 < t2 (? k1 = k2):
+fX(x1, x2; t1, t2) =
+8X k1
+=0
+8X
+k2=k1
+(?t1)k1[?(t2 - t1)]k2-k1e-?t2
+k1!(k2 - k1)! d(x1-k1)d(x2-k2)
+198 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processos Aleatórios Complexos
+Definição e estacionariedade
+Z(t) = X(t) + jY (t), sendo X(t) e Y (t) processos aleatórios reais.
+Z(t) é estacionário quando X(t) e Y (t) são conjuntamente
+estacionários.
+Z(t) é WSS quando X(t) e Y (t) são conjuntamente WSS.
+Zi(t) e Zj(t) são conjuntamente WSS quando
+cada um é WSS
+RZiZj (t, t + t) = RZiZj (t)
+199 / 248MP
+Processo Aleatório
+Processo Aleatório
+Processos Aleatórios Complexos
+Momentos
+Média: E[Z(t)] = E[X(t)] + jE[Y (t)]
+Autocorrelação: RZZ(t, t + t) = E[Z*(t)Z(t + t)]
+Se Z(t) é WSS, E[Z(t)] = Z e RZZ(t, t + t) = RZZ(t).
+Autocovariância:
+CZZ(t, t + t) = E[(Z(t) - E[Z(t)])*(Z(t + t) - E[Z(t + t)])]
+Correlação cruzada: RZiZj (t, t + t) = E[Zi*(t)Zj(t + t)]
+Se RZiZj (t, t + t) = 0 ?t, t, então Zi(t) e Zj(t) são ortogonais.
+Covariância cruzada:
+CZiZj (t, t + t) = E[(Zi(t) - E[Zi(t)])*(Zj(t + t) - E[Zj(t + t)])]
+Se CZiZj (t, t + t) = 0 ?t, t, então Zi(t) e Zj(t) são descorrelacionados.
+200 / 248MP
+Processo Aleatório
+Processo Aleatório
+Sequências Aleatórias Complexas
+Definição e estacionariedade
+Z[n] = X[n] + jY [n], sendo X[n] e Y [n] sequências aleatórias reais.
+Z[n] é estacionária quando X[n] e Y [n] são conjuntamente
+estacionárias.
+Z[n] é WSS quando X[n] e Y [n] são conjuntamente WSS.
+Zi[n] e Zj[n] são conjuntamente WSS quando
+cada uma é WSS
+RZiZj [n, n + k] = RZiZj [k]
+201 / 248MP
+Processo Aleatório
+Processo Aleatório
+Sequências Aleatórias Complexas
+Momentos estatísticos
+Média: E[Z[n]] = E[X[n]] + jE[Y [n]]
+Autocorrelação: RZZ[n, n + k] = E[Z*[n]Z[n + k]]
+Se Z[n] é WSS, E[Z[n]] = Z e RZZ[n, n + k] = RZZ[k].
+Autocovariância:
+CZZ[n, n + k] = E[(Z[n] - E[Z[n]])*(Z[n + k] - E[Z[n, n + k]])]
+Correlação cruzada: RZiZj [n, n + k] = E[Zi*[n]Zj[n, n + k]]
+Se RZiZj [n, n + k] = 0 ?n, k, então Zi[n] e Zj[n] são ortogonais.
+Covariância cruzada:
+CZiZj [n, n + k] = E[(Zi[n] - E[Zi[n]])*(Zj[n, n + k] - E[Zj[n, n + k]])]
+Se CZiZj [n, n + k] = 0 ?n, k, então Zi[n] e Zj[n] são
+descorrelacionadas.
+202 / 248MP
+Processo Aleatório
+Transformada de Fourier
+Transformada de Fourier
+de tempo contínuo, satisfeitas as condições de existência
+x(t) = 1
+2p Z-8 8 X(j?)ej?td?
+X(j?) = Z-8 8 x(t)e-j?tdt
+de tempo discreto, satisfeitas as condições de existência
+x[n] = 1
+2p Z-pp X(ej?)ej?nd?
+X(ej?) =
+8 X
+n=-8
+x[n]e-j?n
+203 / 248MP
+Processo Aleatório
+Transformada de Fourier
+Transformada de Fourier
+Propriedades
+Linearidade
+Simetria
+Deslocamento no tempo
+Deslocamento na frequência
+Escalamento
+Diferenciação no tempo [tempo contínuo]
+Diferenciação na frequência
+Convolução no tempo
+Modulação
+Integração / soma no tempo
+Parseval
+Dualidade [tempo contínuo]
+204 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Caracterização Espectral de Processo Aleatório
+Ideias
+Descrever um processo aleatório na frequência: F[x(t)]?
+Resultado: processo aleatório cuja variável ordenada é ??
+Problemas:
+dificuldade de garantir existência de F[x(t)];
+pouca utilidade de um espectro aleatório.
+Autocorrelação carrega informação das componentes periódicas:
+boa representante.
+205 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Potência e Densidade Espectral de Potência
+Definições e resultados
+Potência média (média) do processo X(t): PXX = A[E[X2(t)]]
+Para T grande, PXX ˜ E "21T -RTT X2(t)dt# = E "21T -8 R8 XT2 (t)dt#,
+sendo XT (t) = X0, t (t), -= - T < t < T T ? t = T.
+Para X˜T (j?) = F[XT (t)], por Parseval: PXX ˜ 21p
+8R
+-8
+E[|X˜T (j?)|2]
+2T d?
+Densidade espectral de potência de X(t):
+SXX (j?) = lim
+T ?8
+E[|X˜T (j?)|2]
+2T
+Note que PXX =
+1
+2p Z-8 8 SXX (j?)d?
+206 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Potência e Densidade Espectral de Potência
+Propriedades
+Propriedades de SXX(j?):
+SXX (j?) = 0 (real)
+SXX (-j?) = SXX (j?), se X(t) real
+SX? X? (j?) = ?2SXX (j?)
+Cálculo de SXX(j?)
+Em função de RXX(t, t + t):
+SXX(j?) = F[A[RXX(t, t + t)]]
+No caso WSS, tem-se diretamente SXX(j?) = F[RXX(t)]
+207 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Potência e Densidade Espectral de Potência
+De fato, tem-se
+SXX(j?) = lim
+T?8
+E[|X˜T (j?)|2]
+2T
+= lim
+T?8
+E 21T Z-TT X*(t1)ej?t1dt1 Z-TT X(t2)e-j?t2dt2
+= lim
+T?8
+1
+2T Z-TT Z-TT E | [X*({z t1)X(t2)] }
+=RXX (t1,t2)
+e
+-j?(t2-t1)dt2dt1
+Tomando-se a transformada de Fourier inversa tem-se:
+F-1 [SXX(j?)] = lim
+T?8
+1
+2T Z-TT Z-TT RXX(t1, t2) 21p Z-8 8 ej?(t+t1-t2)d?
+| {z }
+=2pd(t+t1-t2)
+dt2dt1
+= lim
+T?8
+1
+2T Z-TT RXX(t1, t1 + t)dt1 = A[RXX(t, t + t)]
+208 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Largura de Faixa de Processo Aleatório Real
+Caracterização
+Caso “passa-baixas”:
+Largura de faixa WRMS: WRMS 2 =
+R-8 8 ?2SXX(j?)d?
+R-8 8 SXX(j?)d?
+Caso “passa-faixa”:
+Centroide: ?0 =
+R08 ?SXX(j?)d?
+R08 SXX(j?)d?
+Largura de faixa WRMS: WRMS 2 2 = R08(?R08- S?XX 0)2S(jXX ?)d(j ??)d?
+209 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Densidade Espectral de Potência Cruzada
+Motivação
+Soma de dois processos: W(t) = X(t) + Y (t)
+Autocorrelação:
+RWW (t, t+t) = RXX(t, t+t)+RY Y (t, t+t)+RXY (t, t+t)+RY X(t, t+t)
+Densidade espectral de potência: SWW (j?) =
+SXX(j?) + SY Y (j?) + F[A[RXY (t, t + t)]] + F[A[RY X(t, t + t)]]
+O que seriam F[A[RXY (t, t + t)]] e F[A[RY X(t, t + t)]]?
+Densidades espectrais de potência cruzada?
+210 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Potência e Densidade Espectral de Potência Cruzadas
+Definições e resultados
+Potência cruzada média (média) entre os processos X(t) e Y (t):
+PXY = A[E[X(t)Y (t)]]
+Densidade espectral de potência cruzada entre os processos X(t) e
+Y (t):
+Meta: SXY (j?) tal que PXY = 1
+2p Z-8 8 SXY (j?)d?
+Em função de x(t): SXY (j?) = lim
+T ?8
+E[X˜T* (j?)Y˜T (j?)]
+2T
+, sendo
+X˜T (?) = F[XT (t)] e XT (t) = X0, t (t), -= - T < t < T T ? t = T ;
+Y˜T (?) = F[YT (t)] e YT (t) = Y 0, t (t), -= - T < t < T T ? t = T.
+Em função de RXY (t, t + t): SXY (j?) = F[A[RXY (t, t + t)]]
+(E o caso WSS?)
+211 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Densidade Espectral de Potência Cruzada
+Propriedades
+SXY (j?) = SY X * (j?)
+Para X(t) e Y (t) reais:
+SXY (j?) = SY X (-j?)
+<[SXY (j?)] é par
+=[SXY (j?)] é ímpar
+Se X(t) e Y (t) são ortogonais, SXY (j?) = 0
+Se X(t) e Y (t) são descorrelacionados com X e Y ,
+SXY (j?) = 2pX.Y d(?)
+212 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Algumas Definições de Ruído
+Ruído branco n(t), realização de N(t)
+No tempo:
+Média zero: N(t) = 0
+Descorrelação entre instantes distintos: RNN (t, t + t) = 0, t 6= 0
+Na frequência:
+Densidade espectral de potência constante: SNN (j?) = N0
+2
+Usualmente, WSS: RNN(t) = N0
+2
+d(t)
+Frequentemente, assume-se que instantes distintos são i.i.d.
+Não é realizável, pois PNN é infinita.
+Ruído colorido = ruído não-branco.
+213 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Algumas Definições de Ruído
+Ruído “branco” WSS limitado em faixa
+Hipótese: potência P
+Caso “passa-baixas”: SNN(j?) = (0PW, ? < p , -W < ? < W -W ? ? > W,
+RWW (t) = Psen(W t)
+W t
+Caso “passa-faixa”: SNN(j?) = (0PW,p , ±no resto ?0 - W2, < ? < ±?0 + W2
+RWW (t) = P
+sen W t2 
+W t
+2
+cos(?0t)
+214 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Modulação
+AM por processo aleatório
+X(t) ? Y (t) = X(t)A0cos(?0t)
+RY Y (t, t + t) = A2 0
+2
+RXX(t, t + t)[cos(?0t) + cos(2?0t + ?0t)]
+Se X(t) é WSS:
+A[RY Y (t, t + t)] =
+A2
+0
+2
+RXX(t)cos(?0t)
+SY Y (j?) =
+A2
+0
+4
+[SXX(j(? - ?0)) + SXX(j(? + ?0))]
+215 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Caracterização Espectral de Sequência Aleatória
+Potência e densidade espectral de potência
+Potência média (média) da sequência X[n]: PXX = A[E[X2[n]]]
+Densidade espectral de potência da sequência X[n]:
+Meta: SXX (ej?) tal que PXX = 1
+2p Z-pp SXX (ej?)d?
+Em função de RXX [n, n + k]: SXX (ej?) = F[A[RXX [n, n + k]]]
+(E o caso WSS?)
+Propriedades de SXX(ej?):
+SXX (ej?) = 0 (real)
+SXX (e-j?) = SXX (ej?), se X[n] real
+216 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Caracterização Espectral de Sequência Aleatória
+Potência e densidade espectral de potência cruzadas
+Potência cruzada média (média) entre as sequências X[n] e Y [n]:
+PXY = A[E[X[n]Y [n]]]
+Densidade espectral de potência cruzada entre X[n] e Y [n]:
+Meta: SXY (ej?) tal que PXY = 1
+2p Z-pp SXY (ej?)d?
+Em função de RXY [n, n + k]: SXY (ej?) = F[A[RXY [n, n + k]]]
+(E o caso WSS?)
+Propriedades:
+SXY (ej?) = SY X * (ej?)
+Para X[n] e Y [n] reais:
+SXY (ej?) = SY X (e-j?)
+<[SXY (ej?)] é par
+=[SXY (ej?)] é ímpar
+Se X[n] e Y [n] são ortogonais, SXY (ej?) = 0
+Se X[n] e Y [n] são descorrelacionados com X e Y ,
+SXY (ej?) = 2pX.Y d(?)
+217 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Ruído Branco no Tempo Discreto
+n[n], realização de N[n]
+No tempo:
+Média zero: N[n] = 0
+Descorrelação entre instantes distintos: RNN [n, n + k] = 0, k 6= 0
+Na frequência:
+Densidade espectral de potência constante: SNN (ej?) = sN2
+Usualmente, WSS: RNN[k] = sN2 d[k]
+Frequentemente, assume-se que instantes distintos são i.i.d.
+PNN = sN2
+218 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+Problema
+Considere o processo aleatório
+X(t) = Acos(2pF t + F),
+em que A é uma variável aleatória (VA) com média A e variância sA2 > 0, F é
+uma VA uniformemente distribuída no intervalo [0, f0], com f0 > 0 sendo uma
+constante conhecida, e F é uma VA uniformemente distribuída no intervalo [0, 2p].
+Considere que A, F, F sejam VAs estatisticamente independentes.
+(a) Determine RXX (t, t + t).
+(b) Determine SXX (j?).
+(c) X(t) é WSS? Justifique detalhadamente.
+(d) X(t) é ergódico para a média? Justifique detalhadamente.
+(e) Refaça os itens (a), (b), (c) e (d) para o processo aleatório complexo
+X(t) = Aej(2pF t+F).
+219 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+(a)
+RXX (t, t + t) = E[A2cos(2pF t + F)cos(2pF t + 2pF t + F)]
+=
+EA[A2]
+2
+E[cos(4pF t + 2pF t + 2F) + cos(2pF t)]
+=
+EA[A2]
+2
+EF ? ?E | F[cos(4pF t=0 {z + 2pF t + 2F)] } + E | F=[cos cos{z (2 (2pF t pF t ) )] }? ?
+=
+sen(2pf0t)
+2pf0t A2 +2 sA2  = RXX (t)
+(b)
+SXX (j?) = F[RXX (t)]
+= (0A,24+f0sA2 , - caso contrário 2pf0 < ? < 2pf0
+220 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+(c) Note que E[X(t)] = EA,F [EF[X(t)]] = EA,F [0] = 0 e que
+RXX(t, t + t) = RXX(t) do item (a). Portanto, X(t) é WSS.
+(d) A média temporal de uma realização x(t) (um cosseno) é sempre nula,
+coincidindo portanto com E[X(t)] = 0. Logo, X(t) é ergódico para a média.
+(e)
+RXX(t, t + t) = E[X*(t)X(t + t)] = E[A2]E[ej2pF t ]
+= (A2 + sA2 ) sen(pf0t)
+pf0t
+ejpf0t = RXX(t)
+SXX(j?) = F[RXX(t)] = (0A,2f+0sA2 , 0 caso contrário < ? < 2pf0
+Note que E[X(t)] = EA,F [EF[X(t)]] = EA,F [0 + j0] = 0 e que
+RXX(t, t + t) = RXX(t). Portanto, X(t) é WSS. Além disso, a média
+temporal de uma realização x(t) (um cosseno na parte real e um seno na
+parte imaginária) é sempre nula, coincidindo portanto com E[X(t)] = 0.
+Logo, X(t) é ergódico para a média.
+221 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+Problema
+Desenhe a densidade espectral de potência, SXX(ej?), da sequência
+aleatória
+X[n] = N[n] + bN[n - 1],
+em que N[n] é ruído branco com desvio-padrão sN. Além disso, determine
+a potência cruzada, PXN.
+222 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+Precisamos calcular RXX[n, n + k]. Há 3 casos a considerar (considerando o
+fato de N[n] ser branco, ou seja amostras temporais descorrelacionadas e de
+média zero):
+k = 0: E[X2[n]] = E[N2[n]] + b2E[N2[n - 1]] = (1 + b2)sN2
+k = ±1: E[X[n]X[n ± 1]] = bsN2
+demais valores de k: E[X[n]X[n + k]] = 0
+Note que RXX[n, n + k] = RXX[k]. Logo,
+SXX(ej?) = X
+k
+RXX[k]e-j?k = (1 + b2)sN2 + 2bsN2 cos(?),
+basta portanto desenhar esse gráfico para ? ? [-p, p] e lembrar que
+SXX(ej?) é periódico com período 2p.
+Por outro lado, PXN = A[E[X[n]N[n]]] = A[E[N2[n]]] = A[sN2 ] = sN2 .
+223 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+Problema
+X[n] é sequência aleatória gaussiana com média zero e autocorrelação
+RXX[k] = 2-|k|.
+1 Podemos afirmar que X[n] é SSS? Justifique detalhadamente.
+2 Podemos afirmar que X[n] é ruído branco? Justifique detalhadamente.
+224 / 248MP
+Processo Aleatório
+Processo Aleatório – Descrição Espectral
+Exemplo
+1 Sim, pois é WSS e toda sequência gaussiana WSS é SSS.
+2 Não, pois RXX[k] 6= d[k].
+225 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Sistema Linear no Tempo Contínuo
+Definições, propriedades e resultados
+Linearidade: y(t) = L[x(t)] obedece
+x(t) =
+NX n
+=1
+anxn(t) ? y(t) =
+NX n
+=1
+anyn(t)
+Resposta a entrada x(t):
+y(t) = R-8 8 x(t)h(t, t)dt, h(t, t) = L[d(t - t)] = resposta ao impulso
+No caso invariante no tempo:
+h(t, t) = h(t - t), y(t) = Z-8 8 x(t)h(t - t)dt = (h * x)(t)
+Na frequência: Y (j?) = H(j?)X(j?), H(j?) = resposta na frequência
+226 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Resposta de SLIT a Processo Aleatório
+Y (t) = (h * X)(t)
+Sendo X(t) real WSS:
+Y = X Z-8 8 h(t)dt
+Y 2 = Z-8 8 Z-8 8 RXX (t1 - t2)h(t1)h(t2)dt1dt2
+RY Y (t) = Z-8 8 Z-8 8 RXX (t + t1 - t2)h(t1)h(t2)dt1dt2 = (RXX *h*h-)(t)
+RXY (t) = (RXX * h)(t)
+RY X (t) = (RXX * h-)(t)
+RY Y (t) = (RXY * h-)(t) = (RY X * h)(t)
+Uma aplicação – Estimação de h(t) de um SLIT:
+Se X(t) é ruído branco, RXY (t) = N0
+2
+h(t). Toma-se, então, hˆ(t) = 2
+N0
+RˆXY (t).
+227 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Resposta de SLIT a Processo Aleatório WSS
+Características espectrais:
+SY Y (j?) = SXX(j?)|H(j?)|2
+SXY (j?) = SXX(j?)H(j?)
+SY X(j?) = SXX(j?)H(-j?)
+Uma aplicação – Estimação de SˆXX(j?):
+X(t) passa por um filtro sintonizado H(j?) em frequência variável ?f;
+mede-se a potência média PY Y de sua saída Y (t).
+Hipóteses: Ergodicidade, faixa estreita.
+SˆXX(j?f) = R-8 82p|PHY Y (j?(?)|f2)d?
+228 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Largura de Faixa de Ruído de um SLIT
+Sistema com H(j?)
+Passa-baixas: Qual a largura ±WN de HI(j?) ideal em torno de 0
+que resulta na mesma potência de saída de H(j?),
+estando ambos submetidos a ruído branco na entrada?
+WN =
+R08 |H(j?)|2d?
+|H(0)|2
+Passa-faixa: Qual a largura WN de HI(j?) ideal em torno de ±?0
+que resulta na mesma potência de saída de H(j?),
+estando ambos submetidos a ruído branco na entrada?
+WN =
+R08 |H(j?)|2d?
+|H(?0)|2
+229 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Processos Passa-Faixa, Limitado em Faixa e de Faixa Estreita
+Definições
+Processo “passa-faixa”:
+SNN(j?) concentrado em “faixa de passagem” de largura W
+que não inclui ? = 0.
+Processo limitado em faixa:
+passa-faixa com SNN(j?) = 0 fora da “faixa de passagem”.
+Processo de faixa estreita:
+limitado em faixa com W  ?0, ?0 ? “faixa de passagem”.
+230 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Sistema Linear no Tempo Discreto
+Definições, propriedades e resultados
+Linearidade: y[n] = L[x[n]] obedece
+x[n] =
+NX i
+=1
+aixi[n] ? y[n] =
+NX i
+=1
+aiyi[n]
+Resposta a entrada x[n]:
+y[n] =
+8X
+k=-8
+x[k]h[n, k], h[n, k] = L[d[n - k]] = resposta ao impulso
+No caso invariante no tempo:
+h[n, k] = h[n - k], y[n] =
+8X
+k=-8
+x[k]h[n - k] = (h * x)[n]
+Na frequência: Y (ej?) = H(ej?)X(ej?), H(ej?) = resposta na
+frequência
+231 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Resposta de SLIT a Sequência Aleatória
+Y [n] = (h * X)[n]
+No tempo discreto, é mais comum encontrar modelos com
+sequências não-estacionárias e sistemas complexos.
+Y [n] = (X * h)[n]
+RXY [n1, n2] =
+8X
+k=-8
+RXX[n1, n2 - k]h[k]
+RY Y [n1, n2] =
+8X
+k=-8
+RXY [n1 - k, n2]h* -[k]
+Se X[n] = N[n] é ruído branco com sN2 , e h[n] tem comprimento L,
+E[|Y [n]|2] = sN2
+L-1
+X l
+=0
+|h[l]|2.
+232 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Resposta de SLIT a Sequência Aleatória
+Propriedades para X[n] WSS
+Y [n] será WSS com Y = XH(ej0)
+RXY [k] = (RXX * h)[k]
+RY Y [k] = (RXY * h* -)[k] = (RXX * h * h* -)[k]
+SXY (ej?) = SXX(ej?)H(ej?)
+SY Y (ej?) = SXY (ej?)H*(ej?) = SXX(ej?)|H(ej?)|2
+Obs.: Se h[n] é real, H*(ej?) = H(e-j?)
+233 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+Problema
+Esta questão trata do problema de estimação linear ótima. Deseja-se prever o
+valor da amostra x[n] utilizando uma combinação linear de I amostras passadas
+mais recentes do mesmo sinal real. A estimativa tem a forma
+xˆI[n] =
+IX i
+=1
+aix[n - i].
+O erro/desvio de estimação é denotado por dI[n] = x[n] - xˆI[n].
+Assuma que x[n] é na verdade uma sequência-amostra de uma sequência aleatória
+WSS X[n]. O preditor linear ótimo é aquele cujos coeficientes a1, . . . , aI
+minimizam o erro quadrático médio (MSE, do inglês mean squared error) dado por
+MSE(a1, . . . , aI) = E?2 I[n] , onde ?I[n] = X[n] -
+IX i
+=1
+aiX[n - i].
+Determine a expressão que permite calcular os coeficientes ótimos em função de
+RXX[0], RXX[1], . . . , RXX[I].
+234 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+?2
+I[n] = X2[n] - 2X
+i
+aiX[n]X[n - i] +X
+i
+a
+2i
+X2[n - i]
++ 2X
+i
+X
+j>i
+aiajX[n - j]X[n - i]
+?
+E?2 I[n] = RXX[0] - 2X
+i
+aiRXX[i] +X
+i
+a
+2i
+RXX[0] + 2X
+i
+X
+j>i
+aiajRXX[j - i]
+?
+?E?2 I[n]
+?al
+= 0 ? -2RXX[l] + 2alRXX[0] + 2X
+i6=l
+aiRXX[i - l] = 0, ?l ? {1, . . . , I}
+?
+???
+a1,o
+a2,o
+...
+aI,o
+???
+=
+???
+RXX[0] RXX[1] · · · RXX[I - 1]
+RXX[1] RXX[0] · · · RXX[I - 2]
+...
+.
+.
+.
+...
+...
+RXX[I - 1] RXX[I - 2] · · · RXX[0]
+???
+-1?
+??
+RXX[1]
+RXX[2]
+...
+RXX[I]
+???
+235 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+Problema
+Na figura abaixo, X(t) e N(t) são processos aleatórios conjuntamente WSS.
+h(t)
+H(j!)
+W(t) = X(t) + N(t) Y (t)
+t0
+X(t) X(t ! t0)
+! +
+SLIT
+Atrasador
+^ !(t) = X(t ! t0) ! Y (t)
+O filtro em questão é um SLIT (com resposta ao impulso real) e seu objetivo é a
+remoção/atenuação do ruído N(t), ou a melhoria/realce do sinal X(t).
+236 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+Problema
+Mostre que:
+1 E ?2(t) = RXX(0) - 2RXY (t0) + RY Y (0) (expressão básica do MSE).
+2 E ?2(t) = 21p
+8Z
+-8
+SXX(j?) - 2SXW (j?)H(j?)ej?t0 + SWW (j?)|H(j?)|2 d?
+(MSE na frequência).
+3 se H(j?) = A(?)ejB(?) e SXW (j?) = C(?)ejD(?), então as respostas de fase e de
+amplitude ótimas são
+Bo(?) = -?t0 - D(?), Ao(?) = C(?)
+SWW (j?)
+.
+Dica: determine primeiro Bo(?) usando (b) e utilize o resultado para encontrar
+Ao(?).
+4 se X(t) e N(t) são descorrelacionados, e o ruído N(t) possui média zero, então
+Ho(j?) = SXX(j?)
+SXX(j?) + SNN(j?)
+e
+-j?t0
+.
+237 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+1 Como X(t) e N(t) são processos aleatórios conjuntamente WSS, então W(t) é
+WSS e como o filtro é SLIT, então Y (t) é WSS. Portanto,
+E ?2(t) = E X2(t - t0) - 2X(t - t0)Y (t) + Y 2(t) = RXX (0) - 2RXY (t0) + RY Y (0)
+2
+RXX (0) = 1
+2p
+8Z
+-8
+SXX (j?)d?
+RXY (t0) = 1
+2p
+8Z
+-8
+SXY (j?)ej?t0 d? = 1
+2p
+8Z
+-8
+SXW (j?)H(j?)ej?t0 d?
+RY Y (0) = 1
+2p
+8Z
+-8
+SY Y (j?)d? = 1
+2p
+8Z
+-8
+SWW (j?)|H(j?)|2d?
+?
+E ?2(t) = 21p
+8Z
+-8
+SXX (j?) - 2SXW (j?)H(j?)ej?t0 + SWW (j?)|H(j?)|2 d?
+238 / 248MP
+Processo Aleatório
+Sistemas Lineares com Entradas Aleatórias
+Exemplo
+3 Para minimizar o MSE, precisamos diminuir ao máximo o valor do integrando
+SXX (j?) - 2C(?)A(?)ej[?t0+D(?)+B(?)] + SWW (j?)A2(?) ? R
+para cada frequência ?. A fase do filtro só influencia no fator
+2C(?)A(?)ej[?t0+D(?)+B(?)], o qual precisa ser maximizado. Logo, temos
+Bo(?) = -?t0 - D(?).
+Usando essa fase, o integrando fica agora
+SXX (j?) - 2C(?)A(?) + SWW (j?)A2(?),
+que é minimizado quando
+Ao(?) = C(?)
+SWW (j?)
+.
+4 Neste caso, tem-se SXW (j?) = SXX (j?) e SWW (j?) = SXX (j?) + SNN (j?).
+Logo,
+Ho(j?) = Ao(?)ejBo(?) = C(?)e-j[?t0+D(?)]
+SXX (j?) + SNN (j?)
+=
+S*
+XW (j?)
+SXX (j?) + SNN (j?)
+e
+-j?t0
+=
+SXX (j?)
+SXX (j?) + SNN (j?)
+e
+-j?t0
+239 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Processos de Markov
+Conceito
+Um processo é de Markov se conhecer seu passado
+não afeta a expectativa de seu futuro quando se conhece seu presente.
+Sendo tn-1 < tn,
+P {X(tn) = xn|X(t), ?t = tn-1} = P {X(tn) = xn|X(tn-1)}
+Sendo t1 < t2 < · · · < tn,
+P {X(tn) = xn|X(tn-1), . . . , X(t1)} = P {X(tn) = xn|X(tn-1)}
+Só veremos tempo discreto: X(tn) ? X[n]
+240 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Sequências de Markov
+Propriedades
+fX(xn; n|xn-1, . . . , x1; n - 1, . . . , 1) = fX(xn; n|xn-1; n - 1)
+= PDF de transição
+Regra da cadeia:
+fX(x1, . . . , xn; 1, . . . , n) =
+fX(xn; n|xn-1; n - 1) · · · fX(x2; 2|x1; 1)fX(x1; 1)
+E[X[n]|xn-1, . . . , x1; n - 1, . . . , 1] = E[X[n]|xn-1; n - 1]
+Revertida no tempo, continua de Markov:
+fX(xn; n|xn+1, . . . , xn+k; n + 1, . . . , n + k) = fX(xn; n|xn+1; n + 1)
+Sendo n1 < n2 < n3,
+fX(xn1, xn3; n1, n3|xn2; n2) = fX(xn3; n3|xn2; n2) fX(xn1; n1|xn2; n2)
+241 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Sequências de Markov
+Cálculo recursivo
+Equação de Chapman-Kolmogorov:
+Para n1 < n2 < n3,
+fX(xn3; n3|xn1; n1) = Z-8 8 fX(xn3; n3|xn2; n2) fX(xn2; n2|xn1; n1)dxn2.
+Toda a estatística de X[n] pode ser determinada
+a partir de fX(xn; n) e fX(xn; n|xn-1; n - 1).
+Sequência estacionária:
+fX (xn; n) e fX (xn; n|xn-1; n - 1) são invariantes ao deslocamento.
+Consequência: Toda a estatística de X[n] pode ser determinada
+a partir de fX (x1, x2; 1, 2).
+Sequência homogênea:
+fX (xn; n|xn-1; n - 1) é invariante ao deslocamento.
+Comumente: não é estacionário, mas tende a ser quando n ? 8.
+242 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Cadeias de Markov
+Tempo e amplitude discretos
+Definição: Cadeia de Markov é uma sequência de Markov com um
+conjunto contável de estados.
+Especificada em termos de:
+Probabilidades de estados: P (X[n] = ai) = pi[n]
+Probabilidades de transição:
+P (X[n2] = aj|X[n1] = ai) = ?ij [n1, n2], n1 < n2
+Propriedades
+Sendo n1 < n2, Pj ?ij[n1, n2] = 1
+Pi pi[k] ?ij[k, n] = pj[n]
+Sendo n1 < n2 < n3, ?ij[n1, n3] = Pn ?in[n1, n2] ?nj[n2, n3]
+(Chapman-Kolmogorov)
+243 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Cadeias de Markov Homogêneas
+Propriedades e Notação
+?ij[n1, n2] = ?ij[m], m = n2 - n1
+?ij[n + k] = Pl ?il[k] ?lj[n]
+Se o número de estados é finito, notação matricial:
+?[n + k] = ?[n].?[k]
+Definindo ?[1] = ?, ?[n] = ?n
+p[n] = ?T.p[n - 1] = (?T)np[0]
+244 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Exemplo
+Problema
+Uma cadeia de Markov homogênea X[n] tem dois estados possíveis: s1 e s2. As
+probabilidades de estado são P (X[n] = s1) = p1[n] e P (X[n] = s2) = p2[n]. As
+probabilidades de transição são P (X[n] = s2|X[n - 1] = s1) = p12[1] = 13 e
+P (X[n] = s1|X[n - 1] = s2) = p21[1] = 1 3 .
+1 O que caracteriza uma cadeia de Markov?
+2 O que significa ela ser homogênea?
+3 Desenhe o diagrama de transição de estados de X[n].
+4 Monte a matriz de transição de estados
+?T [1] = ?T = hp p11 12[1] [1] p p21 22[1] [1]i
+5 Calcule p2[1] = P (X[1] = s2) e p1[2] = P (X[2] = s1), sabendo que X[0] = s1.
+6 Calcule p[8], sabendo que
+p[n] = hp p1 2[ [n n] ]i .
+245 / 248MP
+Processo Aleatório
+Introdução a Processos de Markov
+Exemplo
+1 Uma sequência é de Markov se conhecer seu passado não afeta a expectativa
+de seu futuro quando se conhece seu presente. Cadeia de Markov é uma
+sequência de Markov com um conjunto contável de estados. OBS.: Aceitar
+também a caracterização por PDF:
+fX (xn; n|xn-1, . . . , x1; n - 1, . . . , 1) = fX (xn; n|xn-1; n - 1), ressaltando que
+tem um número contável de estados.
+2 A PDF de transição fX (xn; n|xn-1; n - 1) é invariante ao deslocamento.
+3 Desenhar.
+4
+?T [1] = ?T = 23 13 1 32 3
+5 p[n] = ?T p[n - 1]. Basta calcular p[1] e p[2], sabendo que p[0] = [1 0]T
+6 p[8] = ?T p[8], lembrando que p1[8] + p2[8] = 1. Logo,
+p1[8] = p2[8] = 12.
+246 / 248MP
+Appendix
+Referências
+Referências
+P. Z. Peebles, Jr.
+Probability, Random Variables, and Random Signal Principles, 4th. ed.
+McGraw-Hill, 2000.
+K. S. Shanmugan & A. M. Breipohl
+Random Signals: Detection, Estimation and Data Analysis.
+Wiley, 1988.
+S. Haykin & B. Van Veen
+Signals and Systems, 2nd. ed.
+Wiley, 2002.
+A. Papoulis & S. U. Pillai
+Probability, Random Variables and Stochastic Processes, 4th. ed.
+McGraw-Hill, 2002.
+247 / 248MP
+Appendix
+Referências
+Referências
+J. P. A. e Albuquerque & J. M. P. Fortes & W. A. Finamore
+Probabilidade, Variáveis Aleatórias e Processos Estocásticos, 1a. ed.
+Interciência e PUC-Rio, 2008.
+B. R. James
+Probabilidade: Um Curso em Nível Intermediário, 3a. ed.
+IMPA, 2006.
+S. Kay
+Intuitive Probability and Random Processes Using MATLAB®, 1st. ed.
+Springer, 2006.
+248 / 248

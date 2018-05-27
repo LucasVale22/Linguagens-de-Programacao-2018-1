@@ -1,0 +1,8 @@
+Sistemas Operacionais
+Código: 
+EEL770
+Créditos: 
+5
+URL: 
+Ementa: 
+Estrutura dos sistemas operacionais. Gerenciamento de processos. Sincronização e comunicações entre processos. Deadlock. Gerenciamento de memória. Memória virtual. Memória secundária. Sistemas de arquivos. Entrada e saída. Sistemas distribuídos. Exemplos de sistemas operacionais.

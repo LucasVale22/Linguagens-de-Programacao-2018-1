@@ -1,0 +1,51 @@
+EEL 580 - Arquitetura de Computadores
+
+
+Ementa
+
+Conceitos básicos.
+Abordagem estrutural no estudo de computadores. 
+Máquinas Cisc e Risc. 
+Arquitetura de uma unidade central de processamento. 
+Registradores, barramentos, pipelines, caches. 
+Linguagem de máquina e linguagem assembly. 
+Arquitetura de memórias. 
+Dispositivos de entrada e saída. 
+Barramentos internos e externos. 
+Computação paralela. 
+Comunicação e sincronização entre computadores. 
+Computadores tolerantes a falhas.
+Notas de Aula
+
+Introdução à Arquitetura de Computadores - Parte 1
+Arquitetura do Conjunto de Instruções - Parte 2
+Seção de Dados e Seção de Controle - Parte 3
+Memória - Parte 4
+Entrada e Saída - Parte 5
+Otimizações da Arquitetura - Parte 6
+Bibliografia
+
+Miles J. Murdocca e Vincent P. Heuring, "Introdução à Arquitetura de Computadores", 1a Ed., Editora Campus. ISBN 85-352-0684-1.
+
+Andrew S. Tanenbaum, "Organização Estruturada de Computadores", 5a Ed., Prentice Hall. ISBN 85-7605-067-6
+
+William Stallings, "Arquitetura e Organização de Computadores", 5a Ed., Prentice Hall. ISBN 85-879-1853-2
+
+Datas Importantes
+
+Início das aulas: 03/03/2009
+Prova 1: 28/04/2009
+Prova 2: 25/06/2009
+Prova Final: 30/06/2009
+Prova 2a Chamada: 07/07/2009
+Critérios de Aprovação
+
+Média Final = ((P1 + P2)/2 + PF)/2 se (P1 + P2)/2 < 7,0 
+        senão (P1 + P2)/2
+
+Aprovado se Média Final >= 5,0 
+A Prova de 2a chamada substitui qualquer uma das outras três.
+Avaliação 2009-1
+
+Médias Parciais P1 + P2 
+To reach me: l u i s h At g t a . u f r j . b r

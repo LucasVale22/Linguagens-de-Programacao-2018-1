@@ -1,0 +1,127 @@
+Grupo de Teleinformática e Automação	
+Grupo de Teleinformática e Automação - GTA
+
+
+Universidade Federal do Rio de Janeiro - UFRJ
+
+ 
+
+Home | Courses | Publications | Bookmarks | Sources | Lattes
+EEL670 - Linguagens de Programação
+
+
+
+
+AVISO: Em virtude das paralizações, as atividades acadêmicas do dia 25/05 foram suspensas na Poli. Dessa forma, não haverá aula de ling. prog. no dia 25/05. A próxima aula será segunda-feira da semana que vem.
+
+Provas:
+
+Prova 1, dia 08 de junho de 2018. Matéria - Aula 4 até 10.
+Prova 2, Data a ser definida. Matéria - Capítulo 11 até o final (exceto aula 15 e qt4).
+Prova Final, Data a ser definida. Matéria toda da P1 e da P2.
+Prova Final para os alunos que fizeram Reposição, Data a ser definida. Matéria toda da P1 e da P2.
+Trabalhos:
+
+Enunciado dos Trabalhos 1, 2, 3 (13/04/18): [PDF]
+Trabalho 1: 27/04/2018.
+Trabalho 2: 28/05/2018.
+Trabalho 3: 25/06/2018.
+Laboratórios:
+
+Laboratório 1 (Lua e Perl) [PDF]
+Laboratório 2 [PDF]
+Laboratório 3 [PDF] 
+Laboratório 4 [PDF] 
+Laboratório 5 [PDF] 
+Laboratório 6 [PDF] 
+Modelo de Relatório:
+
+Este modelo pode ser seguido nos trabalhos da disciplina [PDF]
+Aulas:
+
+Aula	Conteúdo	Material	Leitura Recomendada	Exercícios	Trabalhos	Última Atualização
+1	Conceitos básicos de programação	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 1 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Cap. 1 do Livro: Waldemar Celes, Renato Cerqueira e José Lucas Rangel, "Introdução a Estrutura de Dados com Técnica de Programação em C", Editora Campus-Elsevier
+Cap.1 do Livro: Andrew S. Tanenbaum, "Organização Estruturada de Computadores", Ed. Pearson, 5a edição
+[PDF]	Não há	29/08/14
+2	Programação em Linguagens Estruturadas	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 1 do Livro: Allen B. Tucker, "Programming Languages", Ed. McGrawHill, 2a Edição
+LabLua, "Lua: Conceitos Básicos e API C", acessado em http://www.lua.org/portugues.html
+Roberto Ierusalimschy, "Uma Introdução à Programação em Lua", Jornadas de Atualização em Informática (JAI), 2009
+Kirrily "Skud" Robert, "A brief introduction", acessado em http://www.perl.org/learn.html
+[PDF]	Não há	21/03/17
+3	Introdução ao GCC e ferramentas de compilação e depuração	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Brian Gough, "An Introduction to GCC", 2nd Edition, Network Theory Ltd, 2005
+"GNU 'make'", disponível em http://www.gnu.org/software/make/manual/make.html
+"GNU Automake", disponível em http://sources.redhat.com/automake/automake.html
+"Static, Shared Dynamic and Loadable Linux Libraries", disponível em http://yolinux.com/TUTORIALS/LibraryArchives-StaticDynamic.html
+[PDF]	Não há	29/08/14
+4	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 2 e 3 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+[PDF]	Não há	23/03/17
+5	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 4 e 5 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	06/09/11
+6	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 6 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	25/09/11
+7	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 7 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/04/17
+8	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 8 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	25/09/11
+9	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 9 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	10/10/11
+10	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 10 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	10/10/11
+11	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 11 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/11/11
+12	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 12 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/11/11
+13	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 13 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/11/11
+14	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 14 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/11/11
+15	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 15 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	24/06/11
+16	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 16 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	07/11/11
+17	Introdução à Programação em C++	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Cap. 21 do Livro: Deitel, "C++ How to Program", Ed. Prentice Hall, 5a edição
+Em breve	Não há	17/11/11
+18	Revisão para prova	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Matéria da segunda prova.
+Em breve	Não há	29/11/10
+19	Qt4	Um folheto: [PDF]
+Seis folhetos: [PDF]
+Interface Gráfica.
+Em breve	Não há	24/06/11
+|TOP|

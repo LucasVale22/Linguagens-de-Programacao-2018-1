@@ -1,0 +1,100 @@
+EEL470 - Algoritmos e Estruturas de Dados
+
+Ementa
+
+Análise de algoritmos: complexidade e análise assintótica.
+Algoritmos recursivos: análise e técnicas de construção
+Listas lineares, pilhas e filas: implementação sequencial e encadeada.
+Árvores binárias de busca e algoritmos de balanceamento.
+Tabelas de dispersão (hashtables).
+Bibliografia
+
+Referência Principal
+
+T. Cormen, C. Leiserson, R. Rivest, C. Stein, Introduction to Algorithms, 3rd Edition, The MIT Press, 2009.
+Referências Complementares
+
+W. Celes, R. Cerqueira, J. Rangel, Introdução a Estruturas de Dados, Elsevier 2004.
+A. Tenenbaum, Y. Langsam, M. Augenstein, Estruturas de Dados usando C, Makron Books, 1995.
+Horário e Local das Aulas
+
+Seg 10h às 13h – Sala H214
+Sex 10h às 12h – Sala H214
+Monitoria
+
+Carlos Eduardo Marciano ( e@ufrj.br )
+Datas das Provas
+
+Seg 17/10/2016 10h – Prova 1 (P1)
+Seg 12/12/2016 10h – Prova 2 (P2)
+Sex 16/12/2016 10h – 2a Chamada
+Seg 19/12/2016 10h – Prova Final
+Critério de Aprovação
+
+(P1+P2)/2   =   6.0      ou      ( (P1+P2)/2 + PF ) / 2   =   5.0
+
+Arquivos para Download
+
+Slides do Curso - 49,9 MB (atualizado em 27/03/2011)
+Avaliação Complementar - Semestre 2016-1
+Lista de Exercícios para a Prova 1 - com gabarito (monitor Carlos Eduardo)
+Lista de Exercícios para a Prova 2 - com gabarito (monitor Carlos Eduardo)
+Programas Desenvolvidos em Sala de Aula:
+
+Semestre 2016-2
+
+
+Programa desenvolvidos no semestre:
+Cadastro de Alunos com Lista Encadeada
+Cadastro de Alunos com Lista Sequencial
+Cadastro de Alunos com Lista Sequencial Ordenada
+Semestre 2015-2
+
+
+Programa desenvolvidos no semestre:
+Cadastro de Alunos
+Semestre 2011-2
+
+
+Programa principal do Cadastro de Alunos:
+CadastroAlunos.c
+
+Include files para diferentes estruturas de dados:
+CadastroAlunos.h
+ListaSequencial.h
+ListaSequencialOrdenada.h
+ListaEncadeada.h
+ArvoreBinaria.h
+Semestre 2011-1
+
+
+Exemplos de determinação experimental da complexidade:
+Soma de matrizes quadradas
+Multiplicação de matrizes quadradas
+Soma dos elementos de um array
+Ordenação de array pelo algoritmo "insertionsort"
+
+Exemplos de estruturas de dados:
+Lista sequencial
+Lista sequencial ordenada
+Lista encadeada
+Fila circular
+Semestres anteriores
+
+12/11/2010 - Lista Sequencial
+12/11/2010 - Lista Sequencial Ordenada
+19/11/2010 - Lista Encadeada
+29/11/2010 - Árvore Binária de Busca
+26/03/2010 - Revisão de Linguagem C - Ponteiros
+07/06/2010 - Lista Sequencial (exemplo básico)
+Lista Sequencial (aula de 05/06/2009)
+Lista Sequencial Ordenada (aula de 05/06/2009)
+Lista Encadeada (aula de 08/06/2009)
+Lista Duplamente Encadeada (aula de 08/06/2009)
+Pilha (aula de 15/06/2009)
+Pilha Encadeada (aula de 15/06/2009)
+Fila Circular (aula de 18/06/2009)
+Arvore Binária de Busca (aulas de 22/06/2009 e 26/06/2009)
+Notas das Provas
+
+Planilha de Notas (semestre 2017-1) - Notas P1 e P2

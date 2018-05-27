@@ -1,0 +1,484 @@
+SL II
+EEL555 - Sistemas Lineares II
+Notas de aula
+Luiz Wagner Pereira Biscainho
+Departamento de Engenharia Eletrônica e de Computação
+Escola Politécnica
+Universidade Federal do Rio de Janeiro
+wagner@smt.ufrj.br
+Engenharia Eletrônica e de Computação, 2015/2SL II
+Sinais e Sistemas no Tempo Discreto
+Ementa
+1 Sinais e Sistemas no Tempo DiscretoSL II
+Sinais e Sistemas no Tempo Discreto
+Sinal e Sistema
+Caracterização
+Sinal
+É função de:
+1 variável independente (unidimensional)
+ex.: amplitude de sinal de fala f (t); ou
+mais de 1 variável independente (multidimensional)
+ex.: píxeis de imagem f (x; y).
+Carrega informação sobre determinado fenômeno [físico].
+Sistema
+Processa sinal(is) de entrada, gerando sinal(is) de saída.
+nome entrada(s) saída(s)
+SISO 1 1
+MISO mais de 1 1
+SIMO 1 mais de 1
+MIMO mais de 1 mais de 1SL II
+Sinais e Sistemas no Tempo Discreto
+Analógico × Digital
+Diferenças
+Sinal
+Analógico
+guarda analogia com grandeza [física] que descreve;
+sua amplitude pode assumir valores contínuos
+(contradomínio contínuo).
+Digital
+é representado numericamente em número finito de dígitos;
+sua amplitude só pode assumir valores discretos
+(contradomínio discreto).
+Processamento
+Analógico: em tempo real – mais veloz.
+Digital: numérico – flexível, repetível.
+Controle sobre o erro
+(ex.: tolerância de componente × quantização de valor numérico).SL II
+Sinais e Sistemas no Tempo Discreto
+Classificação de Sinais
+Classificação de Sinais
+Domínio do tempo
+Contínuo
+x(t) definido 8t 2 R;
+na prática, analógico
+Discreto
+x[n] definido 8n 2 Z;
+série temporal definida nos instantes t = nTs,
+Ts = período de amostragem;
+na prática, digital.SL II
+Sinais e Sistemas no Tempo Discreto
+Classificação de Sinais
+Classificação de Sinais – Simetria
+Sinal real
+simétrico ou par: x[-n] = x[n].
+antissimétrico ou ímpar: x[-n] = -x[n].
+x[n] = xp[n] + xi[n]
+Sinal complexo
+conjugado simétrico:
+x[-n] = x*[n];
+tem parte real par e parte imaginária ímpar.
+conjugado antissimétrico:
+x[-n] = -x*[n];
+tem parte real ímpar e parte imaginária par.SL II
+Sinais e Sistemas no Tempo Discreto
+Classificação de Sinais
+Classificação de Sinais
+Periodicidade
+Sinal é periódico se existe N 2 Z* + tal que x[n] = x[n + N] 8n;
+menor N: N0 = período fundamental, em amostras;
+?0 = 2p
+N0
+= frequência [angular] fundamental, em rad/amostra.
+Incerteza
+Sinal determinístico – completamente determinado (previsível).
+Sinal aleatório – estatisticamente incerto. Ex.: canal de dados.
+Só trabalharemos com sinais determinísticos.SL II
+Sinais e Sistemas no Tempo Discreto
+Classificação de Sinais
+Classificação de Sinais – Energia e Potência
+Definições
+energia instantânea e[n] = jx[n]j2;
+energia total E =
+1 X
+n=-1
+jx[n]j2;
+potência média P = lim
+N!1
+1
+2N + 1
+NX
+n=-N
+jx[n]j2;
+caso periódico com período N0: P = 1
+N0 X
+n=<N0>
+jx[n]j2.
+Sinal de energia: 0 < E < 1 (ex.: de duração finita).
+Sinal de potência: 0 < P < 1 (ex.: periódico).SL II
+Sinais e Sistemas no Tempo Discreto
+Operações sobre Sinais
+Operações sobre Sinais
+Operações na Imagem
+escalamento em amplitude: y[n] = cx[n];
+adição: y[n] = x1[n] + x2[n];
+multiplicação: y[n] = x1[n]x2[n].
+Operações no Domínio
+escalamento no tempo:
+y[n] = x[kn], k 2 Z* + (só permite contração, perde informação).
+reflexão (reversão) no tempo:
+y[n] = x[-n].
+deslocamento no tempo:
+y[n] = x[n - n0] desloca referência de n = 0 para n = n0.
+OBS.: Precedência no caso y[n] = x[kn - n0]SL II
+Sinais e Sistemas no Tempo Discreto
+Sinais Elementares
+Impulso e Relacionados
+Definições
+Impulso unitário (delta de Kronecker): d[n] =  0 1; ; n n 6= = 0 0
+Degrau unitário: u[n] =  0 1; ; n n < = 0 0
+Rampa unitária: r[n] =  0 n; ; n n < = 0 0
+São interrelacionados.SL II
+Sinais e Sistemas no Tempo Discreto
+Sinais Elementares
+Exponenciais
+Definições e descrições
+Exponencial real: x[n] = Arn, com A; r 2 R
+magnitude decrescente se jrj < 1;
+magnitude constante se jrj = 1 ou r = 0;
+magnitude crescente se jrj > 1.
+OBS.: alternância para r < 0.
+Senoide geral: x[n] = A cos(?0n + f), com A; ?0; f 2 R
+pode não ser periódica;
+decomponível em exponenciais complexas.
+Exponencial complexa associada: x[n] = Aej?0n, com A 2 C e ?0 2 R.
+Senoide amortecida por exponencial:
+x[n] = Arn cos(?0n + f), com A; r; ?0; f 2 R.
+Exponencial complexa geral:
+x[n] = A(rej?0)n = Azn, com A; z 2 C e r; ?0 2 R.SL II
+Sinais e Sistemas no Tempo Discreto
+Sistema como Operador
+Representação Geral de Sistema
+y = Hfxg;
+x = entrada do sistema;
+H = operador geral,
+representando a sequência de operações aplicadas a x;
+y = saída do sistema.SL II
+Sinais e Sistemas no Tempo Discreto
+Propriedades de Sistemas
+Propriedades de Sistemas
+Sistema estável no sentido ‘entrada limitada / saída limitada’,
+BIBO-estável:
+todo x[n] j jx[n]j = Mx < 1 8n produz y[n] j jy[n]j = My < 1 8n.
+Sistema com memória:
+y[n] depende de valores anteriores e/ou posteriores de x[n].
+Atrasos são memória.
+Sistema causal:
+y[n] não depende de valores posteriores de x[n].
+Pode haver sistemas práticos não-causais discretos.
+Sistema invertível:
+9H-1 j H-1fy[n]g = x[n].
+H preserva biunivocidade entre x[n] e y[n], não há perda de informação.
+Zero na resposta?
+Sistema invariante no tempo:
+sendo y[n] = Hfx[n]g, aplicando-se a entrada x[n - n0] ao sistema,
+obtém-se a saída y[n - n0].
+Ex.: compressor não é.SL II
+Sinais e Sistemas no Tempo Discreto
+Propriedades de Sistemas
+Propriedades de Sistemas
+Escalabilidade (homogeneidade):
+sendo y[n] = Hfx[n]g, garante Hfax[n]g = ay[n].
+Aditividade (superposição):
+sendo y1[n] = Hfx1[n]g e y2[n] = Hfx2[n]g,
+garante Hfx1[n] + x2[n]g = y1[n] + y2[n].
+(É o Princípio da Superposição.)
+Sistema linear
+Sendo y1[n] = Hfx1[n]g e y2[n] = Hfx2[n]g,
+obedece Hfa1x1[n] + a2x2[n]g = a1y1[n] + a2y2[n].SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso e Convolução
+Resposta ao Impulso
+Definição
+Sinal qualquer:
+x[n] =
+1 X
+k=-1
+x[k]d[n - k]
+combinação linear de impulsos unitários deslocados e escalados.
+Aplicação do operador linear Hf·g:
+y[n] = H(k=X1-1 x[k]d[n - k]) = k=X1-1 x[k]Hfd[n - k]g
+resposta a um impulso unitário aplicado em n = k:
+hk[n] , Hfd[n - k]g.
+Para sistema linear invariante no tempo (SLIT):
+hk[n] = h[n - k] (resposta ao impulso do sistema).SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso e Convolução
+Convolução
+Resposta de SLIT e definição
+Resposta de SLIT a entrada x[n]:
+y[n] =
+1 X
+k=-1
+x[k]h[n - k]
+combinação linear de respostas ao impulso deslocadas e escaladas.
+(x * h)[n] ,
+1 X
+k=-1
+x[k]h[n - k] (convolução).
+OBS.: (x * h)[n] = (h * x)[n].SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso e Convolução
+Convolução
+Cálculo
+Convolução gráfica de sinais reais (x * h)[n]:
+1 desenhar x[k];
+2 desenhar h[-k];
+3 para cada n:
+1 desenhar h[n - k] por deslocamento de h[-k];
+2 multiplicar x[k] e h[n - k] ponto a ponto;
+3 somar os produtos para obter (x * h)[n].
+OBS.: Pode-se permutar x com h.SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Interligação de SLITs com h1 e h2
+Em paralelo
+y[n] = y1[n] + y2[n] = (x * h1)[n] + (x * h2)[n] = [x * (h1 + h2)][n]
+A convolução é distributiva sobre a soma.
+Em cascata (série)
+y1[n] = (x * h1)[n],
+y[n] = y2[n] = (y1 * h2)[n] = (x * h1 * h2)[n] = [x * (h1 * h2)][n]
+A convolução é associativa.SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Propriedades de SLITs
+Sistema sem memória:
+h[n] = cd[n]
+Sistema causal:
+h[n] = 0 para n < 0
+Sistema BIBO-estável:
+1 X
+n=-1
+jh[n]j < 1
+Exemplo: exponenciais de duração infinita.
+Sistema invertível:
+9h-1[n] j (h-1 * h)[n] = d[n]
+Exemplo: MA de 1a. ordem.SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Respostas de SLIT a Sinais Particulares
+Ao degrau unitário: s[n]
+s[n] =
+1 X
+k=-1
+h[k]u[n - k] =
+nX
+k=-1
+h[k]
+h[n] em função de s[n]?SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Respostas de SLIT a Sinais Particulares
+À senoide complexa
+entrada x[n] = ej?0n, senoide de frequência ?0;
+saída y[n] =
+1 X
+k=-1
+h[k]ej?0(n-k) = ej?0n
+1 X
+k=-1
+h[k]e-j?0k;
+H(ej?0) ,
+1 X
+k=-1
+h[k]e-j?0k:
+y[n] = jH(ej?0)jej[?0n+\H(ej?0 )]
+A saída é a mesma senoide modificada em módulo e fase por H(ej?0).
+Analogia com autovalor e autovetor.SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Respostas de SLIT a Sinais Particulares
+Resposta na frequência
+Variando-se ?, H(ej?) fornece a resposta do sistema na frequência:
+jH(ej?)j = resposta de magnitude (módulo);
+\H(ej?) = resposta de fase.
+É periódica com período 2p: usual considerar ? 2 [-p; p).
+Como tratar a senoide real x[n] = A cos(?0n + f0)?
+Exemplos: operação = semi-soma ou semi-diferença.SL II
+Sinais e Sistemas no Tempo Discreto
+Resposta ao Impulso na Descrição de Sistemas Lineares Invariantes no Tempo
+Respostas de SLIT a Sinais Particulares
+À exponencial complexa
+entrada x[n] = (r0ej?0)n;
+saída y[n] =
+1 X
+k=-1
+h[k](r0ej?0)(n-k) = (r0ej?0)n
+1 X
+k=-1
+h[k](r0ej?0)-k;
+H(r0ej?0) ,
+1 X
+k=-1
+h[k](r0ej?0)-k:
+y[n] = H(r0ej?0)(r0ej?0)n
+A saída é a mesma exponencial modificada por H(r0ej?0).
+Analogia com autovalor e autovetor.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Descrição de SLITs
+Dois conceitos úteis
+Sistema relaxado, ou em repouso: sem energia.
+Estado de um sistema: refere-se à sua energia interna
+(está ligado aos armazenadores de energia).SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Descrição de SLITs
+Exemplo econômico
+Aplicação com rendimento mensal r pré-fixado.
+Montante s[n] no mês n.
+Depósitos mensais d[n] imediatamente após rendimentos creditados.
+s[n] = rs[n - 1] + d[n]
+s[n] - rs[n - 1] = d[n]
+Equação de diferenças geral:
+NXk=0
+aky[n - k] =
+MXk=0
+bkx[n - k], de ordem NSL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Solucionando a equação de diferenças
+1 Caso idealizado:
+Sistema causal estava relaxado em n = -1.
+Conhecem-se todas as entradas aplicadas desde então.
+Solução = composição dos efeitos de cada entrada individual.
+2 Caso mais prático:
+Sistema causal não está relaxado e se lhe aplica uma entrada.
+É preciso ter informações adicionais sobre o estado do sistema,
+as condições auxiliares—por vezes, condições iniciais.
+Condição: Não ocorrer outra entrada desconhecida
+no intervalo considerado.
+Solução = composição dos efeitos
+da entrada aplicada e do estado não-nulo.
+y[n] = y(x)[n] + y(q)[n]
+y[n] = resposta completa
+y(x)[n] = resposta de estado nulo
+y(q)[n] = resposta de entrada nulaSL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Resposta de entrada nula y(q)[n]
+1 Equação homogênea:
+NXk=0
+aky[n - k] = 0.
+2 Equação característica:
+NXk=0
+akz-k = 0, com N raízes z(n)
+Cada raiz z(n) com multiplicidade m gera os modos de vibração
+z(n)n; nz(n)n; : : : ; nm-1z(n)n.
+São os modos naturais do sistema.
+3 y(q)[n] =
+NXk=1
+ak(modo)( kn)
+é a forma mais geral de zerar o lado esquerdo da homogênea.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Resposta de entrada nula y(q)[n]
+4 Se não existe de fato entrada:
+y(t) = y(q)[n] e N condições auxiliares permitem achar ak;
+A solução será válida desde a condição auxiliar mais antiga.
+Exemplo de 1a. ordem.
+Os modos naturais decorrem da estrutura interna do sistema.
+A resposta ao impulso só contém modos naturais e/ou impulsos isolados.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Resposta de estado nulo y(x)[n]
+1 Equação geral:
+NXk=0
+aky[n - k] = f [n].
+f [n] =
+MXk=0
+bkx[n - k], sem perda de generalidade.
+2 Termos possíveis: modos naturais e modos forçados.
+Os modos naturais são associados à resposta ao impulso.
+Os modos forçados copiam os modos da entrada:
+Um termo nlz(f)n na entrada força modos
+z(f)n; nz(f)n; : : : ; nlz(f)n
+Um termo nlz(n)n na entrada força modos
+nm+1z(n)n; nm+2z(n)n; : : : ; nm+lz(n)n,
+sendo m a multiplicidade de z(n) na equação característica.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs no Tempo Discreto
+Resposta de estado nulo y(x)[n] - IMPORTANTE
+1 Nem sempre a entrada x[n] vem explicitamente representada na forma
+de combinação linear de modos exponenciais.
+2 Nesse caso, a solução por inspeção dos modos forçados × naturais não
+pode ser adotada.
+3 Mas já deve ter ficado claro que y(x)[n] = (h * x)[n].SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Resposta de estado nulo y(x)[n] com entrada = CL de L modos exponenciais
+3 y(x)[n] = y(xn)[n] + y(f)[n], com
+y
+(xn)[n] =
+NXk=1
+ck(modo)( kn)
+y
+(f)[n] =
+N+L
+X
+k=N+1
+ck(modo)( kf)
+4 Substitui-se y(x)[n] na equação geral, determinando-se ck.
+5 Esta é a única resposta possível que satisfaz a equação geral
+e só depende da entrada.
+Exemplo de 1a. ordem.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Resposta completa y[n]
+1 Dados:
+y
+(q)[n] =
+NXk=1
+ak(modo)(kn) com ak em aberto
+y(x)[n] determinada
+N condições auxiliares
+2 Calcula-se y[n] = y(q)[n] + y(x)[n]
+3 Obtêm-se ak forçando-se as condições auxiliares em y[n].
+Exemplo de 1a. ordem.SL II
+Sinais e Sistemas no Tempo Discreto
+Equações de Diferenças
+Resposta de SLITs
+Classificações
+y[n] = y(n)[n] + y(f)[n]
+y(n)[n] = y(q)[n] + y(xn)[n]: resposta natural
+y(f)[n]: resposta forçada
+y[n] = y(t)[n] + y(p)[n] (para sistema causal)
+y(t)[n]: resposta transitória (desvanece com n ! 1)
+y(p)[n]: resposta permanente (não desvanece com n ! 1)
+Exemplos comparando classificações.SL II
+Sinais e Sistemas no Tempo Discreto
+Representação em Blocos
+Diagrama de Blocos
+Partes componentes
+ligações: conexão e nó
+operações: multiplicação por escalar e somador
+elemento armazenador: atrasador
+Existem diversas conexões internas possíveis para um sistema
+que resultam na mesma equação de diferenças.SL II
+Sinais e Sistemas no Tempo Discreto
+Representação em Blocos
+Forma Direta
+Tipo I – Exemplo de 2a. ordem:
+A generalização para qualquer ordem N é imediata.
+Esta forma é dita canônica (pois mínima) para os multiplicadores.SL II
+Sinais e Sistemas no Tempo Discreto
+Representação em Blocos
+Forma Direta
+Tipo II – Exemplo de 2a. ordem:
+A generalização para qualquer ordem N é imediata.
+Esta forma é dita canônica (pois mínima) para os atrasos e os multiplicadores.SL II
+Apêndice
+References
+References
+S. Haykin, B. Van Veen.
+Signals and Systems, 2nd. ed.
+Wiley, 2005.
+B. P. Lathi.
+Linear Systems and Signals.
+Oxford, 2005.
