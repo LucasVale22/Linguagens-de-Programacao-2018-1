@@ -208,43 +208,73 @@ sub filtraDataHora {
 #Atualiza o arquivo de registros alterando o tamanho e data
 sub atualizaRegistro{
     (my $diretorio, my $arqReg) = @_;
+
+    my $acumulo = '';
+  
+    open (my $entradaReg, "<", $arqReg) or die;
+        my @linhas = <$entradaReg>;
+    close $entradaReg or die;
+
     unlink $arqReg;
-    opendir (DIR, $diretorio) or die $!;
+    my $i = 0;
+    my @anteriores;
+    $anteriores [$i] = '';
 
-    while (my $arquivo = readdir(DIR)) {
+    for (@linhas) {
 
-        if ($arquivo =~ m{([\w]{1,})}) {
+        my @sptLinha = split(/::/, $_);
+        #print "$sptLinha[1]\n";
+        my $repetido = 0;
+        foreach (@anteriores) {
+            #print $_;
+            if ($sptLinha[1] eq $_) {
+                $repetido++;
+            }
+        }
+
+        if ($repetido == 0) {
+
+            $i++;
+            $anteriores [$i] = $sptLinha [1];
+
+            opendir (DIR, $sptLinha [1]) or die $!;
+
+            print $sptLinha[1]."\n";
+
+            while (my $arquivo = readdir(DIR)) {
+                if ($arquivo =~ m{([\w]{1,})}){ 
+                    
+                    open(my $entradaArq, "<", $sptLinha[1]."/".$arquivo) or die "Erro! O arquivo não pode ser aberto: $!";
+                        my $statusArq = stat ($entradaArq);
+                        my $tamanho = $statusArq->size;
+                        #tamanho
+                        if ($tamanho >= 1024 * 1024) {
+                            $tamanho /= 1024 * 1024;
+                            $tamanho = int ($tamanho * 100) / 100;
+                            $tamanho = $tamanho." MB";
+                        }
+                        elsif ($tamanho >= (1024)) {
+                            $tamanho /= (1024);
+                            $tamanho = int ($tamanho * 100) / 100;
+                           $tamanho = $tamanho." KB";
+                        }
+                        else {$tamanho = $tamanho." bytes";}
+                        #data e horario
+                        my $dataHora = ctime ($statusArq->mtime);
+                        #reescrita no registro.txt
+                        open($entradaReg,">>", $arqReg);
+                            print $entradaReg $arquivo."::".$sptLinha[1]."::".$dataHora."::".$tamanho."\n";
+                        close $entradaReg;
+                    close $entradaArq or die "$entradaArq: $!";
+                }
+            }
+
+            closedir(DIR);
             
-            open(my $entradaArq, "<", $diretorio."/".$arquivo) or die "Erro! O arquivo não pode ser aberto: $!";
-                my $statusArq = stat ($entradaArq);
-                my $tamanho = $statusArq->size;
-                #tamanho
-                if ($tamanho >= 1024 * 1024) {
-                    $tamanho /= 1024 * 1024;
-                    $tamanho = int ($tamanho * 100) / 100;
-                    $tamanho = $tamanho." MB";
-                }
-                elsif ($tamanho >= (1024)) {
-                    $tamanho /= (1024);
-                    $tamanho = int ($tamanho * 100) / 100;
-                   $tamanho = $tamanho." KB";
-                }
-                else {$tamanho = $tamanho." bytes";}
-                #data e horario
-                my $dataHora = ctime ($statusArq->mtime);
-                #reescrita no registro.txt
-                open(my $entradaReg,">>", $arqReg);
-                    print $entradaReg $arquivo."::".$diretorio."::".$dataHora."::".$tamanho."\n";
-                close $entradaReg;
-            close $entradaArq or die "$entradaArq: $!";
-
         }
 
     }
 
-    closedir(DIR);
-
-    print ("ARQUIVO DE REGISTRO $arqReg ATUALIZADO COM SUCESSO!");
 }
 
 sub filtraTamanho {
