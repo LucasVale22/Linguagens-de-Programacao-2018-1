@@ -1,11 +1,30 @@
-+---------------------------+-----------------+---------------------+-------------------+------------------+
-| Nome                      | Total de Linhas | Total de Caracteres | Total de Palavras | Total de Espacos |
-| circuitos eletricos 1.txt | 147             | 3970                | 655               | 3384             |
-| circuitos eletricos 2.txt | 119             | 7422                | 1219              | 6275             |
-| eletronica 1.txt          | 101             | 2377                | 354               | 1896             |
-| eletronica 2.txt          | 280             | 6793                | 1098              | 5797             |
-| eletronica 3.txt          | 204             | 5199                | 851               | 4433             |
-| eletronica 4.txt          | 8               | 626                 | 87                | 536              |
-| economia.txt              | 11              | 2465                | 336               | 2135             |
-| redes.txt                 | 31349           | 1293918             | 207145            | 975324           |
-+---------------------------+-----------------+---------------------+-------------------+------------------+
++-----------------------------------------+-----------------+---------------------+-------------------+------------------+
+| Nome                                    | Total de Linhas | Total de Caracteres | Total de Palavras | Total de Espacos |
+| algoritmos e estruturas de dados.txt    | 100             | 2808                | 402               | 2463             |
+| arquitetura de computadores.txt         | 51              | 1514                | 234               | 1299             |
+| circuitos eletricos 1.txt               | 147             | 3970                | 655               | 3384             |
+| circuitos eletricos 2.txt               | 119             | 7422                | 1219              | 6275             |
+| circuitos logicos.txt                   | 37              | 938                 | 125               | 774              |
+| computacao 1.txt                        | 52              | 2236                | 328               | 1947             |
+| computacao 2.txt                        | 73              | 3667                | 610               | 3109             |
+| comunicacoes analogicas.txt             | 8               | 538                 | 81                | 455              |
+| comunicacoes digitais.txt               | 8               | 633                 | 90                | 539              |
+| controle linear 1.txt                   | 51              | 1606                | 267               | 1360             |
+| controle linear 2.txt                   | 90              | 2564                | 402               | 2252             |
+| conversao de energia.txt                | 8               | 263                 | 32                | 227              |
+| eletronica 1.txt                        | 101             | 2377                | 354               | 1896             |
+| eletronica 2.txt                        | 288             | 9627                | 1526              | 8211             |
+| eletronica 3.txt                        | 204             | 5199                | 851               | 4433             |
+| eletronica 4.txt                        | 11612           | 262676              | 57762             | 216522           |
+| instrumentacao e tecnica de medidas.txt | 9075            | 456153              | 72462             | 392756           |
+| linguagens de programacao.txt           | 127             | 5290                | 853               | 4538             |
+| metodos matematicos.txt                 | 8               | 252                 | 30                | 218              |
+| modelos probabilisticos.txt             | 4259            | 115633              | 22387             | 97494            |
+| processamento de sinais.txt             | 67              | 1400                | 149               | 1026             |
+| projeto integrado.txt                   | 88              | 6029                | 953               | 5102             |
+| sistemas digitais.txt                   | 42              | 1207                | 184               | 1043             |
+| sistemas lineares 1.txt                 | 8               | 488                 | 72                | 416              |
+| sistemas lineares 2.txt                 | 484             | 14497               | 2435              | 12542            |
+| sistemas operacionais.txt               | 8               | 346                 | 40                | 298              |
+| teoria eletromagnetica 2.txt            | 829             | 57769               | 8564              | 50030            |
++-----------------------------------------+-----------------+---------------------+-------------------+------------------+

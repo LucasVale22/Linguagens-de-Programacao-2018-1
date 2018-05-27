@@ -12,6 +12,7 @@ print ("*************************************\n\n");
 my @lista;
 my $ocorrencia;
 my $arqParametros = "parametros.txt";
+my $diretorio = "./myFiles";
 (my $opcao, my $stringDesejada, my $arqRegistro) = registraParametros($arqParametros);
 
 if ($opcao eq "FSTR"){
@@ -39,8 +40,8 @@ if ($opcao eq "FSTR"){
 elsif ($opcao eq "FCON"){
 
 	print("<Filtrando por conteúdo de arquivo...>\n");
-	print ("String desejada: $stringDesejada\n\n");
-	($ocorrencia, @lista) = contaOcorrencias ($arqRegistro, $stringDesejada);
+	print ("String (s) desejada (s): $stringDesejada\n");
+	($ocorrencia, @lista) = contaOcorrencias ($diretorio, $arqRegistro, $stringDesejada);
 
 	print("Numero de ocorrencias totais encontradas: ", $ocorrencia, "\n\n");
 
@@ -102,7 +103,7 @@ elsif ($opcao eq "FTAM"){
 elsif ($opcao eq "SARQ"){
 
 	print("<Dados dos Arquivos...>\n\n");
-	(my $totalArquivos, my $tamanhoTotal, @lista) = obtemDadosArq ($arqRegistro);
+	(my $totalArquivos, my $tamanhoTotal, @lista) = obtemDadosArq ($diretorio, $arqRegistro);
     print ("Total de Arquivos: ", $totalArquivos,"\n");
     print ("Tamanho total dos Arquivos: ", $tamanhoTotal,"\n");
    for my $href ( @lista ) { 
@@ -114,10 +115,8 @@ elsif ($opcao eq "SARQ"){
 
 
 elsif ($opcao eq "MREG"){
-
 	print("<Atualizando Arquivo de Registro...>\n\n");
-	atualizaRegistro($arqRegistro);
-	print("\nArquivo de Registro Atualizado com sucesso\n");
+	atualizaRegistro($diretorio, $arqRegistro);
 }
 
 
