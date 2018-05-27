@@ -27,3 +27,11 @@ Gerenciar arquivo de registros: Dentro do arquivo de registros, adiciona ou remo
     
 Após o processamento no Perl, será retornado como saída para o C++ um novo arquivo txt contendo os resultados das análises. A partir disso, o gerenciador fornecerá na saída para o usuário uma lista contendo os arquivos e suas respectivas informações de acordo com o que escolheu como na entrada do sistema. 
 
+* FLAGS do Arquivo de Registro: 
+FSTR: filtrar por nome de arquivo
+FCON: filtrar por conteudo de arquivo
+FDAT: filtrar por data de arquivo
+FTAM: filtrar por tamanho de arquivo
+SARQ: status de texto sobre os arquivos
+MREG: atulizar arquivo de registro
+
