@@ -1,8 +1,0 @@
-O conteúdo desta apostila consiste das aulas experimentais do curso de Eletrônica IV, ministrado no
-Departamento de Eletrônica da Escola de Engenharia. Cada capítulo corresponde a um experimento a ser
-montado e estudado em laboratório. Esses experimentos foram, ao longo dos anos, sendo aprimorados
-didaticamente, de forma a apresentar ao aluno a constatação experimental dos conceitos básicos, e essenciais,
-estudados na disciplina teórica. Também são fornecidos todos os manuais dos componentes usados nos
-experimentos, disponibilizando ao aluno todas as informações necessárias à realização dos projetos. 
-
-FAZER RELATORIO.
