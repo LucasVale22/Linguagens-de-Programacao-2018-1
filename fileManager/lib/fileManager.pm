@@ -208,43 +208,14 @@ sub filtraDataHora {
 #Atualiza o arquivo de registros alterando o tamanho e data
 sub atualizaRegistro{
     (my $diretorio, my $arqReg) = @_;
+    
+    my $dir;
+    opendir ($dir, $diretorio) or die $!;
 
-    my $acumulo = '';
-  
-    open (my $entradaReg, "<", $arqReg) or die;
-        my @linhas = <$entradaReg>;
-    close $entradaReg or die;
+        while (my $arq_ou_dir = readdir($dir)) {
 
-    unlink $arqReg;
-    my $i = 0;
-    my @anteriores;
-    $anteriores [$i] = '';
-
-    for (@linhas) {
-
-        my @sptLinha = split(/::/, $_);
-        #print "$sptLinha[1]\n";
-        my $repetido = 0;
-        foreach (@anteriores) {
-            #print $_;
-            if ($sptLinha[1] eq $_) {
-                $repetido++;
-            }
-        }
-
-        if ($repetido == 0) {
-
-            $i++;
-            $anteriores [$i] = $sptLinha [1];
-
-            opendir (DIR, $sptLinha [1]) or die $!;
-
-            print $sptLinha[1]."\n";
-
-            while (my $arquivo = readdir(DIR)) {
-                if ($arquivo =~ m{([\w]{1,})}){ 
-                    
-                    open(my $entradaArq, "<", $sptLinha[1]."/".$arquivo) or die "Erro! O arquivo não pode ser aberto: $!";
+            if ($arq_ou_dir =~ /.txt/){ 
+                open(my $entradaArq, "<", $diretorio."/".$arq_ou_dir) or die "Erro! O arquivo não pode ser aberto: $!";
                         my $statusArq = stat ($entradaArq);
                         my $tamanho = $statusArq->size;
                         #tamanho
@@ -262,18 +233,20 @@ sub atualizaRegistro{
                         #data e horario
                         my $dataHora = ctime ($statusArq->mtime);
                         #reescrita no registro.txt
-                        open($entradaReg,">>", $arqReg);
-                            print $entradaReg $arquivo."::".$sptLinha[1]."::".$dataHora."::".$tamanho."\n";
+                        open(my $entradaReg,">>", $arqReg);
+                            print $entradaReg $arq_ou_dir."::".$diretorio."::".$dataHora."::".$tamanho."\n";
                         close $entradaReg;
                     close $entradaArq or die "$entradaArq: $!";
+            }
+            else {
+                if (!($arq_ou_dir eq "." || $arq_ou_dir eq "..")) {
+                    atualizaRegistro ($diretorio."/".$arq_ou_dir, $arqReg);
                 }
             }
 
-            closedir(DIR);
-            
         }
 
-    }
+    closedir($dir);
 
 }
 
