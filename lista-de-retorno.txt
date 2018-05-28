@@ -1,16 +1,10 @@
-+---------------------------------+------------------------+--------------------------+-----------+
-| Nome                            | Diretorio              | Data e Hora              | Tamanho   |
-| computacao 1.txt                | ./myFiles/Programacao  | Sun May 27 10:52:52 2018 | 2.23 KB   |
-| computacao 2.txt                | ./myFiles/Programacao  | Sun May 27 10:54:07 2018 | 3.65 KB   |
-| arquitetura de computadores.txt | ./myFiles/Digital      | Sun May 27 11:03:15 2018 | 1.52 KB   |
-| circuitos logicos.txt           | ./myFiles/Digital      | Sun May 27 11:04:06 2018 | 974 bytes |
-| circuitos eletricos 1.txt       | ./myFiles/Eletrica     | Mon May 21 21:28:42 2018 | 4.02 KB   |
-| circuitos eletricos 2.txt       | ./myFiles/Eletrica     | Mon May 21 22:05:17 2018 | 7.36 KB   |
-| conversao de energia.txt        | ./myFiles/Eletrica     | Sun May 27 11:08:29 2018 | 270 bytes |
-| comunicacoes analogicas.txt     | ./myFiles/Comunicacoes | Sun May 27 11:05:08 2018 | 545 bytes |
-| comunicacoes digitais.txt       | ./myFiles/Comunicacoes | Sun May 27 11:06:33 2018 | 640 bytes |
-| controle linear 1.txt           | ./myFiles/Controle     | Sun May 27 11:07:01 2018 | 1.61 KB   |
-| controle linear 2.txt           | ./myFiles/Controle     | Sun May 27 11:07:44 2018 | 2.59 KB   |
-| metodos matematicos.txt         | ./myFiles/Matematica   | Sun May 27 11:12:22 2018 | 259 bytes |
-| modelos probabilisticos.txt     | ./myFiles/Matematica   | Sun May 27 11:13:33 2018 | 117.08 KB |
-+---------------------------------+------------------------+--------------------------+-----------+
++------------------------------+----------------------+--------------------------+-----------+
+| Nome                         | Diretorio            | Data e Hora              | Tamanho   |
+| circuitos eletricos 1.txt    | ./myFiles/Eletrica   | Mon May 21 21:28:42 2018 | 4.02 KB   |
+| circuitos eletricos 2.txt    | ./myFiles/Eletrica   | Mon May 21 22:05:17 2018 | 7.36 KB   |
+| teoria eletromagnetica 2.txt | ./myFiles/Eletrica   | Sun May 27 11:18:34 2018 | 57.22 KB  |
+| eletronica 1.txt             | ./myFiles/Eletronica | Mon May 21 22:53:04 2018 | 2.41 KB   |
+| eletronica 2.txt             | ./myFiles/Eletronica | Sat May 26 22:57:58 2018 | 9.68 KB   |
+| eletronica 3.txt             | ./myFiles/Eletronica | Mon May 21 21:51:36 2018 | 5.27 KB   |
+| eletronica 4.txt             | ./myFiles/Eletronica | Fri May 25 15:14:29 2018 | 267.85 KB |
++------------------------------+----------------------+--------------------------+-----------+
